@@ -1,10 +1,11 @@
  /* width */
  
  ::-webkit-scrollbar {
-     width: 7px;
+     width: 8px;
      height: 200px;
      border-radius: 10px;
-     padding: 6px 0px;
+     padding: 6px;
+     margin: 10px;
  }
  /* Track */
  
@@ -12,7 +13,8 @@
      background: #f1f1f1;
      height: 200px;
      border-radius: 10px;
-     padding: 6px 0px;
+     padding: 6px;
+     margin: 10px;
  }
  /* Handle */
  
@@ -20,12 +22,14 @@
      background: #888;
      height: 200px;
      border-radius: 10px;
-     padding: 6px 0px;
+     padding: 6px;
+     margin: 10px;
  }
  /* Handle on hover */
  
  ::-webkit-scrollbar-thumb:hover {
      background: #555;
      border-radius: 10px;
-     padding: 6px 6px;
+     padding: 6px;
+     margin: 10px;
  }

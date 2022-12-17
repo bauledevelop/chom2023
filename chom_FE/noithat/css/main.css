@@ -15,3 +15,42 @@
 .chutrangkhihover {
     color: #252525;
 }
+
+
+/*Ipad ngang(1024 x 768)*/
+
+@media screen and (max-width: 1024px) {}
+
+
+/*Ipad dọc(768 x 1024)*/
+
+@media screen and (max-width: 768px) {}
+
+
+/*Tablet nhỏ(480 x 640)*/
+
+@media screen and (max-width: 480px) {}
+
+
+/*Iphone(480 x 640)*/
+
+@media screen and (max-width: 320px) {
+    .marginPhone {
+        display: none;
+    }
+    .marginPhone {
+        display: none;
+    }
+}
+
+
+/*Smart phone nhỏ*/
+
+@media screen and (max-width: 240px) {
+    .marginPhone {
+        display: none;
+    }
+    .marginPhone {
+        display: none;
+    }
+}
