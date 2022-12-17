@@ -24,12 +24,27 @@
 
 /*Ipad dọc(768 x 1024)*/
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+    .marginPhone {
+        display: none;
+    }
+    ;
+    .paddingPhone {
+        display: none;
+    }
+}
 
 
 /*Tablet nhỏ(480 x 640)*/
 
-@media screen and (max-width: 480px) {}
+@media screen and (max-width: 480px) {
+    .marginPhone {
+        display: none;
+    }
+    .paddingPhone {
+        display: none;
+    }
+}
 
 
 /*Iphone(480 x 640)*/
@@ -38,7 +53,7 @@
     .marginPhone {
         display: none;
     }
-    .marginPhone {
+    .paddingPhone {
         display: none;
     }
 }
@@ -50,7 +65,7 @@
     .marginPhone {
         display: none;
     }
-    .marginPhone {
+    .paddingPhone {
         display: none;
     }
 }
