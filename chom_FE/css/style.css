@@ -116,11 +116,6 @@ p {
 a {
     font-size: 16px;
     color: #545454;
-}
-
-a:hover {
-    font-size: 16px;
-    color: #252525;
     text-decoration: none;
 }
 
