@@ -48,3 +48,69 @@
      outline: none;
      border-radius: 1000px;
  }
+ 
+ body {
+     font-family: 'Quicksand' !important;
+     max-height: 100wh !important;
+ }
+ 
+ .nav-item {
+     color: #545454 !important;
+ }
+ 
+ .nav-link:hover {
+     color: #252525;
+ }
+ 
+ .nav-link {
+     color: #545454;
+ }
+ 
+ p {
+     font-size: 14px;
+     color: #545454;
+ }
+ 
+ a {
+     font-size: 16px;
+     color: #545454;
+ }
+ 
+ h6 {
+     font-size: 22px;
+     color: #545454;
+ }
+ 
+ h5 {
+     font-size: 28px;
+     color: #545454;
+ }
+ 
+ h4 {
+     font-size: 34px;
+     color: #545454;
+ }
+ 
+ h3 {
+     font-size: 40px;
+     color: #545454;
+ }
+ 
+ h2 {
+     font-size: 46px;
+     color: #545454;
+ }
+ 
+ h2 {
+     font-size: 52px;
+     color: #545454;
+ }
+ /* ------------HOME-------------- */
+ 
+ .title-home {
+     color: #e5e5e5;
+ }
+ 
+ .title-home:hover {
+     color: #b2b2b2;
+ }
