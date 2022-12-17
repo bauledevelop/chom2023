@@ -6,6 +6,9 @@ body{
 @media screen {
     
 }
+.one-page {
+    height: 100vh;
+}
 .imgBG{
     /* max-height: 10wh !important; */
     background-image: url("videbg.mp4") !important;
@@ -146,4 +149,48 @@ h2{
 }
 .title-home:hover {
     color: #b2b2b2;
+}
+/* ------------ABOUT US-------------- */
+iframe {
+    filter: gray;
+    -webkit-filter: grayscale(99%);
+}
+.info-text {
+    font-weight: bold;
+    text-decoration: none;
+}
+.info-text:hover {
+    color: #252525;
+}
+.about-content {
+    padding: 10px;
+}
+.comment-text {
+    height: 15vh;
+}
+.info-content {
+    padding: 0 120px;
+}
+.text-infomation {
+    height: 46px;
+    text-align: justify;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+}
+@media only screen and (min-width: 1537px) {
+    .info-text {
+        font-size: 20px;
+    }
+    .about-content {
+        padding: 30px;
+    }
+}
+@media only screen and (max-width: 992px) {
+    .info-content {
+        padding: 0;
+    }
+    .about-content {
+        padding: 5px;
+    }
 }
