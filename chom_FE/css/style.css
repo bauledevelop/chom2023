@@ -143,14 +143,18 @@ h2{
     color: #545454;
 }
 
-/* ------------HOME-------------- */
+/* ------------ HOME -------------- */
 .title-home {
     color: #e5e5e5;
 }
 .title-home:hover {
     color: #b2b2b2;
 }
-/* ------------ABOUT US-------------- */
+/* ------------ DU AN ------------- */
+.content-duan {
+    aspect-ratio: 1/1;
+}
+/* ---------- ABOUT US ------------ */
 iframe {
     filter: gray;
     -webkit-filter: grayscale(99%);
