@@ -138,7 +138,7 @@ h2{
     font-size: 46px;
     color: #545454;
 }
-h2{
+h1{
     font-size: 52px;
     color: #545454;
 }
@@ -151,9 +151,13 @@ h2{
     color: #b2b2b2;
 }
 /* ------------ DU AN ------------- */
-.content-duan {
+.img-content-duan {
     aspect-ratio: 1/1;
 }
+.content-duan {
+    height: 80vh;
+}
+
 /* ---------- ABOUT US ------------ */
 iframe {
     filter: gray;
@@ -184,7 +188,7 @@ iframe {
 }
 @media only screen and (min-width: 1537px) {
     .info-text {
-        font-size: 20px;
+        font-size: 18px;
     }
     .about-content {
         padding: 30px;
@@ -196,5 +200,10 @@ iframe {
     }
     .about-content {
         padding: 5px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .content-duan {
+        padding: 0 80px;
     }
 }
