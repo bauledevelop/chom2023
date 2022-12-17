@@ -1,0 +1,17 @@
+.doanvan {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.btn-contact {
+    background-color: #ffffff;
+    color: #252525;
+}
+
+.chutrangkhihover:hover {
+    color: white !important;
+}
+
+.chutrangkhihover {
+    color: #252525;
+}
