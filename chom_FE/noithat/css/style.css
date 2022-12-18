@@ -1,134 +1,134 @@
- .media-29101 img {
-     margin-bottom: 20px;
- }
- 
- .media-29101 h3 {
-     font-size: 18px;
-     font-weight: 900 !important;
- }
- 
- .media-29101 h3 a {
-     color: #6c757d;
- }
- 
- .owl-2-style .owl-nav {
-     display: none;
- }
- 
- .owl-2-style .owl-dots {
-     text-align: center;
-     position: relative;
-     bottom: -30px;
- }
- 
- .owl-2-style .owl-dots .owl-dot {
-     display: inline-block;
- }
- 
- .owl-2-style .owl-dots .owl-dot span {
-     display: inline-block;
-     width: 15px;
-     height: 3px;
-     border-radius: 0px;
-     background: #cccccc;
-     -webkit-transition: 0.3s all cubic-bezier(0.32, 0.71, 0.53, 0.53);
-     -o-transition: 0.3s all cubic-bezier(0.32, 0.71, 0.53, 0.53);
-     transition: 0.3s all cubic-bezier(0.32, 0.71, 0.53, 0.53);
-     margin: 3px;
-     border-radius: 1000px;
- }
- 
- .owl-2-style .owl-dots .owl-dot.active span {
-     background: #252525;
-     border-radius: 1000px;
- }
- 
- .owl-2-style .owl-dots .owl-dot:active,
- .owl-2-style .owl-dots .owl-dot:focus {
-     outline: none;
-     border-radius: 1000px;
- }
- 
- body {
-     font-family: 'Quicksand' !important;
-     max-height: 100wh !important;
- }
- 
- .nav-item {
-     color: #545454 !important;
- }
- 
- .nav-link:hover {
-     color: #252525;
- }
- 
- .nav-link {
-     color: #545454;
- }
- 
- p {
-     font-size: 14px;
-     color: #545454;
- }
- 
- a {
-     font-size: 16px;
-     color: #545454;
-     text-decoration: none;
- }
- 
- a:hover {
-     font-size: 16px;
-     color: #252525;
-     text-decoration: none;
-     font-weight: 600;
- }
- 
- h6 {
-     font-size: 22px;
-     color: #545454;
- }
- 
- h5 {
-     font-size: 28px;
-     color: #545454;
- }
- 
- h4 {
-     font-size: 34px;
-     color: #545454;
- }
- 
- h3 {
-     font-size: 40px;
-     color: #545454;
- }
- 
- h2 {
-     font-size: 46px;
-     color: #545454;
- }
- 
- h2 {
-     font-size: 52px;
-     color: #545454;
- }
- /* ------------HOME-------------- */
- 
- .title-home {
-     color: #e5e5e5;
- }
- 
- .title-home:hover {
-     color: #b2b2b2;
- }
- 
- .marginPhone {
-     margin-top: 1rem;
-     margin-bottom: 1rem;
- }
- 
- .paddingPhone {
-     padding-left: 20%;
-     padding-right: 20%;
- }
+.media-29101 img {
+    margin-bottom: 20px;
+}
+
+.media-29101 h3 {
+    font-size: 18px;
+    font-weight: 900 !important;
+}
+
+.media-29101 h3 a {
+    color: #6c757d;
+}
+
+.owl-2-style .owl-nav {
+    display: none;
+}
+
+.owl-2-style .owl-dots {
+    text-align: center;
+    position: relative;
+    bottom: -30px;
+}
+
+.owl-2-style .owl-dots .owl-dot {
+    display: inline-block;
+}
+
+.owl-2-style .owl-dots .owl-dot span {
+    display: inline-block;
+    width: 15px;
+    height: 3px;
+    border-radius: 0px;
+    background: #cccccc;
+    -webkit-transition: 0.3s all cubic-bezier(0.32, 0.71, 0.53, 0.53);
+    -o-transition: 0.3s all cubic-bezier(0.32, 0.71, 0.53, 0.53);
+    transition: 0.3s all cubic-bezier(0.32, 0.71, 0.53, 0.53);
+    margin: 3px;
+    border-radius: 1000px;
+}
+
+.owl-2-style .owl-dots .owl-dot.active span {
+    background: #252525;
+    border-radius: 1000px;
+}
+
+.owl-2-style .owl-dots .owl-dot:active,
+.owl-2-style .owl-dots .owl-dot:focus {
+    outline: none;
+    border-radius: 1000px;
+}
+
+body {
+    font-family: 'Quicksand' !important;
+    max-height: 100wh !important;
+}
+
+.nav-item {
+    color: #545454 !important;
+}
+
+.nav-link:hover {
+    color: #252525;
+}
+
+.nav-link {
+    color: #545454;
+}
+
+p {
+    font-size: 14px;
+    color: #545454;
+}
+
+a {
+    font-size: 16px;
+    color: #545454;
+    text-decoration: none;
+}
+
+a:hover {
+    font-size: 16px;
+    color: #252525;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 22px;
+    color: #545454;
+}
+
+h5 {
+    font-size: 28px;
+    color: #545454;
+}
+
+h4 {
+    font-size: 34px;
+    color: #545454;
+}
+
+h3 {
+    font-size: 40px;
+    color: #545454;
+}
+
+h2 {
+    font-size: 46px;
+    color: #545454;
+}
+
+h2 {
+    font-size: 52px;
+    color: #545454;
+}
+/* ------------HOME-------------- */
+
+.title-home {
+    color: #e5e5e5;
+}
+
+.title-home:hover {
+    color: #b2b2b2;
+}
+
+.marginPhone {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.paddingPhone {
+    padding-left: 20%;
+    padding-right: 20%;
+}
