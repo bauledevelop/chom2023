@@ -216,3 +216,27 @@
     height: 100%;
     width: 100%
 }
+
+.owl-nav {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 20px;
+    right: 10%;
+}
+@media only screen and (max-width: 1400px) {
+    .owl-nav {
+        right: 9%;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .owl-nav {
+        right: 7%;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .owl-nav {
+        bottom: 20px;
+        right: auto;
+    }
+}

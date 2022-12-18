@@ -229,6 +229,9 @@ iframe {
     opacity: 0;
     transition: .5s ease;
     background-color: #ffffffba;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container:hover .overlay {
@@ -237,12 +240,7 @@ iframe {
 
 .text {
     color: #252525;
-    position: absolute;
-    top: 25%;
-    right: 25%;
-    text-align: center;
     font-weight: 600;
-    justify-content: center;
 }
 
 .ctahide {
@@ -259,8 +257,12 @@ iframe {
 
 .imagess {
     display: block;
-    width: 100%;
     height: auto;
+    position: absolute;
+    top: 25%;
+    right: 15%;
+    width: 350px;
+    opacity: 0.5;
 }
 
 .imagess:hover {
@@ -271,7 +273,26 @@ iframe {
     aspect-ratio: 1/1;
 }
 .canhquan-item {
-    margin: 0 100px;
+    margin: 10px 100px;
+    transition: all .3s;
+}
+.canhquan-item:hover {
+    transform: scale(1.02);
+}
+.canhquan-box {
+    position: fixed;
+    width: 100%;
+    left: -25%;
+}
+.img-slide {
+    height: 100vh;
+}
+.canhquan-path {
+    z-index: 1000 !important;
+    position: fixed;
+    top:50%;
+    left:15%;
+    color:white;
 }
 
 @media only screen and (min-width: 1537px) {
@@ -280,6 +301,15 @@ iframe {
     }
     .about-content {
         padding: 30px;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    .canhquan-item {
+        margin: 0 10px;
+        transform: scale(0.8);
+    }
+    .canhquan-item:hover {
+        transform: scale(0.85);
     }
 }
 
@@ -295,5 +325,20 @@ iframe {
 @media only screen and (max-width: 800px) {
     .content-duan {
         padding: 0 80px;
+    }
+    .imagess {
+        width: 250px;
+    }
+    .overlay {
+        height: 250px;
+        width: 250px;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .canhquan-path {
+        top: 70%;
+    }
+    .canhquan-box {
+        left: 0;
     }
 }
