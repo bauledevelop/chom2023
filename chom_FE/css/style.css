@@ -219,6 +219,15 @@ iframe {
     text-overflow: ellipsis;
 }
 
+/* -------CANH QUAN------------ */
+
+.img-canhquan {
+    aspect-ratio: 1/1;
+}
+.canhquan-item {
+    margin: 0 40px;
+}
+
 @media only screen and (min-width: 1537px) {
     .info-text {
         font-size: 18px;

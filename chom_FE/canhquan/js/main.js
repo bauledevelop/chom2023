@@ -10,7 +10,7 @@ $(function () {
       autoplay: true,
       nav: true,
       dots: true,
-      pauseOnHover: false,
+      pauseOnHover: true,
       responsive: {
         600: {
           margin: 20,
@@ -21,7 +21,7 @@ $(function () {
           margin: 20,
           stagePadding: 0,
           nav: true,
-          items: 4,
+          items: 2,
         },
       },
     });
