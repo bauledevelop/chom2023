@@ -132,3 +132,19 @@ h2 {
     padding-left: 20%;
     padding-right: 20%;
 }
+.noithat-img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+.carousel-control-next, .carousel-control-prev {
+    bottom: 10px;
+    align-items: flex-end;
+    width: 18%;
+}
+.carousel-indicators [data-bs-target] {
+    background-color: #fff !important;
+    text-indent: 0 !important;
+}
+.carousel-item {
+    /* height: 100%; */
+}
