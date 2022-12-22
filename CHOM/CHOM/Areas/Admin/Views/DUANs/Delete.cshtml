@@ -1,0 +1,46 @@
+﻿@model CHOM.Data.DUAN
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DUAN</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TUADE)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TUADE)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HINHGT)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HINHGT)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NOIDUNG)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NOIDUNG)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.THUVIENs)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.THUVIENs.TUADE)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
