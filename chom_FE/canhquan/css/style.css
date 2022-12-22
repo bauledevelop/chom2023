@@ -215,14 +215,12 @@ iframe {
     height: 46px;
     text-align: justify;
     overflow: hidden;
-    /* white-space: nowrap; */
     text-overflow: ellipsis;
 }
 
 .overlay {
     position: absolute;
-    top: 25%;
-    right: 15%;
+    top: 0;
     height: 350px;
     width: 350px;
     border-radius: 50%;
@@ -258,9 +256,6 @@ iframe {
 .imagess {
     display: block;
     height: auto;
-    position: absolute;
-    top: 25%;
-    right: 15%;
     width: 350px;
     opacity: 0.5;
 }
@@ -288,6 +283,8 @@ iframe {
 }
 .img-slide {
     height: 100vh;
+    object-fit: cover;
+    opacity: 0.3;
 }
 .canhquan-path {
     z-index: 1000 !important;
@@ -295,6 +292,78 @@ iframe {
     top:50%;
     left:15%;
     color:white;
+}
+.content-center {
+    position: absolute;
+    top: 22%;
+    left: 7%;
+    display: flex;
+    justify-content: space-between;
+}
+.previews {
+    left: 8%;
+    height: 360px;
+    overflow: scroll;
+}
+.previews::-webkit-scrollbar {
+    display: none;
+}
+.preview-item {
+    margin: 15px 0;
+    opacity: 0.3;
+}
+.preview-item-img {
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: #fff solid 2px;
+}
+.active {
+    opacity: 1;
+}
+/* transition img */
+.tpk_card {
+  width: auto;
+  height: auto;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  transition: 0.5s;
+}
+
+.tpk_card .front {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateX(0deg);
+  transition: 0.5s;
+}
+
+.tpk_card:hover .front {
+  transform: rotateX(-180deg);
+}
+
+.tpk_card .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateX(180deg);
+  transition: 0.5s;
+}
+
+.tpk_card .back:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+}
+
+.tpk_card:hover .back {
+  transform: rotateX(0deg);
 }
 
 @media only screen and (min-width: 1537px) {
