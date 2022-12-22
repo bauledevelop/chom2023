@@ -271,6 +271,7 @@ iframe {
 
 .img-canhquan {
     aspect-ratio: 1/1;
+    width: 60% !important;
 }
 .canhquan-item {
     margin: 10px 100px;
@@ -283,6 +284,7 @@ iframe {
     position: fixed;
     width: 100%;
     left: -25%;
+    top: 25%;
 }
 .img-slide {
     height: 100vh;

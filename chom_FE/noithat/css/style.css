@@ -135,16 +135,25 @@ h2 {
 .noithat-img {
     aspect-ratio: 1/1;
     object-fit: cover;
+    width: 50%;
 }
 .carousel-control-next, .carousel-control-prev {
     bottom: 10px;
     align-items: flex-end;
-    width: 18%;
+    width: 20%;
 }
 .carousel-indicators [data-bs-target] {
     background-color: #fff !important;
     text-indent: 0 !important;
+    height: 9px !important;
 }
-.carousel-item {
-    /* height: 100%; */
+@media only screen and (max-width: 992px) {
+    .noithat-img {
+        width: 75%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .noithat-img {
+        width: 100%;
+    }
 }
