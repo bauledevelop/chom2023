@@ -12,6 +12,35 @@ namespace CHOM.Controllers
         {
             _logger = logger;
         }
+        [HttpPost]
+
+        public IActionResult Index(EmpoyeeModel _empoyeeModel)
+
+        {
+
+            EmployeeContext _employeeContext = new EmployeeContext();
+
+            var status = _employeeContext.EmployeeLogin.Where(m => m.LoginId == _empoyeeModel.LoginId && m.Password == _empoyeeModel.Pasword).FirstOrDefault();
+
+            if (status == null)
+
+            {
+
+                ViewBag.LoginStatus = 0;
+
+            }
+
+            else
+
+            {
+
+                return RedirectToAction("SuccessPage", "Home");
+
+            }
+
+            return View(_empoyeeModel);
+
+        }
 
         public IActionResult Index()
         {

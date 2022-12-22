@@ -1,6 +1,8 @@
-using Microsoft.EntityFrameworkCore;
+ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using CHOM.Data;
+using Microsoft.Extensions.FileProviders;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<CHOMContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CHOMContext") ?? throw new InvalidOperationException("Connection string 'CHOMContext' not found.")));
@@ -20,14 +22,15 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions()
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "Areas/Admin")),
+    RequestPath = "/Areas/Admin"
+});
 app.UseRouting();
- 
-app.UseSession();
-app.UseAuthentication();
-app.UseAuthorization();
-app.UseCookiePolicy();
-app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "areas",
