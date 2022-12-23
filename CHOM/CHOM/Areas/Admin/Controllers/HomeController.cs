@@ -48,8 +48,8 @@ namespace CHOM.Areas.Admin.Controllers
             else
 
             {
-                Session["userID"] = _user.UserName;
-                Session["userMK"] = _user.UserPassword;
+                ViewBag["userID"] = _user.UserName;
+                ViewBag["userMK"] = _user.UserPassword;
                 return RedirectToAction("Index", "Home");
 
             }
@@ -57,9 +57,23 @@ namespace CHOM.Areas.Admin.Controllers
             return View(_user);
 
         }
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            
+            return RedirectToAction("Login", "Home");
+        }
         public IActionResult Index()
         {
-            return View();
+            if (ViewBag["userID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Home");
+            }
+             
         }
 
         public IActionResult Privacy()
