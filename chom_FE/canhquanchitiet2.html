@@ -51,46 +51,48 @@
                     <img src="./canhquan/img/cq01.jpg" class="d-block w-100 img-slide" alt="...">
                 </div>
             </div>
-            <div class="container content-center">
-                <div class="previews">
-                    <div class="preview-item active">
-                        <a href="#">
-                            <img class="preview-item-img" src="./canhquan/img/cq01.jpg" alt="architecture.jpg">
-                        </a>
-                    </div>
-                    <div class="preview-item">
-                        <a href="#">
-                            <img class="preview-item-img" src="./canhquan/img/cq02.jpg" alt="architecture.jpg">
-                        </a>
-                    </div>
-                    <div class="preview-item">
-                        <a href="#">
-                            <img class="preview-item-img" src="./canhquan/img/cq03.jpg" alt="cart_empty.png">
-                        </a>
-                    </div>
-                    <div class="preview-item">
-                        <a href="#">
-                            <img class="preview-item-img" src="./canhquan/img/cq04.jpg" alt="Datos.png">
-                        </a>
-                    </div>
-                    <div class="preview-item">
-                        <a href="#">
-                            <img class="preview-item-img" src="./canhquan/img/cq05.jpg" alt="Datos.png">
-                        </a>
-                    </div>
-                    <div class="preview-item">
-                        <a href="#">
-                            <img class="preview-item-img" src="./canhquan/img/cq01.jpg" alt="Datos.png">
-                        </a>
-                    </div>
-                </div>
-                <div>
-                    <div class="tpk_card">
-                        <div class="front"><img src="./canhquan/img/whiteLG.png" class="imagess" />
+            <div class="content-center">
+                <div class="container d-flex justify-content-between">
+                    <div class="previews">
+                        <div class="preview-item active">
+                            <a href="#">
+                                <img class="preview-item-img" src="./canhquan/img/cq01.jpg" alt="architecture.jpg">
+                            </a>
                         </div>
-                        <div class="back">
-                            <div class="overlay">
-                                <h5 class="text ">Nhà Gỗ Xưa</h5>
+                        <div class="preview-item">
+                            <a href="#">
+                                <img class="preview-item-img" src="./canhquan/img/cq02.jpg" alt="architecture.jpg">
+                            </a>
+                        </div>
+                        <div class="preview-item">
+                            <a href="#">
+                                <img class="preview-item-img" src="./canhquan/img/cq03.jpg" alt="cart_empty.png">
+                            </a>
+                        </div>
+                        <div class="preview-item">
+                            <a href="#">
+                                <img class="preview-item-img" src="./canhquan/img/cq04.jpg" alt="Datos.png">
+                            </a>
+                        </div>
+                        <div class="preview-item">
+                            <a href="#">
+                                <img class="preview-item-img" src="./canhquan/img/cq05.jpg" alt="Datos.png">
+                            </a>
+                        </div>
+                        <div class="preview-item">
+                            <a href="#">
+                                <img class="preview-item-img" src="./canhquan/img/cq01.jpg" alt="Datos.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="tpk_card">
+                            <div class="front"><img src="./canhquan/img/whiteLG.png" class="imagess" />
+                            </div>
+                            <div class="back">
+                                <div class="overlay">
+                                    <h5 class="text ">Nhà Gỗ Xưa</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -99,18 +101,26 @@
         </div>
     </div>
 
-    <div class="carousel-caption d-none d-md-block " style="z-index: 100; ">
-        <button class="carousel-control-prev " type="button " data-bs-target="#carouselExampleDark "
-            data-bs-slide="prev">
-
-            <span class="visible ">Previous</span>
-        </button>
-
-        <button class="carousel-control-next " type="button " data-bs-target="#carouselExampleDark "
-            data-bs-slide="next">
-
-            <span class="visible ">Next</span>
-        </button>
+    <div class="carousel-caption d-none d-md-block w-100" style="z-index: 100; ">
+        <div class="container d-flex justify-content-between">
+            <button class="carousel-control-prev" type="button " data-bs-target="#carouselExampleDark "
+                data-bs-slide="prev">
+                <a class="visible text-start text-white mb-0">
+                    <span style="font-weight: 800;">Previous</span><br>
+                    dự án 1
+                </a>
+            </button>
+            <div>
+                <a style="font-weight: 500;">2/30</a>
+            </div>
+            <button class="carousel-control-next" type="button " data-bs-target="#carouselExampleDark "
+                data-bs-slide="next">
+                <a class="visible text-end text-white mb-0">
+                    <span style="font-weight: 800;">Next</span><br>
+                    dự án 3
+                </a>
+            </button>
+        </div>
     </div>
 
     </div>
@@ -119,6 +129,7 @@
             var currentIndex = 0;
             const mainItem = document.querySelector('.main-item');
             const previewItems = document.querySelectorAll('.preview-item');
+            const imgSlide = document.querySelector('.img-slide')
 
             const handlePreviewChange = (item, index) => {
                 // remove all activated
@@ -126,11 +137,18 @@
 
                 currentIndex = index;
                 item.classList.add('active');
-                mainItem.querySelector('img').src = item.querySelector('img').src;
+                imgSlide.classList.add('transitioning-src'); // Add class to begin transition
+                setTimeout(() => {
+                    mainItem.querySelector('img').src = item.querySelector('img').src;
+                    imgSlide.classList.remove('transitioning-src');
+                }, 400); // Ensure timeout matches transition time, remove transition class
             };
             // Handle set new main image & currentIndex
             previewItems && previewItems.forEach((item, index) => {
-                item.addEventListener('click', () => handlePreviewChange(item, index));
+                item.addEventListener('click', () => {
+
+                    handlePreviewChange(item, index);
+                });
             });
 
             const previews = document.querySelector('.previews');
