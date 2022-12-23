@@ -48,8 +48,7 @@ namespace CHOM.Areas.Admin.Controllers
             else
 
             {
-                ViewBag["userID"] = _user.UserName;
-                ViewBag["userMK"] = _user.UserPassword;
+                
                 return RedirectToAction("Index", "Home");
 
             }
