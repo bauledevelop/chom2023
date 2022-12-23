@@ -48,7 +48,8 @@ namespace CHOM.Areas.Admin.Controllers
             else
 
             {
-
+                Session["userID"] = _user.UserName;
+                Session["userMK"] = _user.UserPassword;
                 return RedirectToAction("Index", "Home");
 
             }

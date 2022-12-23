@@ -11,7 +11,14 @@ builder.Services.AddDbContext<CHOMContext>(options =>
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+builder.Services.AddDistributedMemoryCache();
 
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -31,7 +38,7 @@ app.UseStaticFiles(new StaticFileOptions()
     RequestPath = "/Areas/Admin"
 });
 app.UseRouting();
-
+app.UseSession();
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"

@@ -12,7 +12,7 @@ namespace CHOM.Controllers
         {
             _logger = logger;
         }
-        [HttpPost]
+      
 /*
         public IActionResult Index(EmpoyeeModel _empoyeeModel)
 
