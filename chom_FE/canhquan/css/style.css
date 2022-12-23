@@ -168,6 +168,9 @@ h1 {
     color: #fff;
 }
 /* ---------- ABOUT US ------------ */
+.text-justify {
+    text-align: justify;
+}
 
 iframe {
     filter: gray;
@@ -212,6 +215,7 @@ iframe {
     transition: .5s ease;
     background-color: #ffffffba;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -387,6 +391,9 @@ iframe {
     .about-content {
         padding: 30px;
     }
+    .index-project {
+        right: 16%;
+    }
 }
 @media only screen and (max-width: 1400px) {
     .canhquan-item {
@@ -404,6 +411,9 @@ iframe {
     }
     .about-content {
         padding: 5px;
+    }
+    .index-project {
+        right: 7%;
     }
 }
 
@@ -425,5 +435,8 @@ iframe {
     }
     .canhquan-box {
         left: 0;
+    }
+    .index-project {
+        right: auto;
     }
 }
