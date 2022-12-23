@@ -164,18 +164,39 @@ h1 {
 /* ------------ HOME -------------- */
 
 .title-home {
-    color: #e5e5e5;
+    color: #fff;
 }
 
 .title-home:hover {
-    color: #b2b2b2;
+    color: #fff;
 }
 
+.position-button {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.button-play {
+    width: 50px;
+    color: white;
+    aspect-ratio: 1/1;
+}
 
 /* ------------ DU AN ------------- */
 
 .img-content-duan {
     aspect-ratio: 1/1;
+    object-fit: cover;
+    filter: grayscale(1);
+    transition: filter .3s;
+}
+.img-content-duan:hover {
+    filter: grayscale(0);
+}
+.title-content-duan {
+    font-size: 16px;
 }
 
 .content-duan {

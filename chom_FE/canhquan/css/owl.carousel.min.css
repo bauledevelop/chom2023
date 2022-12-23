@@ -223,20 +223,29 @@
     position: fixed;
     bottom: 20px;
     right: 8%;
+    z-index: 1;
 }
-
-.owl-stage > .active {
-    scale: 1.5;
+.owl-dots {
+    position: fixed;
+    bottom: 45px;
+    right: 8%;
 }
-
+@media only screen and (min-width: 1600px) {
+    .owl-nav, .owl-dots {
+        right: 16%;
+    }
+}
 @media only screen and (max-width: 800px) {
-    .owl-nav {
+    .owl-nav, .owl-dots {
         right: 7%;
     }
 }
 @media only screen and (max-width: 500px) {
     .owl-nav {
         bottom: 20px;
+        right: auto;
+    }
+    .owl-dots {
         right: auto;
     }
 }
