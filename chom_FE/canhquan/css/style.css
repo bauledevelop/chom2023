@@ -160,29 +160,13 @@ h1 {
     color: #545454;
 }
 
-
-/* ------------ HOME -------------- */
-
 .title-home {
-    color: #e5e5e5;
+    color: #fff;
 }
 
 .title-home:hover {
-    color: #b2b2b2;
+    color: #fff;
 }
-
-
-/* ------------ DU AN ------------- */
-
-.img-content-duan {
-    aspect-ratio: 1/1;
-}
-
-.content-duan {
-    height: 80vh;
-}
-
-
 /* ---------- ABOUT US ------------ */
 
 iframe {
@@ -266,7 +250,7 @@ iframe {
 
 .img-canhquan {
     aspect-ratio: 1/1;
-    width: 60% !important;
+    width: 90% !important;
 }
 .canhquan-item {
     margin: 10px 100px;
@@ -278,13 +262,32 @@ iframe {
 .canhquan-box {
     position: fixed;
     width: 100%;
-    left: -25%;
-    top: 25%;
+    left: 25%;
+    top: 15%;
 }
 .img-slide {
     height: 100vh;
     object-fit: cover;
     opacity: 0.3;
+    /* animation: reloadimg 1s ease-in-out; */
+    transition: opacity 0.4s ease-in;
+    -webkit-transition: opacity 0.4s ease-in;
+    -moz-transition: opacity 0.4s ease-in;
+    -ms-transition: opacity 0.4s ease-in;
+    -o-transition: opacity 0.4s ease-in;
+}
+@keyframes reloadimg {
+    0% {opacity: 0;}
+    50% {opacity: 0.1;}
+    100% {opacity: 0.3;}
+}
+.transitioning-src {
+    transition: opacity 0.4s ease-out;
+    -webkit-transition: opacity 0.4s ease-out;
+    -moz-transition: opacity 0.4s ease-out;
+    -ms-transition: opacity 0.4s ease-out;
+    -o-transition: opacity 0.4s ease-out;
+    opacity: 0;
 }
 .canhquan-path {
     z-index: 1000 !important;
@@ -296,9 +299,7 @@ iframe {
 .content-center {
     position: absolute;
     top: 22%;
-    left: 7%;
-    display: flex;
-    justify-content: space-between;
+    width: 100%;
 }
 .previews {
     left: 8%;
@@ -364,6 +365,19 @@ iframe {
 
 .tpk_card:hover .back {
   transform: rotateX(0deg);
+}
+.carousel-caption {
+    right: 0;
+    left: 0;
+}
+.carousel-control-next, .carousel-control-prev {
+    position: relative;
+    width: auto;
+}
+.index-project {
+    position: fixed;
+    bottom: 20px;
+    right: 8%;
 }
 
 @media only screen and (min-width: 1537px) {
