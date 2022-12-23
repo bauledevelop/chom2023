@@ -142,46 +142,14 @@
                 </a>
             </li>
             <!-- Nav Item - Kiến Trúc Sư -->
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index", "AdminDuAns")">
-                    <i class="bi bi-kanban-fill"></i>
-                    <span>Dự án</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@Url.Action("Index", "AdminKTS_DUAN")">
-                    <i class="far fa-folder"></i>
-                    <span>Tham gia</span>
-                </a>
-            </li>
-            <!-- Nav Item - Về A7 Studio -->
-            @* <li class="nav-item">
-            <a class="nav-link" href="@Url.Action("Index","AdminLienHes")">
-            <i class="bi bi-person-lines-fill"></i>
-            <span>Liên hệ</span>
-            </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="@Url.Action("Index","AdminThongTinKhaches")">
-            <i class="bi bi-person-lines-fill"></i>
-            <span>Khách hàng</span>
-            </a>
-            </li>*@
-            <!-- Nav Item - Cuối trang -->
+           
+            
             <li class="nav-item">
                 <a class="nav-link" href="@Url.Action("Index", "ADMINs")">
                     <i class="fas fa-align-center"></i>
                     <span>TÀI KHOẢN</span>
                 </a>
-                 @if (User.IsSignedIn()) { 
-            <div>@User.GetUserName()</div> 
-            <form method = "post" asp-controller = "Account" aspcontroller = "Logout"> 
-               <input type = "submit" value = "Logout"/> 
-            </form> 
-         } else {  
-            <a asp-controller = "Account" asp-action = "Login">Login</a> 
-            <a asp-controller = "Account" asp-action = "Register">Register</a> 
-         } 
+                
             </li>
 
             <!-- Divider -->

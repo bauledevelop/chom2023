@@ -7,16 +7,14 @@ namespace CHOM.Data
     public class USER
     {
         [Key]
-        public string Username { get; set; }
+        [Required(ErrorMessage = "Username is requried!")]
+        [Column(TypeName = "varchar")]
+        [MaxLength(50)]
+        public string UserName { get; set; }
 
+        [Required(ErrorMessage = "Password is requried!")]
         [DataType(DataType.Password)]
-        public string Password { get; set; }
-
-        [Display(Name = "Remember Me")]
-        public bool RememberMe { get; set; }
-        public string ReturnUrl { get; set; }
-
-
+        public string UserPassword { get; set; }
 
     }
 }

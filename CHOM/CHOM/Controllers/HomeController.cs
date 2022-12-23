@@ -13,7 +13,7 @@ namespace CHOM.Controllers
             _logger = logger;
         }
         [HttpPost]
-
+/*
         public IActionResult Index(EmpoyeeModel _empoyeeModel)
 
         {
@@ -41,7 +41,7 @@ namespace CHOM.Controllers
             return View(_empoyeeModel);
 
         }
-
+*/
         public IActionResult Index()
         {
             return View();

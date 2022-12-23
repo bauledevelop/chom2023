@@ -18,5 +18,6 @@ namespace CHOM.Data
         public DbSet<CHOM.Data.SLIDE> SLIDE { get; set; } = default!;
         public DbSet<CHOM.Data.THUVIEN> THUVIEN{ get; set; } = default!;
         public DbSet<CHOM.Data.ABOUT> ABOUT{ get; set; } = default!;
+        public DbSet<CHOM.Data.USER> USER { get; set; } = default!;
     }
 }
