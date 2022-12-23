@@ -383,6 +383,10 @@ iframe {
     bottom: 20px;
     right: 8%;
 }
+.text-index-project {
+    font-weight: 800;
+    font-size: 32px;
+}
 
 @media only screen and (min-width: 1537px) {
     .info-text {
