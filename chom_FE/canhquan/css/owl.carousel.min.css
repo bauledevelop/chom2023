@@ -11,9 +11,12 @@
 }
 
 .owl-carousel {
-    display: none;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
     width: 100%;
-    z-index: 1
+    z-index: 1;
 }
 
 .owl-carousel .owl-stage {
@@ -36,6 +39,9 @@
     position: relative;
     /* overflow: hidden; */
     -webkit-transform: translate3d(0, 0, 0)
+}
+.owl-stage-outer {
+    left: 25%;
 }
 
 .owl-carousel .owl-item,
@@ -220,32 +226,17 @@
 .owl-nav {
     display: flex;
     justify-content: space-between;
-    position: fixed;
-    bottom: 20px;
-    right: 8%;
+    padding-bottom: 20px;
     z-index: 1;
 }
 .owl-dots {
     position: fixed;
     bottom: 45px;
-    right: 8%;
-}
-@media only screen and (min-width: 1600px) {
-    .owl-nav, .owl-dots {
-        right: 16%;
-    }
-}
-@media only screen and (max-width: 800px) {
-    .owl-nav, .owl-dots {
-        right: 7%;
-    }
+    right: 7%;
 }
 @media only screen and (max-width: 500px) {
     .owl-nav {
         bottom: 20px;
-        right: auto;
-    }
-    .owl-dots {
         right: auto;
     }
 }
