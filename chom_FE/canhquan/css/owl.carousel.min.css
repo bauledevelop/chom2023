@@ -239,4 +239,7 @@
         bottom: 20px;
         right: auto;
     }
+    .owl-stage-outer {
+        left: 0;
+    }
 }
