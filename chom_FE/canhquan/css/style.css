@@ -1799,6 +1799,12 @@ margin-right: 165px !important; */
     margin: 15vh 0 0;
 }
 
+.link-img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
 .showstyle .caption h1 {
     font-size: 90px;
     font-weight: 800;
@@ -1811,6 +1817,10 @@ margin-right: 165px !important; */
 .showstyle .caption h1 .stroke {
     color: transparent;
     -webkit-text-stroke: 1px #fff;
+}
+
+.stroke {
+    text-align: center;
 }
 
 .showstyle .caption h1 span {
@@ -1910,6 +1920,11 @@ margin-right: 165px !important; */
 
     .about-content {
         padding: 5px;
+    }
+
+    .showcase-carus.circle-slide .swiper-slide .bg-img {
+        height: 300px;
+        width: 300px;
     }
 }
 
