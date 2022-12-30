@@ -123,6 +123,7 @@ a {
     color: #969696;
     text-decoration: none;
     cursor: pointer;
+    transition: all .2s ease-in-out;
 }
 
 a:hover {
@@ -2005,6 +2006,7 @@ margin-right: 165px !important; */
 }
 
 .section .vertical-gallery {
+    position: relative;
     overflow: hidden;
     height: 100vh;
     opacity: 1;
@@ -2099,22 +2101,32 @@ margin-right: 165px !important; */
 }
 
 .section .vertical-gallery:nth-child(1) .vertical-photo {
-    background: url("../img/vertical-gallery-1.jpg") center;
+    background: url("../img/cq01.jpg") center;
     background-size: cover
 }
 
 .section .vertical-gallery:nth-child(2) .vertical-photo {
-    background: url("../img/vertical-gallery-2.jpg") center;
+    background: url("../img/cq02.jpg") center;
     background-size: cover
 }
 
 .section .vertical-gallery:nth-child(3) .vertical-photo {
-    background: url("../img/vertical-gallery-3.jpg") center;
+    background: url("../img/cq03.jpg") center;
     background-size: cover
 }
 
 .section .vertical-gallery:nth-child(4) .vertical-photo {
-    background: url("../img/vertical-gallery-4.jpg") center;
+    background: url("../img/cq04.jpg") center;
+    background-size: cover
+}
+
+.section .vertical-gallery:nth-child(5) .vertical-photo {
+    background: url("../img/cq05.jpg") center;
+    background-size: cover
+}
+
+.section .vertical-gallery:nth-child(6) .vertical-photo {
+    background: url("../img/cq01.jpg") center;
     background-size: cover
 }
 
