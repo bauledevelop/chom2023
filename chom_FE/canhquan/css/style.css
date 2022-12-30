@@ -1911,6 +1911,11 @@ margin-right: 165px !important; */
     .canhquan-item:hover {
         transform: scale(0.85);
     }
+
+    .showcase-carus.circle-slide .swiper-slide .bg-img {
+        height: 400px;
+        width: 400px;
+    }
 }
 
 @media only screen and (max-width: 992px) {
