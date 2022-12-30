@@ -1,4 +1,6 @@
 @import url(swipebox.css);
+@import url(ionicons.min.css);
+@import url(font-awesome.min.css);
 
 body {
     font-family: 'Quicksand' !important;
@@ -2058,7 +2060,6 @@ margin-right: 165px !important; */
 }
 
 .section .vertical-gallery .text-gallery h4 {
-    font-family: Montserrat, "Helvetica Neue", "Lucida Grande", Arial, Verdana, sans-serif;
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: .3rem;
@@ -2172,15 +2173,6 @@ margin-right: 165px !important; */
     transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1)
 }
 
-.section .vertical-gallery .text-gallery h4 {
-    font-family: Montserrat, "Helvetica Neue", "Lucida Grande", Arial, Verdana, sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: .3rem;
-    text-transform: uppercase;
-    color: #f2f3f7
-}
-
 .section .vertical-gallery:hover .text-gallery {
     visibility: hidden;
     opacity: 0;
@@ -2234,6 +2226,58 @@ body.mobile-device #pagepiling.menu-opened {
     width: 100%;
     height: 100%;
     vertical-align: middle;
+}
+
+#swipebox-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 50px;
+    letter-spacing: .3rem;
+    text-transform: uppercase;
+    color: #f2f3f7
+}
+
+#swipebox-overlay {
+    background: rgba(0, 0, 0, 0.8)
+}
+
+#swipebox-bottom-bar {
+    background: -webkit-linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5))
+}
+
+#swipebox-top-bar {
+    background: #000
+}
+
+#swipebox-prev {
+    position: absolute;
+    top: 0;
+    left: 0;
+    float: none
+}
+
+#swipebox-next {
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: none
+}
+
+#swipebox-slider .slide {
+    opacity: 0;
+    -webkit-transition: all 0.8s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    -moz-transition: all 0.8s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    transition: all 0.8s cubic-bezier(0.785, 0.135, 0.15, 0.86)
+}
+
+#swipebox-slider .slide.current {
+    opacity: 1
+}
+
+.btn-directional {
+    color: #fff;
+    font-size: 30px;
 }
 
 /* ====================== [ end canh quan chi tiet ] ====================== */
