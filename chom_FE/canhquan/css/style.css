@@ -208,8 +208,8 @@ iframe {
 .overlay {
     position: absolute;
     top: 0;
-    height: 300px;
-    width: 300px;
+    height: 250px;
+    width: 250px;
     border-radius: 50%;
     opacity: 0;
     transition: .5s ease;
@@ -244,7 +244,7 @@ iframe {
 .imagess {
     display: block;
     height: auto;
-    width: 300px;
+    width: 250px;
     opacity: 0.5;
 }
 
@@ -458,6 +458,15 @@ iframe {
     display: block;
 }
 
+.icon-all-project {
+    opacity: 0.7;
+    transition: all .3s ease;
+}
+
+.icon-all-project:hover {
+    opacity: 1;
+}
+
 /* ====================== [ Start Slider ] ====================== */
 .slider {
     position: relative;
@@ -484,6 +493,14 @@ iframe {
     width: 100%;
     min-height: 100vh;
     padding-bottom: 50px;
+}
+
+.swiper-slide {
+    transition: transform .3s ease;
+}
+
+.swiper-slide:hover {
+    transform: scale(1.1);
 }
 
 .slider .parallax-slider .swiper-slide .bg-img {
@@ -1939,12 +1956,12 @@ margin-right: 165px !important; */
     }
 
     .imagess {
-        width: 250px;
+        width: 200px;
     }
 
     .overlay {
-        height: 250px;
-        width: 250px;
+        height: 200px;
+        width: 200px;
     }
 }
 
