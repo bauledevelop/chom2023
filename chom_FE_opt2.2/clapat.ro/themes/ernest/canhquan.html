@@ -14,7 +14,21 @@
     <link href="style.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-
+    <style>
+        .canvas-slider {
+            /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+            filter: gray;
+            /* IE5+ */
+            -webkit-filter: grayscale(1);
+            /* Webkit Nightlies & Chrome Canary */
+            -webkit-transition: all .8s ease-in-out;
+        }
+        
+        .canvas-slider:hover {
+            filter: none;
+            -webkit-filter: grayscale(0);
+        }
+    </style>
 </head>
 
 
@@ -177,7 +191,7 @@
 
                             <!-- canvas slider -->
                             <div id="canvas-slider" class="canvas-slider">
-                                <div class="slider-img" data-slide="0"><img class="slide-img" src="images/canhquan/cq1.jpg" alt="" /></div>
+                                <div class="slider-img " data-slide="0"><img class="slide-img " src="images/canhquan/cq1.jpg" alt="" /></div>
                                 <div class="slider-img" data-slide="1"><img class="slide-img" src="images/canhquan/cq2.jpg" alt="" /></div>
                                 <div class="slider-img" data-slide="2"><img class="slide-img" src="images/canhquan/cq3.jpg" alt="" /></div>
                                 <div class="slider-img" data-slide="3"><img class="slide-img" src="images/canhquan/cq4.jpg" alt="" /></div>
