@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.19/dist/css/uikit.min.css" />
     <!-- Custom CSS -->
     <link href="style.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/style1.css" rel="stylesheet" />
     <link href="css/main.css" rel="stylesheet" />
 
     <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -146,7 +146,7 @@
 
 
                 <!-- Content Scroll -->
-                <div id="content-scroll">
+                <div id="content-scroll" style="position: absolute; top: 12vh;">
 
 
                     <div class="gallery container main-item" id="lightbox" uk-lightbox="animation: slice">
@@ -331,7 +331,7 @@
                     <footer class="hidden">
                         <div id="footer-container">
 
-                            <div id="backtotop" class="button-wrap left">
+                            <!-- <div id="backtotop" class="button-wrap left">
                                 <div class="icon-wrap parallax-wrap">
                                     <div class="button-icon parallax-element">
                                         <i class="fa fa-angle-up"></i>
@@ -363,7 +363,7 @@
                                     <li><span class="parallax-wrap"><a class="parallax-element"
                                                 href="https://www.instagram.com/clapat.themes/">In</a></span></li>
                                 </ul>
-                            </div>
+                            </div> -->
 
                         </div>
                     </footer>
@@ -421,8 +421,6 @@
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.19/dist/js/uikit-icons.min.js"></script>
 
     <script>
-        var currentIndex = 0;
-        const mainItem = document.querySelector('.content');
         var gallery = document.querySelector('#lightbox');
         var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
         var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
@@ -435,13 +433,14 @@
             });
         };
         gallery.querySelectorAll('img').forEach(function (item) {
-            item.classList.add('byebye');
+            // item.classList.add('byebye');
             if (item.complete) {
-                console.log(item.src);
+                // console.log(item.src);
             }
             else {
                 item.addEventListener('load', function () {
                     var altura = getVal(gallery, 'grid-auto-rows');
+                    console.log(altura);
                     var gap = getVal(gallery, 'grid-row-gap');
                     var gitem = item.parentElement.parentElement.parentElement;
                     console.log(getHeight(gitem));
