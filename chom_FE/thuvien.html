@@ -256,6 +256,7 @@
     };
     gallery.querySelectorAll('img').forEach(function (item) {
       item.classList.add('byebye');
+      console.log(getHeight(item.parentElement.parentElement.parentElement));
       if (item.complete) {
         console.log(item.src);
       }
