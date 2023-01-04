@@ -113,7 +113,7 @@
 	.hover-reveal {
 		position: fixed;
 		width: 400px;
-		height: 250px;
+		height: auto;
 		pointer-events: none;
 		opacity: 0;
 	}

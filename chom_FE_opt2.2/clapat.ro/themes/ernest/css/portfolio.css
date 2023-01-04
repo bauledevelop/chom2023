@@ -159,7 +159,7 @@
 
 	.open-filters {
 	    height: 46px;
-	    width: 46px;
+	    width: auto;
 	    text-align: center;
 	    line-height: 46px;
 	    font-size: 14px;
@@ -167,7 +167,7 @@
 	    position: relative;
 	    background: #2b2a35;
 	    color: #fff;
-	    border-radius: 50px;
+	    border-radius: 0;
 	}
 
 	.light-content .open-filters {
@@ -538,13 +538,13 @@
 
 	.item-wrap {
 	    width: 100%;
-	    height: 100%;
+	    height: auto;
 	    position: absolute;
 	}
 
 	.item-wrap-image {
 	    width: 100%;
-	    height: 100%;
+		height: auto;
 	    position: relative;
 	    z-index: 0;
 	    overflow: hidden;
@@ -562,13 +562,13 @@
 
 	.item-image {
 	    width: 100%;
-	    height: 100%;
+	    height: auto;
 	    position: relative;
 	    display: block;
 	    z-index: 100;
 	    object-position: center;
 	    object-fit: cover;
-	    border-radius: 10%;
+	    border-radius: 0;
 	}
 
 	.portfolio .item-image {
@@ -587,7 +587,7 @@
 	    display: table;
 	    position: absolute;
 	    width: 100%;
-	    height: 100%;
+	    height: auto;
 	    top: 0;
 	    left: 0;
 	    padding: 50px 50px;
