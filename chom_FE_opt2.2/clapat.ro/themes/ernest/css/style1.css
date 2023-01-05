@@ -322,6 +322,7 @@ iframe {
   transition: transform 300ms ease;
   transition: all 0.5s ease;
   cursor: pointer;
+  padding-left: 10px;
 }
 
 .gallery .gallery-item:hover {
