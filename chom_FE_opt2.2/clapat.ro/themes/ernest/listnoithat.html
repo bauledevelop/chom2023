@@ -15,20 +15,21 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <style>
+        .trigger-item {
+            /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+            filter: gray;
+            /* IE5+ */
+            -webkit-filter: grayscale(100%);
+            /* Webkit Nightlies & Chrome Canary */
+            -webkit-transition: all .8s ease-in-out;
+        }
 
-        .trigger-item{
-        /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
-          filter: gray; /* IE5+ */
-          -webkit-filter: grayscale(100%); /* Webkit Nightlies & Chrome Canary */
-          -webkit-transition: all .8s ease-in-out;  
-        }
-    
         .trigger-item:hover {
-        filter: none;
-          -webkit-filter: grayscale(0);
-          -webkit-transform: scale(1.01);
+            filter: none;
+            -webkit-filter: grayscale(0);
+            -webkit-transform: scale(1.01);
         }
-        </style>
+    </style>
 </head>
 
 
@@ -90,13 +91,11 @@
 
                                                 </ul>
                                             </li>
-                                            <li class="link menu-timeline"><a class="ajax-link"
-                                                    data-type="page-transition" href="about.html">
+                                            <li class="link menu-timeline"><a href="gallery.html">
                                                     <div class="before-span"><span
                                                             data-hover="Click to see">Gallary</span></div>
                                                 </a></li>
-                                            <li class="link menu-timeline"><a class="ajax-link"
-                                                    data-type="page-transition" href="contact.html">
+                                            <li class="link menu-timeline"><a href="contact.html">
                                                     <div class="before-span"><span
                                                             data-hover="Click to see">Contact</span></div>
                                                 </a></li>
@@ -350,7 +349,7 @@
                 </div>
                 <!--/Content Scroll -->
 
- 
+
 
                 <div id="app"></div>
 

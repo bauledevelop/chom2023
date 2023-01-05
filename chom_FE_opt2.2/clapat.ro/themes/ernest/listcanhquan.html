@@ -15,19 +15,20 @@
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <style>
+        .trigger-item {
+            /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+            filter: gray;
+            /* IE5+ */
+            -webkit-filter: grayscale(100%);
+            /* Webkit Nightlies & Chrome Canary */
+            -webkit-transition: all .8s ease-in-out;
+        }
 
-.trigger-item{
-    /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
-      filter: gray; /* IE5+ */
-      -webkit-filter: grayscale(100%); /* Webkit Nightlies & Chrome Canary */
-      -webkit-transition: all .8s ease-in-out;  
-    }
-
-    .trigger-item:hover {
-    filter: none;
-      -webkit-filter: grayscale(0);
-      -webkit-transform: scale(1.01);
-    }
+        .trigger-item:hover {
+            filter: none;
+            -webkit-filter: grayscale(0);
+            -webkit-transform: scale(1.01);
+        }
     </style>
 </head>
 
@@ -80,22 +81,27 @@
                                         <ul data-breakpoint="10025" class="flexnav">
                                             <li class="link menu-timeline">
                                                 <a class="" href="#">
-                                                    <div class="before-span"><span data-hover="click to see">Projects</span></div>
+                                                    <div class="before-span"><span
+                                                            data-hover="click to see">Projects</span></div>
                                                 </a>
                                                 <ul>
-                                                    <li><a class="ajax-link" href="listcanhquan.html" data-type="page-transition">Landscape</a></li>
-                                                    <li><a class="ajax-link" href="listnoithat.html" data-type="page-transition">Interior</a></li>
+                                                    <li><a class="ajax-link" href="listcanhquan.html"
+                                                            data-type="page-transition">Landscape</a></li>
+                                                    <li><a class="ajax-link" href="listnoithat.html"
+                                                            data-type="page-transition">Interior</a></li>
 
                                                 </ul>
                                             </li>
                                             <li class="link menu-timeline">
-                                                <a class="ajax-link" data-type="page-transition" href="gallery.html">
-                                                    <div class="before-span"><span data-hover="Click to see">Gallary</span></div>
+                                                <a href="gallery.html">
+                                                    <div class="before-span"><span
+                                                            data-hover="Click to see">Gallary</span></div>
                                                 </a>
                                             </li>
                                             <li class="link menu-timeline">
-                                                <a class="ajax-link" data-type="page-transition" href="contact.html">
-                                                    <div class="before-span"><span data-hover="Click to see">Contact</span></div>
+                                                <a href="contact.html">
+                                                    <div class="before-span"><span
+                                                            data-hover="Click to see">Contact</span></div>
                                                 </a>
                                             </li>
 
@@ -149,18 +155,23 @@
                                             <div class="swiper-slide trigger-item">
                                                 <div class="img-mask">
                                                     <div class="section-image">
-                                                        <img src="images/canhquan/cq1.jpg" class="item-image grid__item-img" alt="">
+                                                        <img src="images/canhquan/cq1.jpg"
+                                                            class="item-image grid__item-img" alt="">
                                                     </div>
-                                                    <img src="images/canhquan/cq1.jpg" class="grid__item-img grid__item-img--large" alt="">
+                                                    <img src="images/canhquan/cq1.jpg"
+                                                        class="grid__item-img grid__item-img--large" alt="">
                                                 </div>
                                                 <div class="outer content-max-width">
                                                     <div class="inner">
                                                         <div class="slide-date"><span>2022</span></div>
                                                         <div class="subtitle"><span>Subtitle Here</span></div>
                                                         <div class="slide-title-wrapper">
-                                                            <div class="slide-title trigger-item-link secondary-font" data-color="#cf837d" data-firstline="View" data-secondline="Project"><span>Opulence</span>
+                                                            <div class="slide-title trigger-item-link secondary-font"
+                                                                data-color="#cf837d" data-firstline="View"
+                                                                data-secondline="Project"><span>Opulence</span>
                                                             </div>
-                                                            <a class="slide-link" data-type="page-transition" href="canhquan.html"></a>
+                                                            <a class="slide-link" data-type="page-transition"
+                                                                href="canhquan.html"></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -168,18 +179,23 @@
                                             <div class="swiper-slide trigger-item">
                                                 <div class="img-mask">
                                                     <div class="section-image">
-                                                        <img src="images/canhquan/cq2.jpg" class="item-image grid__item-img" alt="">
+                                                        <img src="images/canhquan/cq2.jpg"
+                                                            class="item-image grid__item-img" alt="">
                                                     </div>
-                                                    <img src="images/canhquan/cq2.jpg" class="grid__item-img grid__item-img--large" alt="">
+                                                    <img src="images/canhquan/cq2.jpg"
+                                                        class="grid__item-img grid__item-img--large" alt="">
                                                 </div>
                                                 <div class="outer content-max-width">
                                                     <div class="inner">
                                                         <div class="slide-date"><span>2022</span></div>
                                                         <div class="subtitle"><span>Subtitle Here</span></div>
                                                         <div class="slide-title-wrapper">
-                                                            <div class="slide-title trigger-item-link secondary-font" data-color="#4c484f" data-firstline="View" data-secondline="Project"><span>Sound Blaster</span>
+                                                            <div class="slide-title trigger-item-link secondary-font"
+                                                                data-color="#4c484f" data-firstline="View"
+                                                                data-secondline="Project"><span>Sound Blaster</span>
                                                             </div>
-                                                            <a class="slide-link" data-type="page-transition" href="canhquan.html"></a>
+                                                            <a class="slide-link" data-type="page-transition"
+                                                                href="canhquan.html"></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -187,18 +203,23 @@
                                             <div class="swiper-slide trigger-item">
                                                 <div class="img-mask">
                                                     <div class="section-image">
-                                                        <img src="images/canhquan/cq3.jpg" class="item-image grid__item-img" alt="">
+                                                        <img src="images/canhquan/cq3.jpg"
+                                                            class="item-image grid__item-img" alt="">
                                                     </div>
-                                                    <img src="images/canhquan/cq3.jpg" class="grid__item-img grid__item-img--large" alt="">
+                                                    <img src="images/canhquan/cq3.jpg"
+                                                        class="grid__item-img grid__item-img--large" alt="">
                                                 </div>
                                                 <div class="outer content-max-width">
                                                     <div class="inner">
                                                         <div class="slide-date"><span>2022</span></div>
                                                         <div class="subtitle"><span>Subtitle Here</span></div>
                                                         <div class="slide-title-wrapper">
-                                                            <div class="slide-title trigger-item-link secondary-font" data-color="#b54d35" data-firstline="View" data-secondline="Project"><span>Green Case</span>
+                                                            <div class="slide-title trigger-item-link secondary-font"
+                                                                data-color="#b54d35" data-firstline="View"
+                                                                data-secondline="Project"><span>Green Case</span>
                                                             </div>
-                                                            <a class="slide-link" data-type="page-transition" href="canhquan.html"></a>
+                                                            <a class="slide-link" data-type="page-transition"
+                                                                href="canhquan.html"></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -206,19 +227,24 @@
                                             <div class="swiper-slide trigger-item change-header">
                                                 <div class="img-mask">
                                                     <div class="section-image">
-                                                        <img src="images/canhquan/cq4.jpg" class="item-image grid__item-img" alt="">
+                                                        <img src="images/canhquan/cq4.jpg"
+                                                            class="item-image grid__item-img" alt="">
                                                     </div>
-                                                    <img src="images/canhquan/cq4.jpg" class="grid__item-img grid__item-img--large" alt="">
+                                                    <img src="images/canhquan/cq4.jpg"
+                                                        class="grid__item-img grid__item-img--large" alt="">
                                                 </div>
                                                 <div class="outer content-max-width">
                                                     <div class="inner">
                                                         <div class="slide-date"><span>2022</span></div>
                                                         <div class="subtitle"><span>Subtitle Here</span></div>
                                                         <div class="slide-title-wrapper">
-                                                            <div class="slide-title trigger-item-link secondary-font" data-color="#6b91a1" data-firstline="View" data-secondline="Project"><span>Tshirt
+                                                            <div class="slide-title trigger-item-link secondary-font"
+                                                                data-color="#6b91a1" data-firstline="View"
+                                                                data-secondline="Project"><span>Tshirt
                                                                     Factory</span>
                                                             </div>
-                                                            <a class="slide-link" data-type="page-transition" href="canhquan.html"></a>
+                                                            <a class="slide-link" data-type="page-transition"
+                                                                href="canhquan.html"></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -226,18 +252,23 @@
                                             <div class="swiper-slide trigger-item">
                                                 <div class="img-mask">
                                                     <div class="section-image">
-                                                        <img src="images/canhquan/cq5.jpg" class="item-image grid__item-img" alt="">
+                                                        <img src="images/canhquan/cq5.jpg"
+                                                            class="item-image grid__item-img" alt="">
                                                     </div>
-                                                    <img src="images/canhquan/cq5.jpg" class="grid__item-img grid__item-img--large" alt="">
+                                                    <img src="images/canhquan/cq5.jpg"
+                                                        class="grid__item-img grid__item-img--large" alt="">
                                                 </div>
                                                 <div class="outer content-max-width">
                                                     <div class="inner">
                                                         <div class="slide-date"><span>2022</span></div>
                                                         <div class="subtitle"><span>Subtitle Here</span></div>
                                                         <div class="slide-title-wrapper">
-                                                            <div class="slide-title trigger-item-link secondary-font" data-color="#343434" data-firstline="View" data-secondline="Project"><span>Pulse App</span>
+                                                            <div class="slide-title trigger-item-link secondary-font"
+                                                                data-color="#343434" data-firstline="View"
+                                                                data-secondline="Project"><span>Pulse App</span>
                                                             </div>
-                                                            <a class="slide-link" data-type="page-transition" href="canhquan.html"></a>
+                                                            <a class="slide-link" data-type="page-transition"
+                                                                href="canhquan.html"></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -245,7 +276,8 @@
                                             <div class="swiper-slide trigger-item">
                                                 <div class="img-mask">
                                                     <div class="section-image">
-                                                        <img src="images/canhquan/cq6.jpg" class="item-image grid__item-img" alt="">
+                                                        <img src="images/canhquan/cq6.jpg"
+                                                            class="item-image grid__item-img" alt="">
                                                         <div class="hero-video-wrapper">
                                                             <video loop muted class="bgvid">
                                                                 <source
@@ -254,16 +286,20 @@
                                                             </video>
                                                         </div>
                                                     </div>
-                                                    <img src="images/canhquan/cq6.jpg" class="grid__item-img grid__item-img--large" alt="">
+                                                    <img src="images/canhquan/cq6.jpg"
+                                                        class="grid__item-img grid__item-img--large" alt="">
                                                 </div>
                                                 <div class="outer content-max-width">
                                                     <div class="inner">
                                                         <div class="slide-date"><span>2022</span></div>
                                                         <div class="subtitle"><span>Subtitle Here</span></div>
                                                         <div class="slide-title-wrapper">
-                                                            <div class="slide-title trigger-item-link secondary-font" data-color="#b08f4b" data-firstline="View" data-secondline="Project"><span>Gold Man</span>
+                                                            <div class="slide-title trigger-item-link secondary-font"
+                                                                data-color="#b08f4b" data-firstline="View"
+                                                                data-secondline="Project"><span>Gold Man</span>
                                                             </div>
-                                                            <a class="slide-link" data-type="page-transition" href="canhquan.html"></a>
+                                                            <a class="slide-link" data-type="page-transition"
+                                                                href="canhquan.html"></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -359,7 +395,8 @@
     <script src="../../../cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
     <script src='../../../cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.js'></script>
     <script src='../../../cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.js'></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpK1sWi3J3EbUOkF_K4-UHzi285HyFX5M&amp;sensor=false"></script>
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpK1sWi3J3EbUOkF_K4-UHzi285HyFX5M&amp;sensor=false"></script>
     <script src="js/clapatwebgl.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/common.js"></script>

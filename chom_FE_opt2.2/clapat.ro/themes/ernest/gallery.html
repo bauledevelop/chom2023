@@ -31,7 +31,7 @@
 
     <main>
         <!-- Preloader -->
-        <div class="preloader-wrap" data-secondline="Relaxed">
+        <div class="preloader-wrap" data-firstline="" data-secondline="Relaxed">
             <div class="outer">
                 <div class="inner">
                     <div class="trackbar">
@@ -85,12 +85,11 @@
                                                 </ul>
                                             </li>
                                             <li class="link menu-timeline"><a class="ajax-link"
-                                                    data-type="page-transition" href="gallery.html">
+                                                    data-type="page-transition" href="#">
                                                     <div class="before-span"><span
                                                             data-hover="Click to see">Gallary</span></div>
                                                 </a></li>
-                                            <li class="link menu-timeline"><a class="ajax-link"
-                                                    data-type="page-transition" href="contact.html">
+                                            <li class="link menu-timeline"><a href="contact.html">
                                                     <div class="before-span"><span
                                                             data-hover="Click to see">Contact</span></div>
                                                 </a></li>
@@ -373,36 +372,39 @@
     </div>
     <div id="rotate-device"></div>
 
-
     <script>
-        var gallery = document.querySelector('#gallery');
-        var getVal = function (elem, style) { return parseInt(window.getComputedStyle(elem).getPropertyValue(style)); };
-        var getHeight = function (item) { return item.querySelector('.content').getBoundingClientRect().height; };
+
+        var gallery = document.querySelector("#gallery");
+        var getVal = function (elem, style) {
+            return parseInt(window.getComputedStyle(elem).getPropertyValue(style));
+        };
+        var getHeight = function (item) {
+            return item.querySelector(".content").getBoundingClientRect().height;
+        };
         var resizeAll = function () {
-            var altura = getVal(gallery, 'grid-auto-rows');
-            var gap = getVal(gallery, 'grid-row-gap');
-            gallery.querySelectorAll('.gallery-item').forEach(function (item) {
+            var altura = getVal(gallery, "grid-auto-rows");
+            var gap = getVal(gallery, "grid-row-gap");
+            gallery.querySelectorAll(".gallery-item").forEach(function (item) {
                 var el = item;
-                el.style.gridRowEnd = "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
+                el.style.gridRowEnd =
+                    "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
             });
         };
-        gallery.querySelectorAll('img').forEach(function (item) {
-            item.classList.add('byebye');
+        gallery.querySelectorAll("img").forEach(function (item) {
+            item.classList.add("byebye");
             if (item.complete) {
                 console.log(item.src);
-            }
-            else {
-                item.addEventListener('load', function () {
-                    var altura = getVal(gallery, 'grid-auto-rows');
-                    var gap = getVal(gallery, 'grid-row-gap');
+            } else {
+                item.addEventListener("load", function () {
+                    var altura = getVal(gallery, "grid-auto-rows");
+                    var gap = getVal(gallery, "grid-row-gap");
                     var gitem = item.parentElement.parentElement.parentElement;
-                    gitem.style.gridRowEnd = "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
-                    item.classList.remove('byebye');
+                    gitem.style.gridRowEnd =
+                        "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
+                    item.classList.remove("byebye");
                 });
             }
         });
-
-
     </script>
 
     <script src="js/jquery.min.js"></script>
