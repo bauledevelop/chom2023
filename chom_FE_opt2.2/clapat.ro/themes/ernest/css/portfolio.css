@@ -403,7 +403,7 @@
 
 	.spaced-grid .item {
 	    width: calc(33% - 90px);
-	    position: relative;
+	    position: relative !important;
 	    height: auto;
 	    aspect-ratio: 1/1;
 	    margin: 30px;
