@@ -14,7 +14,21 @@
     <link href="style.css" rel="stylesheet" />
     <link href="css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <style>
 
+        .trigger-item{
+        /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+          filter: gray; /* IE5+ */
+          -webkit-filter: grayscale(100%); /* Webkit Nightlies & Chrome Canary */
+          -webkit-transition: all .8s ease-in-out;  
+        }
+    
+        .trigger-item:hover {
+        filter: none;
+          -webkit-filter: grayscale(0);
+          -webkit-transform: scale(1.01);
+        }
+        </style>
 </head>
 
 
@@ -33,7 +47,7 @@
                     <div class="percentage-wrapper">
                         <div class="percentage" id="precent"></div>
                     </div>
-                    <div class="percentage-intro">Loaded</div>
+                    <div class="percentage-intro">C.H.O.M</div>
                 </div>
             </div>
         </div>
@@ -180,7 +194,7 @@
                                                                 data-secondline="Project"><span>Sound Blaster</span>
                                                             </div>
                                                             <a class="slide-link" data-type="page-transition"
-                                                                href="index-showcase.html"></a>
+                                                                href="noithat.html"></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -206,7 +220,7 @@
                                                                 data-secondline="Project"><span>Green Case</span>
                                                             </div>
                                                             <a class="slide-link" data-type="page-transition"
-                                                                href="index-showcase.html"></a>
+                                                                href="noithat.html"></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -336,17 +350,7 @@
                 </div>
                 <!--/Content Scroll -->
 
-
-                <div class="thumb-wrapper">
-                    <div class="thumb-container">
-                        <div class="thumb-page" data-src="images/01hero.jpg"></div>
-                        <div class="thumb-page" data-src="images/02hero.jpg"></div>
-                        <div class="thumb-page" data-src="images/03hero.jpg"></div>
-                        <div class="thumb-page" data-src="images/04hero.jpg"></div>
-                        <div class="thumb-page" data-src="images/05hero.jpg"></div>
-                        <div class="thumb-page" data-src="images/06hero.jpg"></div>
-                    </div>
-                </div>
+ 
 
                 <div id="app"></div>
 
