@@ -465,6 +465,8 @@
  	    height: 100vh;
  	    max-width: none;
  	    padding: 0;
+ 	    display: flex;
+ 	    align-items: center;
  	}
 
  	/*--------------------------------------------------

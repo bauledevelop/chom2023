@@ -363,7 +363,10 @@
 
 	.portfolio {
 	    position: relative;
+	    display: flex;
+	    justify-content: space-around;
 	    margin: 0 auto;
+	    max-height: 100vh;
 	    box-sizing: border-box;
 	    -webkit-transition: height 0.5s ease-out;
 	    transition: height 0.5s ease-out;
@@ -399,19 +402,23 @@
 	}
 
 	.spaced-grid .item {
-	    width: calc(50% - 140px);
-	    height: 39vw;
-	    margin: 70px;
+	    width: calc(33% - 90px);
+	    position: relative;
+	    height: auto;
+	    aspect-ratio: 1/1;
+	    margin: 30px;
+	    top: 0 !important;
+	    left: auto !important;
 	}
 
 	.spaced-grid .item.wide {
-	    width: calc(100% - 140px);
-	    height: 35vw;
+	    width: calc(100% - 90px);
 	}
 
 	.item-parallax {
-	    height: 100%;
+	    height: auto;
 	    width: 100%;
+	    aspect-ratio: 1/1;
 	    position: absolute;
 	}
 
@@ -446,7 +453,8 @@
 	    content: "";
 	    opacity: 1;
 	    width: 100%;
-	    height: 60%;
+	    height: auto;
+	    aspect-ratio: 1/1;
 	    position: absolute;
 	    bottom: 0;
 	    left: 0;
@@ -550,7 +558,8 @@
 
 	.item-wrap-image {
 	    width: 100%;
-	    height: 100%;
+	    height: auto;
+	    aspect-ratio: 1/1;
 	    position: relative;
 	    z-index: 0;
 	    overflow: hidden;
@@ -568,7 +577,7 @@
 
 	.item-image {
 	    width: 100%;
-	    height: 100%;
+	    height: auto;
 	    position: relative;
 	    display: block;
 	    z-index: 100;
@@ -718,11 +727,7 @@
 	Responsive
 ---------------------------------------------------*/
 
-	@media only screen and (min-width: 1566px) {
-	    .spaced-grid .item {
-	        height: 31vw;
-	    }
-	}
+	@media only screen and (min-width: 1566px) {}
 
 
 	@media only screen and (max-width: 1466px) {
@@ -745,14 +750,12 @@
 	    }
 
 	    .spaced-grid .item {
-	        width: calc(50% - 120px);
-	        height: 52vw;
-	        margin: 60px;
+	        width: calc(33% - 60px);
+	        margin: 20px;
 	    }
 
 	    .spaced-grid .item.wide {
-	        width: calc(100% - 120px);
-	        height: 50vw;
+	        width: calc(100% - 60px);
 	    }
 
 	    .item-caption-wrapper {
@@ -803,14 +806,12 @@
 	    }
 
 	    .spaced-grid .item {
-	        width: calc(50% - 40px);
-	        height: 56vw;
+	        width: calc(33% - 40px);
 	        margin: 20px;
 	    }
 
 	    .spaced-grid .item.wide {
 	        width: calc(100% - 40px);
-	        height: 52vw;
 	    }
 
 	}
@@ -841,14 +842,12 @@
 	    }
 
 	    .spaced-grid .item {
-	        width: calc(50% - 30px);
-	        height: 56vw;
+	        width: calc(33% - 30px);
 	        margin: 15px;
 	    }
 
 	    .spaced-grid .item.wide {
 	        width: calc(100% - 30px);
-	        height: 52vw;
 	    }
 
 	    .item-caption-wrapper {
@@ -893,13 +892,11 @@
 
 	    .spaced-grid .item {
 	        width: calc(100% - 20px);
-	        height: 120vw;
 	        margin: 10px;
 	    }
 
 	    .spaced-grid .item.wide {
 	        width: calc(100% - 30px);
-	        height: 60vw;
 	    }
 
 	}
