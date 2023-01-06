@@ -676,7 +676,8 @@ img {
     border: 0 none;
     max-width: 100%;
     vertical-align: middle;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
 }
 
 h1,
@@ -2926,6 +2927,28 @@ nav.open {
     -webkit-transition: all 0s ease-in 0s;
     transition: all 0s ease-in 0s;
     background: transparent;
+}
+
+.slide-img {
+    height: 100%;
+}
+
+.number-index-project {
+    position: absolute;
+    top: 50%;
+    width: calc(100% - 160px);
+    padding: 0 80px;
+    text-align: right;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: end;
+}
+
+.line-count-index {
+    height: auto;
+    width: 50px;
+    background-image: url("images/Line1.png");
+    background-repeat: no-repeat;
 }
 
 /*--------------------------------------------------

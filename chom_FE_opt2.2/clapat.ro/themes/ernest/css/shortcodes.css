@@ -173,6 +173,7 @@
 
 .content-carousel .swiper-slide {
     text-align: center;
+    height: auto;
 }
 
 .content-slider .slider-button-prev {

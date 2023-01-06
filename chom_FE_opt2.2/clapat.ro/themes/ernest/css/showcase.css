@@ -859,83 +859,102 @@
 }
 
 @media only screen and (max-width: 1466px) {
+
     .slide-title,
     .title {
         font-size: 90px;
         line-height: 110px;
     }
+
     .title div {
         margin: 0 13px auto;
     }
+
     .title div:first-child span:first-child::before,
     .title div:first-child span:first-child::after {
         top: 20px;
     }
+
     #fixed-borders {
         clip-path: inset(0 60px 0 60px);
     }
+
     /*-- Showcase Carousel --*/
     #showcase-carousel .swiper-slide {
         height: 50vw;
         width: 50vw;
         border-radius: 50%;
     }
+
     #showcase-carousel .swiper-slide .outer {
         padding: 30px 20px 40px 20px;
     }
+
     /*-- Showcase Lists --*/
     .showcase-list-holder {
         width: calc(100% + 120px);
         padding-top: 40px;
         margin-left: -60px;
     }
+
     .showcase-list-header {
         padding: 0 60px;
     }
+
     .slide-list {
         padding: 50px 60px;
     }
 }
 
 @media only screen and (max-width: 1024px) {
+
     .slide-title,
     .title {
         font-size: 72px;
         line-height: 90px;
     }
+
     .title div {
         margin: 0 10px auto;
     }
+
     .title div:first-child span:first-child::before,
     .title div:first-child span:first-child::after {
         top: 14px;
     }
+
     #fixed-borders {
         clip-path: inset(0 40px 0 40px);
     }
+
     /*-- Showcase Carousel --*/
     #showcase-carousel-holder .swiper-slide {
         height: 40vw;
         width: 40vw;
         border-radius: 50%;
     }
+
     #showcase-carousel .swiper-slide .outer {
         padding: 30px 20px 30px 20px;
     }
+
     /*-- Showcase Lists --*/
     .showcase-list-holder {
         width: 100%;
         padding: 0px;
         margin-left: 0;
     }
+
     .showcase-list-header {
         display: none;
     }
+
     .slide-list.show-borders,
     .slide-list:last-child {
         border-top: none;
         border-bottom: none;
     }
+
     .slide-list {
         position: relative;
         opacity: 1;
@@ -948,12 +967,15 @@
         display: block;
         margin-bottom: 30px;
     }
+
     .slide-list:last-child {
         margin-bottom: 0px;
     }
+
     .slide-list::before {
         display: none;
     }
+
     .showcase-list-holder .hover-reveal {
         position: relative;
         opacity: 1;
@@ -963,16 +985,19 @@
         left: 0;
         pointer-events: initial;
     }
+
     .sl-title {
         font-size: 24px;
         line-height: 52px;
         margin-top: 0px;
         width: calc(100% - 100px);
     }
+
     .sl-title span {
         opacity: 1;
         transform: translate3d(0px, 0px, 0px);
     }
+
     .sl-subtitle {
         width: 100%;
         font-size: 14px;
@@ -983,10 +1008,12 @@
         top: auto;
         bottom: 0;
     }
+
     .sl-subtitle span {
         opacity: 1;
         transform: translate3d(0px, 0px, 0px);
     }
+
     .sl-date {
         font-size: 14px;
         opacity: 1;
@@ -995,6 +1022,7 @@
         top: 0;
         width: 100px;
     }
+
     .sl-date span {
         opacity: 1;
         transform: translate3d(0px, 0px, 0px);
@@ -1002,34 +1030,42 @@
 }
 
 @media only screen and (max-width: 767px) {
+
     .slide-title,
     .title {
         font-size: 60px;
         line-height: 76px;
     }
+
     .title div {
         margin: 0 8px auto;
     }
+
     .subtitle {
         font-size: 16px;
         line-height: 30px;
     }
+
     .title div:first-child span:first-child::before,
     .title div:first-child span:first-child::after {
         top: 10px;
     }
+
     #fixed-borders {
         clip-path: inset(0 30px 0 30px);
     }
+
     footer .swiper-pagination {
         display: none;
     }
+
     /*-- Showcase Carousel --*/
     #showcase-carousel-holder .swiper-slide {
         height: 60vw;
         width: 60vw;
         border-radius: 50%;
     }
+
     #showcase-carousel .slide-title {
         font-size: 28px;
         line-height: 36px;
@@ -1037,35 +1073,43 @@
 }
 
 @media only screen and (max-width: 479px) {
+
     .slide-title,
     .title {
         font-size: 48px;
         line-height: 66px;
     }
+
     .title div {
         margin: 0 7px auto;
     }
+
     .subtitle {
         font-size: 14px;
         line-height: 30px;
     }
+
     .title div:first-child span:first-child::before,
     .title div:first-child span:first-child::after {
         top: 10px;
     }
+
     #fixed-borders {
         clip-path: inset(0 20px 0 20px);
     }
+
     /*-- Showcase Carousel --*/
     #showcase-carousel-holder .swiper-slide {
         height: 60vw;
         width: 60vw;
         border-radius: 50%;
     }
+
     /*-- Showcase Lists --*/
     .slide-list {
         width: 100%;
     }
+
     .slide-list.show-borders,
     .slide-list:last-child {
         border-top: none;
