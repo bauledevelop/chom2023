@@ -6,11 +6,11 @@ Assigned to:	www.ClaPat.com
 Primary use:	Showcase Portfolio 
 -------------------------------------------------------------------*/
 
-@import url("css/content.css");
-@import url("css/showcase.css");
-@import url("css/portfolio.css");
-@import url("css/shortcodes.css");
-@import url("css/assets.css");
+@import url("content.css");
+@import url("showcase.css");
+@import url("portfolio.css");
+@import url("shortcodes.css");
+@import url("assets.css");
 
 @font-face {
     font-family: "Canela-Regular";
@@ -1645,10 +1645,12 @@ header {
 
 #logo {
     position: relative;
-    display: table;
+    display: flex;
     pointer-events: initial;
     z-index: 10;
-    top: 15px;
+    height: 100%;
+    top: 0;
+    align-items: center;
     float: left;
 }
 
@@ -2797,7 +2799,7 @@ footer .socials-wrap {
 .button-icon i {
     height: 40px;
     line-height: 39px;
-    width: 40px;
+    width: auto;
     text-align: center;
 }
 
@@ -2813,7 +2815,7 @@ footer .socials-wrap {
     font-weight: 600;
     font-size: 12px;
     line-height: 30px;
-    margin: 25px 0;
+    margin: 25px 20px;
     overflow: hidden;
     width: auto;
     padding: 0 10px;
@@ -2947,7 +2949,7 @@ nav.open {
 .line-count-index {
     height: auto;
     width: 50px;
-    background-image: url("images/Line1.png");
+    background-image: url("../images/Line1.png");
     background-repeat: no-repeat;
 }
 
@@ -2976,14 +2978,30 @@ nav.open {
 
 .index-project {
     color: #fff;
-    height: auto;
-    width: 50px;
-    background-image: url("images/line-dark.png");
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
     background-repeat: no-repeat;
+}
+
+.line-index-project {
+    border: 1px solid #fff;
+    width: 16px;
+    margin: 0 12px;
 }
 
 .text-shadow {
     text-shadow: rgb(0 0 0) 2px 3px 5px;
+}
+
+.number-pj-current {
+    font-size: 32px;
+}
+
+.number-pj-total {
+    display: flex;
+    justify-content: end;
 }
 
 /*--------------------------------------------------
@@ -3030,6 +3048,10 @@ nav.open {
         margin: 10px auto;
     }
 
+    .box-left {
+        width: 120px;
+    }
+
 }
 
 
@@ -3038,6 +3060,10 @@ nav.open {
     h1.big-title {
         font-size: 72px;
         line-height: 90px;
+    }
+
+    .slide-img {
+        height: 80%;
     }
 
     .parallax-wrap {
@@ -3289,6 +3315,15 @@ nav.open {
         margin: 0px auto;
         padding: 0 40px;
         height: 80px;
+    }
+
+    .number-index-project {
+        width: calc(100% - 80px);
+        padding: 0 40px;
+    }
+
+    .box-left {
+        width: 80px;
     }
 
     .footer-button-wrap {
@@ -3546,6 +3581,15 @@ nav.open {
         padding: 0 30px;
     }
 
+    .number-index-project {
+        width: calc(100% - 60px);
+        padding: 0 30px;
+    }
+
+    .box-left {
+        width: 60px;
+    }
+
     #footer-container #backtotop.button-wrap.left {
         float: none;
         top: 10px;
@@ -3699,6 +3743,10 @@ nav.open {
         margin: 0;
     }
 
+    .box-left {
+        width: 40px;
+    }
+
     footer.showcase-footer #footer-container {
         padding: 0px 20px;
     }
@@ -3757,6 +3805,18 @@ nav.open {
 
     #main-page-content .button-text {
         display: block;
+    }
+
+    .line-count-index {
+        width: 30px;
+    }
+
+    .number-pj-current {
+        font-size: 24px;
+    }
+
+    .number-pj-total {
+        font-size: 12px;
     }
 }
 
