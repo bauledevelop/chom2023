@@ -2951,6 +2951,36 @@ nav.open {
     background-repeat: no-repeat;
 }
 
+.box-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 100%;
+}
+
+.box-pagination-project {
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-prev-project,
+.button-next-project {
+    display: flex;
+    align-items: center;
+}
+
+.index-project {
+    color: #fff;
+    height: auto;
+    width: 50px;
+    background-image: url("images/line-dark.png");
+    background-repeat: no-repeat;
+}
+
 /*--------------------------------------------------
 	07. Responsive
 ---------------------------------------------------*/

@@ -184,6 +184,9 @@
                             </div>
                             <!-- Showcase Slider Holder -->
 
+                            <div class="box-left">
+
+                            </div>
 
                             <!-- Showcase Borders -->
                             <div id="fixed-borders">
@@ -227,8 +230,29 @@
                     <!-- Footer -->
                     <footer class="hidden">
                         <div id="footer-container">
-
-                            <div class="button-wrap left disable-drag swiper-prev">
+                            <div class="box-pagination-project">
+                                <div id="btnGiam" class="button-prev-project">
+                                    <div class="button-icon parallax-element">
+                                        <i class="fa fa-angle-left"></i>
+                                    </div>
+                                    <div class="button-text">Project 1</div>
+                                </div>
+                                <div class="index-project">
+                                    <div style="display: flex;">
+                                        <div id="display" style="font-size: 32px;">1</div>
+                                    </div>
+                                    <div style="display: flex; justify-content: end;">
+                                        <div>30</div>
+                                    </div>
+                                </div>
+                                <div id="btnGiam" class="button-next-project">
+                                    <div class="button-text">Project 3</div>
+                                    <div class="button-icon parallax-element">
+                                        <i class="fa fa-angle-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="button-wrap left disable-drag swiper-prev">
                                 <div class="icon-wrap parallax-wrap">
                                     <div class="button-icon parallax-element">
                                         <i class="fa fa-angle-left"></i>
@@ -237,7 +261,6 @@
                                 <div class="button-text sticky left"><span data-hover="Prev Slide">Prev Slide</span>
                                 </div>
                             </div>
-
                             <div class="button-wrap right disable-drag swiper-next">
                                 <div class="icon-wrap parallax-wrap">
                                     <div class="button-icon parallax-element">
@@ -246,7 +269,7 @@
                                 </div>
                                 <div class="button-text sticky right"><span data-hover="Next Slide">Next Slide</span>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
                     </footer>
@@ -282,7 +305,29 @@
     </div>
     <div id="rotate-device"></div>
 
+    <script type="text/javascript">
+        var count = 1;
+        var btnTang = document.getElementById("btnTang");
+        var btnGiam = document.getElementById("btnGiam");
+        var disp = document.getElementById("display");
 
+        btnTang.onclick = function () {
+            if (count < 30) {
+                count++;
+            }
+
+            disp.innerHTML = count;
+        }
+        btnGiam.onclick = function () {
+            if (count > 30 || count < 0) {
+                count = 30;
+            }
+
+            else count--;
+
+            disp.innerHTML = count;
+        }
+    </script>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>

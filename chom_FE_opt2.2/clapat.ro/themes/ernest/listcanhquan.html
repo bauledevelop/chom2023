@@ -303,7 +303,7 @@
                             <div class="number-index-project">
                                 <div class="line-count-index">
                                     <div style="display: flex;">
-                                        <div  id="display" style="font-size: 32px;">1</div>
+                                        <div id="display" style="font-size: 32px;">1</div>
                                     </div>
                                     <div style="display: flex; justify-content: end;">
                                         <div>30</div>
@@ -327,18 +327,20 @@
                                         <i class="fa fa-angle-up"></i>
                                     </div>
                                 </div>
-                                <div id="btnGiam" class="button-text sticky left"><span data-hover="Prev Slide">Prev Project</span>
+                                <div id="btnGiam" class="button-text sticky left"><span data-hover="Prev Slide">Prev
+                                        Project</span>
                                 </div>
-                               
+
                             </div>
 
                             <div class="button-wrap right disable-drag swiper-next">
-                                <div id="btnTang"  class="icon-wrap parallax-wrap">
+                                <div id="btnTang" class="icon-wrap parallax-wrap">
                                     <div class="button-icon parallax-element">
                                         <i class="fa fa-angle-down"></i>
                                     </div>
                                 </div>
-                                <div id="btnTang" class="button-text sticky right"><span data-hover="Next Slide">Prev Project</span>
+                                <div id="btnTang" class="button-text sticky right"><span data-hover="Next Slide">Prev
+                                        Project</span>
                                 </div>
                             </div>
 
@@ -387,26 +389,26 @@
     </div>
     <div id="rotate-device"></div>
 
-<script type="text/javascript">
+    <script type="text/javascript">
         var count = 1;
         var btnTang = document.getElementById("btnTang");
         var btnGiam = document.getElementById("btnGiam");
         var disp = document.getElementById("display");
-  
+
         btnTang.onclick = function () {
-        	if (count < 30) {
-               count++;
+            if (count < 30) {
+                count++;
             }
-            
+
             disp.innerHTML = count;
         }
         btnGiam.onclick = function () {
-        	if (count > 30 || count <0) {
-                count=30;
+            if (count > 30 || count < 0) {
+                count = 30;
             }
-            
+
             else count--;
-             
+
             disp.innerHTML = count;
         }
     </script>

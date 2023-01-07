@@ -1764,15 +1764,15 @@ function ShowcaseSlider() {
       var bullets_count = $(".swiper-pagination-bullet .parallax-wrap").length;
       var bullets_count_width =
         ($(".swiper-pagination-bullet .parallax-wrap").length * 40) / 2;
-      var bullets_height = $(".showcase-pagination-wrap").height() / 2;
+      var bullets_height = $(".showcase-pagination-wrap").width() / 2;
       var window_width = $(window).width() / 2;
       var window_height = $(window).height() / 2;
-      var footer_height = $("footer").height() / 2;
+      var left_width = $(".box-left").width() / 2; // the point
       for (i = 0; i < bullets_count; i++) {
         $(".swiper-pagination-bullet .parallax-wrap")
           .eq(i)
-          .css("left", i * 40 - bullets_count_width + window_width)
-          .css("top", bullets_height - 20 + window_height - footer_height);
+          .css("top", i * 40 - bullets_count_width + window_height)
+          .css("left", bullets_height - 20 + window_width - left_width);
       }
     }
 
