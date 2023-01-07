@@ -2965,6 +2965,7 @@ nav.open {
     height: 100%;
     display: flex;
     justify-content: space-between;
+    color: #000;
 }
 
 .button-prev-project,
@@ -2979,6 +2980,10 @@ nav.open {
     width: 50px;
     background-image: url("images/line-dark.png");
     background-repeat: no-repeat;
+}
+
+.text-shadow {
+    text-shadow: rgb(0 0 0) 2px 3px 5px;
 }
 
 /*--------------------------------------------------
