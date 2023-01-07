@@ -420,6 +420,8 @@
 	    width: 100%;
 	    aspect-ratio: 1/1;
 	    position: absolute;
+	    left: 50%;
+	    transform: translate(-50%, 0%);
 	}
 
 	.item-appear {
@@ -880,6 +882,9 @@
 
 	    .portfolio {
 	        overflow: hidden;
+	        height: 85vh;
+	        flex-direction: column;
+	        /* padding-top: 20px; */
 	    }
 
 	    .item {
@@ -898,6 +903,15 @@
 
 	    .spaced-grid .item.wide {
 	        width: calc(100% - 30px);
+	    }
+
+	    .item-parallax {
+	        height: 100%;
+	        width: auto;
+	    }
+
+	    .item-logo {
+	        display: none;
 	    }
 
 	}
