@@ -2949,7 +2949,8 @@ nav.open {
 .line-count-index {
     height: auto;
     width: 50px;
-    background-image: url("../images/Line1.png");
+    background-image: url("../images/Line1.svg");
+    background-position: bottom;
     background-repeat: no-repeat;
 }
 
