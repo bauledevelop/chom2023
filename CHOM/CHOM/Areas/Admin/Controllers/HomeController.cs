@@ -14,44 +14,19 @@ namespace CHOM.Areas.Admin.Controllers
        
         public HomeController(CHOMContext context)
         {
-         
             _context = context;
         }
+        
         [HttpGet]
         public IActionResult Login()
-
         {
-
-            USER _user = new USER();
-
-            return View(_user);
-
+            return View();
         }
         [HttpPost]
-
-        public IActionResult Login(USER _user)
-
+        [Area("Admin")]
+        public IActionResult Login(TaiKhoan _user)
         {
-
            
-
-            var status = _context.USER.Where(m => m.UserName == _user.UserName && m.UserPassword == _user.UserPassword).FirstOrDefault();
-
-            if (status == null)
-
-            {
-
-                ViewBag.LoginStatus = 0;
-
-            }
-
-            else
-
-            {
-                
-                return RedirectToAction("Index", "Home");
-
-            }
 
             return View(_user);
 
@@ -61,29 +36,6 @@ namespace CHOM.Areas.Admin.Controllers
         {
             
             return RedirectToAction("Login", "Home");
-        }
-        public IActionResult Index()
-        {
-            if (ViewBag["userID"] != null)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login", "Home");
-            }
-             
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
