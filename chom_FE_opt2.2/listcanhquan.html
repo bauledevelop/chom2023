@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Mirrored from clapat.ro/themes/ernest/index-carousel.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Jan 2023 09:31:43 GMT -->
 
 <head>
     <title>C.H.O.M</title>
@@ -143,7 +142,7 @@
                             <div id="showcase-carousel-holder">
                                 <div id="itemsWrapperLinks">
                                     <div id="showcase-carousel" class="swiper-container">
-                                        <div id="itemsWrapper" class="swiper-wrapper webgl-fitthumbs">
+                                        <div id="itemsWrapper" class="swiper-wrapper webgl-fitthumbs" onscroll="scrolled()">
                                             <div class="swiper-slide trigger-item">
                                                 <div class="img-mask">
                                                     <div class="section-image">
@@ -210,7 +209,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="swiper-slide trigger-item change-header">
+                                            <div class="swiper-slide trigger-item">
                                                 <div class="img-mask">
                                                     <div class="section-image">
                                                         <img src="images/canhquan/cq4.jpg" class="item-image grid__item-img" alt="" />
@@ -269,7 +268,11 @@
                                         <div>30</div>
                                     </div>
                                 </div> -->
-                                <div style="display: flex; flex-direction: column; text-align: center;">
+                                <div style="
+                      display: flex;
+                      flex-direction: column;
+                      text-align: center;
+                    ">
                                     <div id="display">1</div>
                                     <div class="line-vertical"></div>
                                     <div>30</div>
@@ -283,24 +286,24 @@
                     <!-- Footer -->
                     <footer class="hidden">
                         <div id="footer-container">
-                            <div class="button-wrap left disable-drag swiper-prev">
-                                <div id="btnGiam" class="icon-wrap parallax-wrap">
+                            <div id="btnGiam" class="button-wrap left disable-drag swiper-prev">
+                                <div class="icon-wrap parallax-wrap">
                                     <div class="button-icon parallax-element">
                                         <i class="fa fa-angle-up"></i>
                                     </div>
                                 </div>
-                                <div id="btnGiam" class="button-text sticky left">
+                                <div class="button-text sticky left">
                                     <span data-hover="Project">Prev Project</span>
                                 </div>
                             </div>
 
-                            <div class="button-wrap right disable-drag swiper-next">
-                                <div id="btnTang" class="icon-wrap parallax-wrap">
+                            <div id="btnTang" class="button-wrap right disable-drag swiper-next">
+                                <div class="icon-wrap parallax-wrap">
                                     <div class="button-icon parallax-element">
                                         <i class="fa fa-angle-down"></i>
                                     </div>
                                 </div>
-                                <div id="btnTang" class="button-text sticky right">
+                                <div class="button-text sticky right">
                                     <span data-hover="Project">Next Project</span>
                                 </div>
                             </div>
@@ -342,29 +345,45 @@
 
     <script type="text/javascript">
         var count = 1;
+        var total = 30;
         var btnTang = document.getElementById("btnTang");
         var btnGiam = document.getElementById("btnGiam");
         var disp = document.getElementById("display");
 
-        btnTang.onclick = function() {
-            if (count < 30) {
-                count++;
-            }
+        var header = document.getElementById("itemsWrapper");
+        var item = header.getElementsByClassName("swiper-slide");
+        var itemactive = header.getElementsByClassName("swiper-slide-active");
 
-            disp.innerHTML = count;
+        btnTang.onclick = function() {
+            setTimeout(() => {
+                if (count >= total) {
+                    count = 1;
+                } else {
+                    count++;
+                }
+                disp.innerHTML = count;
+            }, 400);
         };
         btnGiam.onclick = function() {
-            if (count > 30 || count < 0) {
-                count = 30;
-            } else count--;
+            setTimeout(() => {
+                if (count > total || count == 1) {
+                    count = total;
+                } else count--;
 
-            disp.innerHTML = count;
+                disp.innerHTML = count;
+            }, 400);
         };
 
-        // var header = document.getElementById("itemsWrapper");
-        // var item = header.getElementsByClassName("swiper-slide");
-        // for (var i = 0; i < btns.length; i++){
-        //     var current = document.getElementsByClassName("active");
+        function scrolled() {
+            alert("scroll");
+            count++;
+            console.log(count);
+        }
+
+        window.addEventListener("scroll", scrolled);
+
+        // for (var i = 0; i < item.length; i++) {
+        //     console.log(item[i]);
         // }
     </script>
 

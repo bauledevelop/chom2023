@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from clapat.ro/themes/ernest/index-showcase.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Jan 2023 09:31:43 GMT -->
 
 <head>
 
@@ -23,7 +22,7 @@
             /* Webkit Nightlies & Chrome Canary */
             -webkit-transition: all .8s ease-in-out;
         }
-
+        
         .canvas-slider:hover {
             filter: none;
             -webkit-filter: grayscale(0);
@@ -80,16 +79,13 @@
                                         <ul data-breakpoint="10025" class="flexnav">
                                             <li class="link menu-timeline">
                                                 <a class="" href="listcanhquan.html">
-                                                    <div class="before-span"><span
-                                                            data-hover="click to show ">Landscape</span></div>
+                                                    <div class="before-span"><span data-hover="click to show ">Landscape</span></div>
                                                 </a>
 
                                             </li>
                                             <li class="link menu-timeline">
-                                                <a class="ajax-link" data-type="page-transition"
-                                                    href="listcanhquan.html">
-                                                    <div class="before-span"><span
-                                                            data-hover="click to show ">Interior</span></div>
+                                                <a class="ajax-link" data-type="page-transition" href="listcanhquan.html">
+                                                    <div class="before-span"><span data-hover="click to show ">Interior</span></div>
                                                 </a>
                                             </li>
 
@@ -147,8 +143,7 @@
                                         </div>
 
 
-                                        <div class="swiper-slide text-shadow" data-title="Sound Blaster"
-                                            data-subtitle="">
+                                        <div class="swiper-slide text-shadow" data-title="Sound Blaster" data-subtitle="">
 
                                             <div class="slide-wrap" data-slide="1"></div>
 
@@ -161,8 +156,7 @@
                                         </div>
 
 
-                                        <div class="swiper-slide text-shadow" data-title="Tshirt Factory"
-                                            data-subtitle="">
+                                        <div class="swiper-slide text-shadow" data-title="Tshirt Factory" data-subtitle="">
 
                                             <div class="slide-wrap" data-slide="3"></div>
 
@@ -198,18 +192,12 @@
 
                             <!-- canvas slider -->
                             <div id="canvas-slider" class="canvas-slider">
-                                <div class="slider-img " data-slide="0"><img class="slide-img "
-                                        src="images/canhquan/cq1.jpg" alt="" /></div>
-                                <div class="slider-img" data-slide="1"><img class="slide-img"
-                                        src="images/canhquan/cq2.jpg" alt="" /></div>
-                                <div class="slider-img" data-slide="2"><img class="slide-img"
-                                        src="images/canhquan/cq3.jpg" alt="" /></div>
-                                <div class="slider-img" data-slide="3"><img class="slide-img"
-                                        src="images/canhquan/cq4.jpg" alt="" /></div>
-                                <div class="slider-img" data-slide="4"><img class="slide-img"
-                                        src="images/canhquan/cq5.jpg" alt="" /></div>
-                                <div class="slider-img" data-slide="5"><img class="slide-img"
-                                        src="images/canhquan/cq6.jpg" alt="" /></div>
+                                <div class="slider-img " data-slide="0"><img class="slide-img " src="images/canhquan/cq1.jpg" alt="" /></div>
+                                <div class="slider-img" data-slide="1"><img class="slide-img" src="images/canhquan/cq2.jpg" alt="" /></div>
+                                <div class="slider-img" data-slide="2"><img class="slide-img" src="images/canhquan/cq3.jpg" alt="" /></div>
+                                <div class="slider-img" data-slide="3"><img class="slide-img" src="images/canhquan/cq4.jpg" alt="" /></div>
+                                <div class="slider-img" data-slide="4"><img class="slide-img" src="images/canhquan/cq5.jpg" alt="" /></div>
+                                <div class="slider-img" data-slide="5"><img class="slide-img" src="images/canhquan/cq6.jpg" alt="" /></div>
                             </div>
                             <!--/canvas slider -->
 
@@ -312,19 +300,17 @@
         var btnGiam = document.getElementById("btnGiam");
         var disp = document.getElementById("display");
 
-        btnTang.onclick = function () {
+        btnTang.onclick = function() {
             if (count < 30) {
                 count++;
             }
 
             disp.innerHTML = count;
         }
-        btnGiam.onclick = function () {
+        btnGiam.onclick = function() {
             if (count > 30 || count < 0) {
                 count = 30;
-            }
-
-            else count--;
+            } else count--;
 
             disp.innerHTML = count;
         }
@@ -337,8 +323,7 @@
     <script src="js/cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/ScrollTrigger.min.js"></script>
     <script src='js/cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.js'></script>
     <script src='js/cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.js'></script>
-    <script type="text/javascript"
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpK1sWi3J3EbUOkF_K4-UHzi285HyFX5M&amp;sensor=false"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpK1sWi3J3EbUOkF_K4-UHzi285HyFX5M&amp;sensor=false"></script>
     <script src="js/clapatwebgl.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/common.js"></script>
