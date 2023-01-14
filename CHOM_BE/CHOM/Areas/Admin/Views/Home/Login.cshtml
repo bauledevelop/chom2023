@@ -1,0 +1,45 @@
+﻿@model CHOM.Data.TaiKhoan
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
+}
+
+<!-- page-wrapper Start-->
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-7"><img class="bg-img-cover bg-center" src="~/Admin/dict/images/login/2.jpg" alt="looginpage"></div>
+            <div class="col-xl-5 p-0">
+                <div class="login-card">
+                    <form class="theme-form login-form" action="/Admin/Home/Login" method="post">
+                        <h4>Đăng nhập</h4>
+                        <h6>Chào mừng đến với trang admin</h6>
+                        @if(ViewBag.Message != null)
+                        {
+                            <div class="alert alert-danger">@ViewBag.Message</div>
+                        }
+                        <div class="form-group">
+                            <label asp-for="UserName" class="control-label"></label>
+                            <div class="input-group">
+                                <input asp-for="UserName" class="form-control" type="text" required="" placeholder="Tài khoản...">
+                                <span asp-validation-for="UserName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password" class="control-label"></label>
+                            <div class="input-group">
+                                <input asp-for="Password" class="form-control" type="password" required="" placeholder="***">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block" type="submit">Đăng nhập</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- page-wrapper end-->
+

@@ -1,0 +1,230 @@
+﻿@model IEnumerable<CHOM.Data.DoiNgu>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Layout/_Layout.cshtml";
+    var about = (CHOM.Data.About)ViewBag.About;
+    var lienhe = (IEnumerable<CHOM.Data.LienHe>)ViewBag.LienHe;
+    var count = 0;
+}
+
+<!-- Content Scroll -->
+<div id="content-scroll">
+
+
+    <!-- Main -->
+    <div id="main">
+
+        <!-- Hero Section -->
+        <div id="hero">
+            <div id="hero-styles">
+                <div id="hero-caption" class="content-max-width parallax-scroll-caption">
+                    <div class="inner">
+                        <h5 class="hero-subtitle"><span>ABOUT US</span></h5>
+                        <h1 class="hero-title">
+                            <span class="secondary-font">@about.TuaDe</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/Hero Section -->
+        <!-- Main Content -->
+        <div id="main-content">
+            <!-- Main Page Content -->
+            <div id="main-page-content" class="content-max-width">
+
+
+                <!-- Row -->
+                <div class="content-row row_padding_bottom light-section" data-bgcolor="#fafafa">
+
+                    <h2 class="has-animation">
+                        @about.NoiDung
+                    </h2>
+
+                </div>
+                <!--/Row -->
+                <!-- Row -->
+                <div class="content-row light-section" data-bgcolor="#fafafa">
+
+                    <h5 class="has-animation gray-color">MEET THE</h5>
+
+                    <h1 class="big-title has-animation">
+                        Super <span class="secondary-font">
+                            Team
+                            behind
+                        </span>
+                    </h1>
+
+                    <hr>
+                    <hr>
+
+                </div>
+                <!--/Row -->
+                <!-- Row -->
+                <div class="content-row dark-section change-header-color full" data-bgcolor="#171717">
+
+                    <div class="swiper-container team-looped-carousel has-animation autocenter light-cursor"
+                         data-delay="0">
+                        <div class="swiper-wrapper">
+                            @foreach(var item in Model)
+                            {
+                                <div class="swiper-slide">
+                                    <div class="slide-img">
+                                        <img src="/uploadFiles/@item.HinhAnh" alt="Image Title">
+                                    </div>
+                                    <div class="team-caption">
+                                        <h5>@item.Ten</h5>
+                                        <p>@item.CongViec</p>
+                                    </div>
+                                </div>
+
+                            }
+                        </div>
+                    </div>
+
+                </div>
+                <!--/Row -->
+                <!-- Row -->
+                <div class="content-row row_padding_top" data-bgcolor="#171717">
+                    @for(var i=0;i<3;i++)
+                    {
+                        if (i==0)
+                        {
+                            var item = lienhe.SingleOrDefault(x => x.PhuongThuc == "Email");
+                            <div class="one_third has-animation" data-delay="100">
+                                <div class="box-icon-wrapper">
+                                    <div class="box-icon">
+                                        <i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="box-icon-content">
+                                        <h5 class="no-margins">
+                                            <a href="@item.Link"
+                                       class="link"><span>@item.Ten</span></a>
+                                        </h5>
+                                        <p>@item.PhuongThuc</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                        if (i==1)
+                        {
+                            var item = lienhe.SingleOrDefault(x => x.PhuongThuc == "Address");
+
+                            <div class="one_third has-animation" data-delay="200">
+
+                                <div class="box-icon-wrapper">
+                                    <div class="box-icon">
+                                        <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="box-icon-content">
+                                        <h5 class="no-margins">@item.Ten</h5>
+                                        <p>@item.PhuongThuc</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                        if(i==2)
+                        {
+                            var item = lienhe.SingleOrDefault(x => x.PhuongThuc == "Phone");
+
+                            <div class=" one_third last has-animation" data-delay="300">
+
+                                <div class="box-icon-wrapper">
+                                    <div class="box-icon">
+                                        <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="box-icon-content">
+                                        <h5 class="no-margins">@item.Ten</h5>
+                                        <p>@item.PhuongThuc</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        }
+                    }
+                </div>
+                <!--/Row -->
+
+
+
+
+            </div>
+            <!--/Main Page Content -->
+
+
+
+
+
+        </div>
+        <!--/Main Content -->
+
+    </div>
+    <!--/Main -->
+    <!-- Footer -->
+    <footer class="hidden">
+        <div id="footer-container">
+
+            <div id="backtotop" class="button-wrap left">
+                <div class="icon-wrap parallax-wrap">
+                    <div class="button-icon parallax-element">
+                        <i class="fa fa-angle-up"></i>
+                    </div>
+                </div>
+                <div class="button-text sticky left"><span data-hover="Back Top">Back Top</span></div>
+            </div>
+
+            <div class="footer-middle">
+                <div class="copyright">
+                    2022 © <a class="link" target="_blank"
+                              href="https://www.clapat.com/">ClaPat</a>. All rights reserved.
+                </div>
+            </div>
+
+            <div class="socials-wrap">
+                <div class="socials-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
+                <div class="socials-text">Follow Us</div>
+                <ul class="socials">
+                    <li>
+                        <span class="parallax-wrap">
+                            <a class="parallax-element"
+                               href="https://www.dribbble.com/clapat" target="_blank">Db</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="parallax-wrap">
+                            <a class="parallax-element"
+                               href="https://www.twitter.com/clapatdesign"
+                               target="_blank">Tw</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="parallax-wrap">
+                            <a class="parallax-element"
+                               href="https://www.behance.com/clapat" target="_blank">Be</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="parallax-wrap">
+                            <a class="parallax-element"
+                               href="https://www.facebook.com/clapat.ro" target="_blank">Fb</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="parallax-wrap">
+                            <a class="parallax-element"
+                               href="https://www.instagram.com/clapat.themes/">In</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+    <!--/Footer -->
+
+
+</div>
+<!--/Content Scroll -->

@@ -1,0 +1,94 @@
+﻿@model IEnumerable<CHOM.Data.HinhAnh>
+
+@{
+    ViewData["Title"] = "Interior";
+    Layout = "~/Views/Shared/Layout/_Layout.cshtml";
+}
+@section css{
+    <style>
+        .canvas-slider {
+            /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+            filter: gray;
+            /* IE5+ */
+            -webkit-filter: grayscale(1);
+            /* Webkit Nightlies & Chrome Canary */
+            -webkit-transition: all .8s ease-in-out;
+        }
+
+            .canvas-slider:hover {
+                filter: none;
+                -webkit-filter: grayscale(0);
+            }
+    </style>
+}
+<div id="content-scroll">
+    <!-- Main -->
+    <div id="main">
+        <!-- Hero Section -->
+        <div id="hero" class="has-image">
+            <div id="hero-styles">
+                <div id="hero-caption" class="content-max-width parallax-scroll-caption">
+                    <div class="inner">
+
+                        <div class="content-row small  change-header-color" data-bgcolor="#171717">
+
+                            <div class="swiper-container content-carousel autocenter light-cursor">
+                                <div class="swiper-wrapper">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="swiper-slide">
+                                            <div class="slide-img">
+                                                <img src="/fileImages/@item.FileName"
+                                                 alt="Image Title">
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <!-- <div class="swiper-pagination"></div> -->
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div id="hero-footer">
+                    <div class="box-pagination-project">
+                        <div id="btnGiam"
+                             class="button-prev-project button-wrap disable-drag swiper-prev">
+                            <div class="button-icon parallax-element" style="width: auto">
+                                <i class="fa fa-angle-left"></i>
+                            </div>
+                            <div class="button-text text-shadow"></div>
+                        </div>
+                        <div class="index-project">
+                            <div id="display" class="text-shadow">
+                                1
+                            </div>
+                            <div class="line-index-project"></div>
+                            <div class="text-shadow">
+                                @Model.Count()
+                            </div>
+                        </div>
+                        <div id="btnGiam"
+                             class="button-next-project button-wrap disable-drag swiper-prev">
+                            <div class="button-text text-shadow"></div>
+                            <div class="button-icon parallax-element" style="width: auto">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="hero-image-wrapper" style="opacity: 0.4;">
+            <div id="hero-background-layer" class="parallax-scroll-image">
+                <div id="hero-bg-image" style="background-image:url(/uploadFiles/@ViewBag.Image)"></div>
+            </div>
+        </div>
+        <!--/Hero Section -->
+        <!--/Main Content -->
+    </div>
+    <!--/Main -->
+
+</div>

@@ -2,9 +2,9 @@
 
 namespace CHOM.Areas.Admin.Views.Shared.Components.SideBarViewComponent
 {
-    public class SideBarViewComponent : Controller
+    public class SideBarViewComponent : ViewComponent
     {
-        public IActionResult Index()
+        public IViewComponentResult Invoke()
         {
             return View();
         }
