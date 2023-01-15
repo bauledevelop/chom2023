@@ -96,12 +96,10 @@
     padding-left: 1vw;
 }
 
-
 @keyframes content-marquee {
     0% {
         transform: translateX(0)
     }
-
     100% {
         transform: translateX(-50%)
     }
@@ -322,7 +320,6 @@ footer .swiper-pagination {
     from {
         stroke-dashoffset: 1000;
     }
-
     to {
         stroke-dashoffset: 0;
     }
@@ -401,7 +398,6 @@ footer .swiper-pagination {
     top: 0;
     z-index: 120;
     pointer-events: none;
-
 }
 
 .hero-video-wrapper video.bgvid {
@@ -638,6 +634,7 @@ video.bgvid {
     left: 0;
 }
 
+
 /*--------------------------------------------------
 	Buttons
 ---------------------------------------------------*/
@@ -802,7 +799,6 @@ video.bgvid {
 }
 
 
-
 /*--------------------------------------------------
 	Appearing Items
 ---------------------------------------------------*/
@@ -962,8 +958,6 @@ span.has-hover-image.vertical .hover-reveal {
 }
 
 
-
-
 /*--------------------------------------------------
 	Underline Link
 ---------------------------------------------------*/
@@ -1101,6 +1095,7 @@ a.link:hover::before {
     padding-bottom: 20px;
     box-sizing: border-box;
 }
+
 
 /*--------------------------------------------------
 	Clients Table
@@ -1343,7 +1338,6 @@ dt.accordion-active .acc-button-icon i {
 }
 
 
-
 /*--------------------------------------------------
 	Justified Gallery
 ---------------------------------------------------*/
@@ -1391,14 +1385,14 @@ dt.accordion-active .acc-button-icon i {
     /* IE10+ */
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 100%);
     /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
     /* IE6-9 */
 }
+
 
 /*--------------------------------------------------
 	Team Members
 ---------------------------------------------------*/
-
 
 .team-members-list {
     position: relative;
@@ -1506,6 +1500,7 @@ dt.accordion-active .acc-button-icon i {
 .team-caption p {
     margin-bottom: 0;
 }
+
 
 /*--------------------------------------------------
 	Contact Formular
@@ -1699,7 +1694,7 @@ textarea {
     box-sizing: border-box;
     padding: 14px 20px 6px 20px;
     padding-left: 0;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 textarea:after {
@@ -1795,7 +1790,6 @@ input[type="submit"] {
     display: none !important;
 }
 
-
 .services-icon i {
     font-size: 24px;
     margin-bottom: 20px;
@@ -1806,137 +1800,102 @@ input[type="submit"] {
 }
 
 
-
 /*--------------------------------------------------
 	Responsive
 ---------------------------------------------------*/
 
-
-
 @media only screen and (max-width: 1466px) {
-
-
     .button-border span {
         padding: 0 26px;
     }
-
     .accordion.bigger-acc dt span {
         text-indent: -4px;
     }
-
     .accordion.bigger-acc .acc-icon-wrap {
         top: 25px;
     }
-
     .team-members-list .hover-reveal {
         width: 250px;
         height: 333px;
     }
-
     span.has-hover-image .hover-reveal {
         width: 300px;
         height: 188px;
     }
-
     span.has-hover-image.vertical .hover-reveal {
         width: 250px;
         height: 333px;
     }
-
-
-
 }
 
-
 @media only screen and (max-width: 1024px) {
-
-
-
     textarea {
         margin-bottom: 30px;
     }
-
     .justified-gallery {
         margin-left: 0px;
         width: 100% !important;
         padding: 0;
     }
-
     .full .video-wrapper video.bgvid {
         position: relative;
         margin-top: 0;
         left: 0;
         transform: translateX(0) translateY(0);
     }
-
     .full .control {
         bottom: 10px;
         width: calc(100% - 100px);
     }
-
     #map_canvas {
         height: 50vh;
     }
-
     .accordion dt span {
         max-width: none;
     }
-
     .accordion .accordion-content {
         padding-right: 0;
     }
-
     .accordion.bigger-acc dt {
         font-size: 48px;
         line-height: 64px;
         margin-top: 30px;
         padding-top: 30px;
     }
-
     .accordion.bigger-acc dt:first-child {
         padding-top: 30px;
     }
-
     .accordion.bigger-acc dt span {
         text-indent: -3px;
     }
-
     .accordion.bigger-acc .acc-icon-wrap {
         top: 22px;
     }
-
     .team-member {
         font-size: 36px;
         line-height: 60px;
     }
-
     .team-members-list .hover-reveal {
         width: 200px;
         height: 266px;
     }
-
     span.has-hover-image .hover-reveal {
         width: 250px;
         height: 156px;
     }
-
     span.has-hover-image.vertical .hover-reveal {
         width: 200px;
         height: 266px;
     }
-
 }
 
-
 @media only screen and (max-width: 767px) {
-
     .content-slider .swiper-pagination-bullets,
     .content-carousel .swiper-pagination-bullets,
     .content-looped-carousel .swiper-pagination-bullets {
         bottom: 40px !important;
         margin: 0 !important;
     }
-
     .content-slider .swiper-pagination-bullet,
     .content-looped-carousel .swiper-pagination-bullet,
     .content-carousel .swiper-pagination-bullet {
@@ -1944,162 +1903,128 @@ input[type="submit"] {
         width: 30px;
         height: 30px;
     }
-
     .content-slider .swiper-pagination-bullet .parallax-wrap,
     .content-looped-carousel .swiper-pagination-bullet .parallax-wrap,
     .content-carousel .swiper-pagination-bullet .parallax-wrap {
         width: 30px;
         height: 30px;
     }
-
     .video-wrapper {
         max-height: 50vh;
     }
-
     .control {
         display: none;
     }
-
     .name-box,
     .email-box {
         width: 100%;
         margin-right: 0;
     }
-
     .clients-table li {
         width: 50%;
     }
-
     .empty-space,
     .empty-space.tx {
         height: 60px;
     }
-
     input[type="text"],
     textarea {
         font-size: 14px;
     }
-
     .accordion dt {
         font-size: 28px;
         line-height: 44px;
     }
-
     .accordion.bigger-acc dt {
         font-size: 36px;
         line-height: 52px;
         margin-top: 25px;
         padding-top: 25px;
     }
-
     .accordion.bigger-acc dt:first-child {
         padding-top: 25px;
     }
-
     .accordion.bigger-acc dt span {
         text-indent: -2px;
     }
-
     .accordion.bigger-acc .acc-icon-wrap {
         top: 11px;
     }
-
     .team-member {
         font-size: 28px;
         line-height: 44px;
     }
-
     .team-member span {
         float: none;
         line-height: 24px;
     }
-
     .team-members-list .hover-reveal {
         width: 150px;
         height: 200px;
     }
-
     span.has-hover-image .hover-reveal {
         width: 200px;
         height: 125px;
     }
-
     span.has-hover-image.vertical .hover-reveal {
         width: 150px;
         height: 200px;
     }
-
 }
 
-
 @media only screen and (max-width: 479px) {
-
     .pin-spacer {
         width: 100% !important;
     }
-
     .pinned-element {
         float: none;
         width: 100%;
         margin: 0;
     }
-
     .pinned-element.left {
         padding-right: 0px;
     }
-
     .pinned-element.right {
         padding-left: 0px;
     }
-
     .scrolling-element {
         position: relative;
         float: none;
         width: 100%;
         margin: 0;
     }
-
     .clapat-button {
         margin-bottom: 20px;
     }
-
     .team-member {
         font-size: 24px;
         line-height: 40px;
     }
-
     .team-members-list .hover-reveal {
         width: 100px;
         height: 133px;
     }
-
     .accordion.bigger-acc dt {
         font-size: 30px;
         line-height: 46px;
         margin-top: 20px;
         padding-top: 20px;
     }
-
     .accordion.bigger-acc dt:first-child {
         padding-top: 20px;
     }
-
     .accordion.bigger-acc dt span {
         text-indent: -2px;
     }
-
     .accordion.bigger-acc .acc-icon-wrap {
         top: 3px;
     }
-
     span.has-hover-image .hover-reveal {
         width: 150px;
         height: 94px;
     }
-
     span.has-hover-image.vertical .hover-reveal {
         width: 100px;
         height: 133px;
     }
-
 }
