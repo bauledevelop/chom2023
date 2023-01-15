@@ -225,7 +225,7 @@ iframe {
 }
 
 .about-content {
-    padding: 10px;
+    padding: 0 10px;
 }
 
 .comment-text {
@@ -387,10 +387,17 @@ iframe {
 
 .title-info {
     color: #B8860B;
-    /* font-weight: normal; */
     display: flex;
+    align-items: center;
     white-space: nowrap;
     padding: 0 10px;
+}
+
+.name-member,
+.name-info {
+    color: #B8860B;
+    font-weight: normal;
+    padding: 0 8px;
 }
 
 .line-title {
