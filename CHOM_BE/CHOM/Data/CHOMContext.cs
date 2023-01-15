@@ -12,12 +12,13 @@ namespace CHOM.Data
             : base(options)
         {
         }
-
-        public DbSet<CHOM.Data.DUAN> DUAN { get; set; } = default!;
-        public DbSet<CHOM.Data.LOAI> LOAI { get; set; } = default!;
-        public DbSet<CHOM.Data.SLIDE> SLIDE { get; set; } = default!;
-        public DbSet<CHOM.Data.THUVIEN> THUVIEN{ get; set; } = default!;
-        public DbSet<CHOM.Data.ABOUT> ABOUT{ get; set; } = default!;
-        public DbSet<CHOM.Data.USER> USER { get; set; } = default!;
+        public virtual DbSet<MucLuc> MucLucs { set; get; } = default!;
+        public virtual DbSet<HinhAnh> HinhAnhs { set; get; } = default!;
+        public virtual DbSet<About> Abouts { set; get; } = default!;
+        public virtual DbSet<BoSuuTam> BoSuuTams { set; get; } = default!;
+        public virtual DbSet<DuAn> DuAns { set; get; } = default!;
+        public virtual DbSet<LienHe> LienHes { set; get; } = default!;
+        public virtual DbSet<TaiKhoan> TaiKhoans { set; get; } = default!;
+        public virtual DbSet<DoiNgu> DoiNgus { set; get; } = default!;
     }
 }

@@ -1,0 +1,16 @@
+﻿
+.txt-notification
+{
+    display: none;
+}
+.img-uploadFile{
+    width: 20%;
+    height: 20%;
+    background-size: cover;
+    border-radius: 1em;
+}
+td img {
+    width: 300px;
+    height: 150px;
+    border-radius: 1em;
+}
