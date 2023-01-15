@@ -1849,11 +1849,13 @@ nav.open {
         width: 100%;
         left: 0;
         content: attr(data-hover);
+        /* font-family: 'Poppins', sans-serif; */
     }
     .classic-menu .flexnav li:hover a span {
         -webkit-transform: translateY(-100%);
         transform: translateY(-100%);
         transform-origin: 0% 0%;
+        /* font-family: 'Poppins', sans-serif; */
     }
     .classic-menu .flexnav li ul li a {
         padding: 0 20px 20px;
@@ -2921,6 +2923,12 @@ nav.open {
     margin: 8px auto;
     width: 2px;
 }
+
+
+/* 
+.font-title {
+    font-family: 'Poppins', sans-serif;
+} */
 
 
 /*--------------------------------------------------
