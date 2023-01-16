@@ -2735,6 +2735,18 @@ footer .socials-wrap {
     -webkit-transition: color 0.05s ease-in-out;
     transition: color 0.05s ease-in-out;
 }
+.button-text-2 {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 30px;
+    margin: 25px 20px;
+    overflow: hidden;
+    width: auto;
+    padding: 0 10px;
+    color: #000;
+    -webkit-transition: color 0.05s ease-in-out;
+    transition: color 0.05s ease-in-out;
+}
 
 #main #hero-footer .button-text span::after {
     content: none;
@@ -2799,6 +2811,11 @@ footer .socials-wrap {
     float: right;
     padding-left: 0px;
 }
+.button-wrap.right .button-text-2 {
+    text-align: right;
+    float: right;
+    padding-left: 0px;
+}
 
 .button-text span {
     position: relative;
@@ -2815,6 +2832,9 @@ footer .socials-wrap {
 }
 
 .button-wrap.right .button-text span {
+    text-align: right;
+}
+.button-wrap.right .button-text-2 span {
     text-align: right;
 }
 
