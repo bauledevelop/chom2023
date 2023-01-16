@@ -1185,7 +1185,6 @@ a.link:hover::before {
 
 .accordion dt {
     position: relative;
-    cursor: pointer;
     padding: 0px;
     margin-bottom: 10px;
     font-size: 36px;
@@ -1557,7 +1556,7 @@ dt.accordion-active .acc-button-icon i {
 .message-box {
     float: left;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 36px;
 }
 
 input,

@@ -231,7 +231,7 @@ iframe {
 }
 
 .info-content {
-    padding: 95px 120px 0px 120px;
+    padding: 80px 120px 0px 120px;
 }
 
 .text-infomation {
@@ -345,10 +345,10 @@ iframe {
 .scrollbar {
     margin-left: 22px;
     float: left;
-    height: 500px;
+    height: 480px;
     width: 100%;
     overflow-y: scroll;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     z-index: 100;
 }
 
@@ -418,10 +418,38 @@ iframe {
 .images-logo-home {
     width: 350px;
 }
+
 .form-contact {
     margin: 0 10px;
     width: calc(50% - 20px);
 }
+
+.info-title {
+    font-weight: bold;
+    color: #000;
+}
+
+.select-form {
+    color: rgba(0, 0, 0, 1);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    height: 50px;
+    padding: 12px 20px 12px 20px;
+    padding-left: 0;
+    width: 100%;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    border: none;
+    -webkit-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    box-sizing: border-box;
+    background-color: transparent;
+    outline: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+
 
 @media (max-width: 600px) {
     .gallery {
@@ -432,6 +460,9 @@ iframe {
 @media (max-width: 400px) {
     .gallery {
         grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    }
+    .footer-info {
+        margin-top: 30px;
     }
 }
 
@@ -529,7 +560,7 @@ iframe {
         font-size: 18px;
     }
     .about-content {
-        padding: 10px 30px;
+        padding: 5px 30px;
     }
 }
 @media only screen and (max-width: 1140px) {

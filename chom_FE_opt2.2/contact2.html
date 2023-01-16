@@ -127,7 +127,7 @@
                         <div class="container text-center info-content">
                             <div class="row about-content">
                                 <div class="col-12">
-                                    <h2 style="font-weight: normal;">Về chúng tôi</h1>
+                                    <h2 style="font-weight: normal; margin-bottom: 0;">Về chúng tôi</h1>
                                 </div>
                             </div>
                             <div class="row about-content">
@@ -176,12 +176,18 @@
                                             <input name="phone" type="text" id="phone" size="30" value="" placeholder="Your Phone"><label class="input_label"></label>
                                         </div>
                                         <div class="message-box has-animation" data-delay="150" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
-                                            <input list="browsers" name="browser" id="browser" size="30" value placeholder="Service you want">
+                                            <!-- <input list="browsers" name="browser" id="browser" size="30" value placeholder="Service you want">
                                             <datalist id="browsers">
                                                 <option value="Service one"></option>
                                                 <option value="Service two"></option>
                                                 <option value="Service three"></option>
-                                            </datalist>
+                                            </datalist> -->
+                                            <select class="select-form" name="Service you want" id="cars">
+                                                <option value="Service one">Service one</option>
+                                                <option value="Service two">Service two</option>
+                                                <option value="Service three">Service three</option>
+                                                <option value="Service four">Service four</option>
+                                              </select>
                                         </div>
                                         <div class="message-box has-animation" data-delay="100">
                                             <textarea name="comments" cols="40" rows="4" id="comments" placeholder="Comment" ></textarea><label class="input_label slow"></label>
@@ -195,13 +201,15 @@
                                         </div>
                                     </form>                        
                                     
-                                    <div class="col" style="margin-top: 20px;">
-                                        <a class="text-center" href="https://goo.gl/maps/PAidE9QakdgVtGiPA">Địa chỉ: 28 Thảo điền Q2, HCM</a>
-                                        <br>
-                                        <a class=" text-center" href="tel:0988888888">Điện thoại: <span id="phonenumber">0988888888</span></a>
-                                        <br>
-                                        <a class=" text-center" href="mailto:admin@chomdesign.com">Mail: admin@chomdesign.com</a>
-                                    </div>
+                                </div>
+                                <div class="col footer-info">
+                                    <img src="images/logo.svg" alt="logo" style="height: 40px;">
+                                    <br>
+                                    <a class="text-center" href="https://goo.gl/maps/PAidE9QakdgVtGiPA"><span class="info-title"> Địa chỉ: </span>28 Thảo điền Q2, HCM</a>
+                                    <br>
+                                    <a class=" text-center" href="tel:0988888888"> <span class="info-title"> Điện thoại: </span><span id="phonenumber">0988888888</span></a>
+                                    <br>
+                                    <a class=" text-center" href="mailto:admin@chomdesign.com"><span class="info-title"> Email: </span>admin@chomdesign.com</a>
                                 </div>
                             </div>
                         </div>
