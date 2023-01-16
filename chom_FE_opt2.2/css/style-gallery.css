@@ -3,7 +3,6 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    /* background-color: #fff; */
 }
 
 @media screen {}
@@ -13,7 +12,6 @@
 }
 
 .imgBG {
-    /* max-height: 10wh !important; */
     background-image: url("videbg.mp4") !important;
     background-repeat: no-repeat;
     background-attachment: fixed;
