@@ -194,7 +194,7 @@
                                     <div class="col">
                                         <a class="text-center" href="#">Địa chỉ: 28 Thảo điền Q2, HCM</a>
                                         <br>
-                                        <a class=" text-center" href="#">Điện thoại: 093234213</a>
+                                        <a class=" text-center" href="#">Điện thoại: <span id="phonenumber">0988888888</span></a>
                                         <br>
                                         <a class=" text-center" href="#">Mail: admin@gmail.com</a>
                                     </div>
@@ -236,6 +236,13 @@
     <div id="rotate-device"></div>
 
 
+    <script>
+        const phonenumber = document.getElementById("phonenumber").innerHTML;
+        const begin = phonenumber.substring(0, 4);
+        const middle = phonenumber.substring(4, 7);
+        const end = phonenumber.substring(phonenumber.length - 3);
+        document.getElementById("phonenumber").innerHTML = begin + " " + middle + " " + end;
+    </script>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
