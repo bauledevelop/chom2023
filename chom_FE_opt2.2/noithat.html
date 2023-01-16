@@ -215,6 +215,30 @@
     </div>
     <div id="rotate-device"></div>
 
+    
+    <script type="text/javascript">
+        var count = 1;
+        var btnTang = document.getElementById("btnTang");
+        var btnGiam = document.getElementById("btnGiam");
+        var disp = document.getElementById("display");
+
+        btnTang.onclick = function() {
+            if (count < 30) {
+                count++;
+            }
+
+            disp.innerHTML = count;
+        }
+        btnGiam.onclick = function() {
+            if (count > 30 || count < 0) {
+                count = 30;
+            } else count--;
+
+            disp.innerHTML = count;
+        }
+    </script>
+
+
     <script src="js/jquery.min.js"></script>
     <script src="js/cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
     <script src="js/cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
