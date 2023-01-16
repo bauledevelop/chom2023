@@ -395,7 +395,6 @@ iframe {
 
 .name-member,
 .name-info {
-    color: #B8860B !important;
     font-weight: normal;
     padding-right: 10px !important;
     display: flex !important;
@@ -409,7 +408,7 @@ iframe {
 
 .line-title {
     width: 100%;
-    border-bottom: 2px solid #B8860B;
+    border-bottom: 2px solid #000;
 }
 
 .info-member {
