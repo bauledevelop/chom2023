@@ -804,8 +804,8 @@
 
  	.content-max-width {
  	    box-sizing: border-box;
- 	    padding-left: 60px;
- 	    padding-right: 60px;
+ 	    /* padding-left: 60px;
+ 	    padding-right: 60px; */
  	    max-width: 1280px;
  	}
 
@@ -858,10 +858,10 @@
  	        margin-bottom: calc(100vh - 100px);
  	    }
 
- 	    .content-max-width {
+ 	    /* .content-max-width {
  	        padding-left: 60px;
  	        padding-right: 60px;
- 	    }
+ 	    } */
 
  	}
 
@@ -884,10 +884,10 @@
  	        padding: 10px 40px;
  	    }
 
- 	    .content-max-width {
+ 	    /* .content-max-width {
  	        padding-left: 40px;
  	        padding-right: 40px;
- 	    }
+ 	    } */
 
  	}
 
@@ -932,10 +932,10 @@
  	        display: none;
  	    }
 
- 	    .content-max-width {
+ 	    /* .content-max-width {
  	        padding-left: 30px;
  	        padding-right: 30px;
- 	    }
+ 	    } */
 
  	}
 
@@ -979,9 +979,9 @@
  	        padding: 10px 20px;
  	    }
 
- 	    .content-max-width {
+ 	    /* .content-max-width {
  	        padding-left: 20px;
  	        padding-right: 20px;
- 	    }
+ 	    } */
 
  	}

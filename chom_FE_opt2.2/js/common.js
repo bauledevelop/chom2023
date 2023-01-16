@@ -1909,23 +1909,23 @@ function Shortcodes() {
 
   // Accordion
 
-  $("dd.accordion-content").slideUp(1).addClass("hide");
-  $("dl.accordion").on("click", "dt", function () {
-    $(this)
-      .addClass("accordion-active")
-      .next()
-      .slideDown(350)
-      .siblings("dd.accordion-content")
-      .slideUp(350)
-      .prev()
-      .removeClass("accordion-active");
-  });
-  $("dl.accordion").on("click", "dt.accordion-active", function () {
-    $(this)
-      .removeClass("accordion-active")
-      .siblings("dd.accordion-content")
-      .slideUp(350);
-  });
+  // $("dd.accordion-content").slideUp(1).addClass("hide");
+  // $("dl.accordion").on("click", "dt", function () {
+  //   $(this)
+  //     .addClass("accordion-active")
+  //     .next()
+  //     .slideDown(350)
+  //     .siblings("dd.accordion-content")
+  //     .slideUp(350)
+  //     .prev()
+  //     .removeClass("accordion-active");
+  // });
+  // $("dl.accordion").on("click", "dt.accordion-active", function () {
+  //   $(this)
+  //     .removeClass("accordion-active")
+  //     .siblings("dd.accordion-content")
+  //     .slideUp(350);
+  // });
 
   $(".flexnav").flexNav({ animationSpeed: 250 });
 

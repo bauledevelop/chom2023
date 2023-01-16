@@ -233,7 +233,7 @@ iframe {
 }
 
 .info-content {
-    padding: 60px 120px 0px 120px;
+    padding: 100px 120px 0px 120px;
 }
 
 .text-infomation {
@@ -349,7 +349,6 @@ iframe {
     float: left;
     height: 500px;
     width: 100%;
-    background: #F5F5F5;
     overflow-y: scroll;
     margin-bottom: 25px;
     z-index: 100;
@@ -396,9 +395,16 @@ iframe {
 
 .name-member,
 .name-info {
-    color: #B8860B;
+    color: #B8860B !important;
     font-weight: normal;
-    padding: 0 8px;
+    padding-right: 10px !important;
+    display: flex !important;
+    white-space: nowrap;
+    align-items: center;
+}
+
+.name-member {
+    text-align: end;
 }
 
 .line-title {

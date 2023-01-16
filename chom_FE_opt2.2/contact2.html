@@ -127,71 +127,76 @@
                         <div class="container text-center info-content">
                             <div class="row about-content">
                                 <div class="col-12">
-                                    <h1 style="font-weight: normal;">Về chúng tôi</h1>
+                                    <h2 style="font-weight: normal;">Về chúng tôi</h1>
                                 </div>
                             </div>
                             <div class="row about-content">
-                                <div class="col-12">
-                                    <p class="text-infomation">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc elit odio, volutpat ut tincidunt in, tempus at mauris. Aenean purus nibh, tempus sit amet mattis sed, dictum eu magna. Morbi porttitor mollis volutpat. Aenean
-                                        commodo congue mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus egestas, quam non hendrerit varius, urna augue gravida est, vitae imperdiet leo turpis
-                                        et lacus. Suspendisse tempor quam a vestibulum lobortis. Proin a diam velit.
-                                    </p>
-                                </div>
                                 <div class="col-lg-6">
                                     <div class="scrollbar" id="style-4">
                                         <div class="force-overflow">
                                             <div>
                                                 <img class="image-member" src="images/memberA7.jpg" alt="member">
                                             </div>
-                                            <div>
-                                                <div class="title-info">
-                                                    <div class="line-title"></div>
-                                                    <h4 class="name-member">Thien Pham</h4>
-                                                </div>
-                                                <p class="info-member">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                                    deserunt mollit anim id est laborum.</p>
-                                            </div>
-
-                                            <div>
-                                                <div class="title-info">
-                                                    <div class="line-title"></div>
-                                                    <h4 class="name-info">Cột mốc</h4>
-                                                    <div class="line-title"></div>
-                                                </div>
-                                                <p class="info-member">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                                                    deserunt mollit anim id est laborum.</p>
-                                            </div>
+                                            <div class="content-row light-section" data-bgcolor="#fafafa">
+                                
+                                                <dl class="accordion has-animation">
+                                                    
+                                                    <dt class="accordion-active">
+                                                        <span class="name-member"><span class="line-title"></span> Thien Pham</span>
+                                                    </dt>
+                                                    <dd class="accordion-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                                                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                                        deserunt mollit anim id est laborum.</dd>
+                                                    
+                                                </dl>
+                                                <dl class="accordion has-animation">
+                                                    
+                                                    <dt class="accordion-active">
+                                                        <span class="name-info"><span class="line-title"></span>Cột mốc<span class="line-title"></span></span>
+                                                    </dt>
+                                                    <dd class="accordion-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                                                        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                                                        deserunt mollit anim id est laborum.</dd>
+                                                    
+                                                </dl>
+                                                
+                                           </div> 
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 form-contact">
-                                    <div class="mb-xl-3 mb-2">
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name">
-                                    </div>
-                                    <div class="mb-xl-3 mb-2">
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Phone">
-                                    </div>
-                                    <div class="mb-xl-3 mb-2">
-                                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email">
-                                    </div>
-                                    <div class="mb-xl-3 mb-2">
-                                        <!-- <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Service you want"> -->
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Service you want</option>
-                                            <option value="1">Service One</option>
-                                            <option value="2">Service Two</option>
-                                            <option value="3">Service Three</option>
-                                          </select>
-                                    </div>
-                                    <div class="mb-xl-3 mb-2">
-                                        <textarea class="form-control comment-text" id="exampleFormControlTextarea1" placeholder="Comment"></textarea>
-                                    </div>
-                                    <div class="d-grid gap-2" style="margin-bottom: 10px;">
-                                        <button class="btn btn-dark" type="submit">SENT</button>
-                                    </div>
-                                    <div class="col">
+                                    <form method="post" action="http://clapat.ro/themes/ernest/contact.php" name="contactform" id="contactform">                             
+                                        <div class=" has-animation" data-delay="100">        
+                                            <input name="name" type="text" id="name" size="30" value="" placeholder="Your Name"><label class="input_label"></label>
+                                        </div>
+                                        <div class="message-box has-animation" data-delay="150">
+                                            <input name="email" type="text" id="email" size="30" value="" placeholder="Your Email"><label class="input_label"></label>
+                                        </div>
+                                        <div class="message-box has-animation" data-delay="100">        
+                                            <input name="name" type="text" id="name" size="30" value="" placeholder="Your Phone"><label class="input_label"></label>
+                                        </div>
+                                        <div class="message-box has-animation" data-delay="150">
+                                            <!-- <select name="email" type="select" id="email" size="3" value="" placeholder="Service you want"> -->
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Service you want</option>
+                                                <option value="1">Service One</option>
+                                                <option value="2">Service Two</option>
+                                                <option value="3">Service Three</option>
+                                            </select>
+                                        </div>
+                                        <div class="message-box has-animation" data-delay="100">
+                                            <textarea name="comments" cols="40" rows="4" id="comments" placeholder="Comment" ></textarea><label class="input_label slow"></label>
+                                        </div>
+                                        <div class="button-box has-animation hide-ball" data-delay="100">             
+                                            <div class="clapat-button-wrap parallax-wrap">
+                                                <div class="clapat-button parallax-element">
+                                                	<div class="button-border rounded" data-btncolor="#2b2a35" data-btntextcolor="#fff"><input type="submit" class="send_message" id="submit" value="Send Message" /></div>
+                                                </div>
+                                            </div> 
+                                        </div>
+                                    </form>                        
+                                    
+                                    <div class="col" style="margin-top: 20px;">
                                         <a class="text-center" href="https://goo.gl/maps/PAidE9QakdgVtGiPA">Địa chỉ: 28 Thảo điền Q2, HCM</a>
                                         <br>
                                         <a class=" text-center" href="tel:0988888888">Điện thoại: <span id="phonenumber">0988888888</span></a>

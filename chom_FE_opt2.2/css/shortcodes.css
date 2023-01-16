@@ -1156,8 +1156,8 @@ a.link:hover::before {
 ---------------------------------------------------*/
 
 .accordion {
-    border-top: 2px solid rgba(0, 0, 0, 1);
-    border-bottom: 2px solid rgba(0, 0, 0, 1);
+    /* border-top: 2px solid rgba(0, 0, 0, 1);
+    border-bottom: 2px solid rgba(0, 0, 0, 1); */
     padding: 20px 0;
     margin: 0;
     overflow: hidden;
@@ -1221,7 +1221,6 @@ a.link:hover::before {
 }
 
 .accordion dt span {
-    width: calc(100% - 80px);
     position: relative;
     overflow: hidden;
     display: block;
@@ -1245,10 +1244,12 @@ a.link:hover::before {
     font-weight: 400;
     line-height: 28px;
     padding-left: 0;
-    padding-right: 80px;
+    padding-right: 10px;
     padding-bottom: 20px;
+    text-align: justify;
     z-index: 0;
     position: relative;
+
 }
 
 .light-content .accordion .accordion-content,
@@ -1556,7 +1557,7 @@ dt.accordion-active .acc-button-icon i {
 .message-box {
     float: left;
     width: 100%;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 input,

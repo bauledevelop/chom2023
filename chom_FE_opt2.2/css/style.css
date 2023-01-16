@@ -921,10 +921,10 @@ a:hover {
 
 .light-section-wrapper,
 .dark-section-wrapper {
-    margin-left: calc(50% - 50vw) !important;
+    /* margin-left: calc(50% - 50vw) !important;
     margin-right: calc(50% - 50vw) !important;
     max-width: 1000% !important;
-    width: 100vw !important;
+    width: 100vw !important; */
 }
 
 .light-section-container,
@@ -2989,7 +2989,7 @@ nav.open {
         width: 140px;
     }
     .swiper-pagination {
-        left: 60px;
+        right: 60px;
     }
 }
 
@@ -3266,7 +3266,7 @@ nav.open {
         line-height: 30px;
     }
     .swiper-pagination {
-        left: 40px;
+        right: 40px;
     }
 }
 
@@ -3556,7 +3556,7 @@ nav.open {
         width: 40px;
     }
     .swiper-pagination {
-        left: 10px;
+        right: 10px;
     }
     footer.showcase-footer #footer-container {
         padding: 0px 20px;
