@@ -12,3 +12,10 @@
     -webkit-filter: grayscale(0);
     -webkit-transform: scale(1.01);
 }
+
+
+.footer_lo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

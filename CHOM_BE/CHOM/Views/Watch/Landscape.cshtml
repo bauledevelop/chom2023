@@ -11,17 +11,17 @@
         var btnTang = document.getElementById("btnTang");
         var btnGiam = document.getElementById("btnGiam");
         var disp = document.getElementById("display");
-
+        var _max = $('.text-shadow').data('id');
         btnTang.onclick = function () {
-            if (count < 30) {
+            if (count < _max) {
                 count++;
             }
 
             disp.innerHTML = count;
         }
         btnGiam.onclick = function () {
-            if (count > 30 || count < 0) {
-                count = 30;
+            if (count > _max || count < 0) {
+                count = _max;
             }
 
             else count--;
@@ -109,12 +109,12 @@
                         1
                     </div>
                     <div class="line-index-project"></div>
-                    <div class="text-shadow">
+                    <div class="text-shadow" data-id="@Model.Count()">
                         @Model.Count()
                     </div>
                 </div>
                 <div id="btnGiam" class="button-next-project button-wrap disable-drag swiper-prev">
-                    <div class="button-text text-shadow">Project 3</div>
+                    <div class="button-text text-shadow">Project @Model.Count()</div>
                     <div class="button-icon parallax-element" style="width: auto">
                         <i class="fa fa-angle-right"></i>
                     </div>

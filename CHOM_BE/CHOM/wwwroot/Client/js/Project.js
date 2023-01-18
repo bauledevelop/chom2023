@@ -1,29 +1,41 @@
-﻿
-
-var count = 1;
+﻿var count = 1;
+var total = $('.total').data('id');
 var btnTang = document.getElementById("btnTang");
 var btnGiam = document.getElementById("btnGiam");
 var disp = document.getElementById("display");
+var header = document.getElementById("itemsWrapper");
+var item = header.getElementsByClassName("swiper-slide");
+var itemactive = header.getElementsByClassName("swiper-slide-active");
 
 btnTang.onclick = function () {
-    if (count < 30) {
-        count++;
+    console.log(total);
+    setTimeout(() => {
+        if (count >= total) {
+            count = 1;
+        } else {
+            count++;
+        }
+        disp.innerHTML = count;
+    }, 400);
+    };
+btnGiam.onclick = function() {
+    setTimeout(() => {
+        if (count > total || count == 1) {
+            count = total;
+        } else count--;
+
+        disp.innerHTML = count;
+    }, 400);
+    };
+
+function scrolled() {
+    alert("scroll");
+count++;
+console.log(count);
     }
 
-    disp.innerHTML = count;
-}
-btnGiam.onclick = function () {
-    if (count > 30 || count < 0) {
-        count = 30;
-    }
+window.addEventListener("scroll", scrolled);
 
-    else count--;
-
-    disp.innerHTML = count;
-}
-
-        // var header = document.getElementById("itemsWrapper");
-        // var item = header.getElementsByClassName("swiper-slide");
-        // for (var i = 0; i < btns.length; i++){
-        //     var current = document.getElementsByClassName("active");
-        // }
+    // for (var i = 0; i < item.length; i++) {
+    //     console.log(item[i]);
+    // }

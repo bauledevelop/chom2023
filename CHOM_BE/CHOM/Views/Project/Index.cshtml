@@ -9,8 +9,8 @@
     <link type="text/css" rel="stylesheet" href="~/Client/css/Project.css" />
 }
 @section js{
-    <script type="text/javascript" src="~/Client/js/Project.js"></script>
-}
+@*    <script type="text/javascript" src="~/Client/js/Project.js"></script>
+*@}
 
 <!-- Content Scroll -->
 <div id="content-scroll">
@@ -66,57 +66,46 @@
             <!-- Showcase Slider Holder -->
 
             <div class="number-index-project">
-                <div class="line-count-index">
-                    <div style="display: flex;">
-                        <div id="display" class="number-pj-current">1</div>
-                    </div>
-                    <div class="number-pj-total">
-                        <div>@Model.Count()</div>
-                    </div>
+                <div style="
+                      display: flex;
+                      flex-direction: column;
+                      text-align: center;
+                    ">
+                    <div id="display">1</div>
+                    <div class="line-vertical"></div>
+                    <div class="total" data-id="@Model.Count()">@Model.Count()</div>
                 </div>
-            </div>
 
         </div>
         <!--/Main Content -->
 
     </div>
-    <!--/Main -->
     <!-- Footer -->
     <footer class="hidden">
-        <div id="footer-container">
-
-            <div class="button-wrap left disable-drag swiper-prev">
-                <div id="btnGiam" class="icon-wrap parallax-wrap">
+        <div id="footer-container" class="footer_lo">
+            <div id="btnGiam" class="button-wrap left disable-drag swiper-prev">
+                <div class="icon-wrap parallax-wrap">
                     <div class="button-icon parallax-element">
                         <i class="fa fa-angle-up"></i>
                     </div>
                 </div>
-                <div id="btnGiam" class="button-text sticky left">
-                    <span data-hover="Project">
-                        Prev
-                        Project
-                    </span>
+                <div class="button-text sticky left">
+                    <span data-hover="PREV">PREV</span>
                 </div>
-
             </div>
 
-            <div class="button-wrap right disable-drag swiper-next">
-                <div id="btnTang" class="icon-wrap parallax-wrap">
+            <div id="btnTang" class="button-wrap right disable-drag swiper-next">
+                <div class="icon-wrap parallax-wrap">
                     <div class="button-icon parallax-element">
                         <i class="fa fa-angle-down"></i>
                     </div>
                 </div>
-                <div id="btnTang" class="button-text sticky right">
-                    <span data-hover="Project">
-                        Next
-                        Project
-                    </span>
+                <div class="button-text sticky right">
+                    <span data-hover="NEXT">NEXT</span>
                 </div>
             </div>
-
         </div>
     </footer>
     <!--/Footer -->
-
 
 </div>

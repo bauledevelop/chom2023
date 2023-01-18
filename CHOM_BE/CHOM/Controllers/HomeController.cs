@@ -13,7 +13,13 @@ namespace CHOM.Controllers
             _logger = logger;
             _db = db;
         }
+        [Route("/")]
         public IActionResult Index()
+        {
+            return View();
+        }
+        [Route("/Home")]
+        public IActionResult Home()
         {
             ViewBag.Interior = _db.MucLucs.SingleOrDefault(x => x.Ten == "Interior");
             ViewBag.Landscape = _db.MucLucs.SingleOrDefault(x => x.Ten == "Landscape");

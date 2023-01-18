@@ -1,0 +1,118 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+    Layout = "~/Views/Shared/Layout/_Layout.cshtml";
+    var interior = (CHOM.Data.MucLuc)ViewBag.Interior;
+    var landscape = (CHOM.Data.MucLuc)ViewBag.Landscape;
+}
+
+<div id="content-scroll">
+    <div id="main">
+        <!-- Main Content -->
+        <div id="main-content">
+            <!-- Main Page Content -->
+            <div id="main-page-content">
+
+
+                <!-- Portfolio Wrap -->
+                <div id="itemsWrapperLinks" class="portfolio-wrap spaced-grid fade-scaleout-effect">
+                    <!-- Portfolio Columns -->
+                    <div id="itemsWrapper" class="portfolio webgl-fitthumbs">
+                        <div class="item trigger-item branding design">
+                            <a href="/Project/@interior.ID">
+                                <div class="item-parallax">
+                                    <div class="item-appear">
+                                        <div class="item-content">
+                                            <div class="item-wrap-image" data-color="#cf837d">
+                                                <img src="/uploadFiles/@interior.HinhAnh"
+                                                     class="item-image grid__item-img trigger-item-link"
+                                                     alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-caption-wrapper">
+                                        <div class="item-caption">
+                                            <div class="item-date"
+                                                 style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
+                                                @interior.Nam
+                                            </div>
+                                            <div class="item-cat"
+                                                 style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
+                                                Category
+                                                Here
+                                            </div>
+                                            <div class="item-title secondary-font"
+                                                 style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
+                                                @interior.Ten
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item trigger-item design photo item-logo">
+                            <a href="#">
+                                <div class="item-parallax">
+                                    <div class="item-appear">
+                                        <div class="item-content">
+                                            <div class="item-wrap-image" data-color="#4c484f">
+                                                <div class="item-image ">
+                                                    <img src="~/Client/dict/images/logo.svg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="item trigger-item branding design">
+                            <a href="/Project/@landscape.ID">
+                                <div class="item-parallax">
+                                    <div class="item-appear">
+                                        <div class="item-content">
+                                            <div class="item-wrap-image" data-color="#cf837d">
+                                                <img src="/uploadFiles/@landscape.HinhAnh"
+                                                     class="item-image grid__item-img trigger-item-link"
+                                                     alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-caption-wrapper">
+                                        <div class="item-caption">
+                                            <div class="item-date"
+                                                 style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
+                                                @landscape.Nam
+                                            </div>
+                                            <div class="item-cat"
+                                                 style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
+                                                Category
+                                                Here
+                                            </div>
+                                            <div class="item-title secondary-font"
+                                                 style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
+                                                @landscape.Ten
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                    <!--/Portfolio -->
+                </div>
+                <!--/Portfolio Wrap -->
+
+
+            </div>
+            <!--/Main Page Content -->
+
+
+
+
+
+        </div>
+        <!--/Main Content -->
+
+    </div>
+</div>
