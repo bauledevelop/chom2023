@@ -1,9 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Trang chủ";
     Layout = "~/Views/Shared/Layout/_Layout.cshtml";
+    var video = (CHOM.Data.Video)ViewBag.Video;
 }
 @section css{
+    <link href="~/Client/dict/css/style.css" rel="stylesheet" />
     <link href="~/Client/dict/css/style-gallery.css" rel="stylesheet" />
+    <link href="~/Client/dict/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
 }
 
@@ -19,7 +23,7 @@
 
             <video autoplay muted loop id="myVideo">
 
-                <source src="~/Client/dict/images/videbg.mp4" type="video/mp4">
+                <source src="~/contact/@video.FileName" type="video/mp4">
 
             </video>
 

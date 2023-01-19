@@ -11,7 +11,7 @@ namespace CHOM.Data
         [Display(Name = "Hình ảnh")]
         [Column(TypeName = "nvarchar")]
         [StringLength(100)]
-        public string HinhAnh { set; get; }
+        public string? HinhAnh { set; get; }
 
         [Column(TypeName = "datetime2")]
         public DateTime NgayTao { set; get; }

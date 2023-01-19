@@ -18,7 +18,7 @@ namespace CHOM.Areas.Admin.Controllers
         }
         public IActionResult Index(string id)
         {
-            var model = _db.HinhAnhs.Where(x => x.IDDuAn == int.Parse(id));
+            var model = _db.HinhAnhs.Where(x => x.IDDuAn == int.Parse(id)).OrderByDescending(x => x.ID).ToList();
             return View(model);
         }
 
@@ -29,19 +29,37 @@ namespace CHOM.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(HinhAnh hinhanh)
+        public async Task<IActionResult> Create(List<IFormFile>? uploadFile, HinhAnh hinhanh)
         {
+            ViewBag.ListProject = new SelectList(_db.DuAns.ToList(), "ID", "TuaDe",hinhanh.IDDuAn);
+            if (uploadFile.Count() == 0)
+            {
+                ViewBag.Message = "Vui lòng chọn hình ảnh";
+                return View(hinhanh);
+            }
             if (!ModelState.IsValid) return View(hinhanh);
             try
             {
-                await _db.HinhAnhs.AddAsync(hinhanh);
-                await _db.SaveChangesAsync();
+                foreach(var item in uploadFile)
+                {
+                    string fileName = item.FileName;
+                    fileName = Path.GetFileName(fileName);
+                    string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", fileName);
+                    var stream = new FileStream(uploadPaths, FileMode.Create);
+                    await item.CopyToAsync(stream);
+                    stream.Dispose();
+                    var newImage = new HinhAnh();
+                    newImage.FileName = item.FileName;
+                    newImage.IDDuAn = hinhanh.IDDuAn;
+                    await _db.HinhAnhs.AddAsync(newImage);
+                    await _db.SaveChangesAsync();
+                }
                 var link = "/Admin/Image/Index/" + hinhanh.IDDuAn;
                 return Redirect(link);
             }
             catch (Exception ex)
             {
-                ViewBag.Message = "Tạo nhân viên thất bại";
+                ViewBag.Message = "Tạo hình ảnh thất bại";
             }
             return View();
         }
@@ -61,16 +79,27 @@ namespace CHOM.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(HinhAnh hinhanh, string? newFile)
+        public async Task<IActionResult> Edit(IFormFile newFile,HinhAnh hinhanh)
         {
+            ViewBag.ListProject = new SelectList(_db.DuAns.ToList(), "ID", "TuaDe", hinhanh.IDDuAn);
+
             if (!ModelState.IsValid) return View(hinhanh);
             try
             {
-                if (newFile != hinhanh.FileName && newFile != null)
+                if (newFile != null)
                 {
-                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", hinhanh.FileName);
-                    System.IO.File.Delete(path);
-                    hinhanh.FileName = newFile;
+                    if (newFile.FileName != hinhanh.FileName)
+                    {
+                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", hinhanh.FileName);
+                        System.IO.File.Delete(path);
+                        string fileName = newFile.FileName;
+                        fileName = Path.GetFileName(fileName);
+                        string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", fileName);
+                        var stream = new FileStream(uploadPaths, FileMode.Create);
+                        await newFile.CopyToAsync(stream);
+                        stream.Dispose();
+                        hinhanh.FileName = newFile.FileName;
+                    }
                 }
                 _db.Attach(hinhanh);
                 _db.Entry(hinhanh).State = EntityState.Modified;
@@ -80,7 +109,7 @@ namespace CHOM.Areas.Admin.Controllers
             }
             catch (Exception ex)
             {
-                ViewBag.Message = "Chỉnh sửa nhân viên thất bại";
+                ViewBag.Message = "Chỉnh sửa hình ảnh thất bại";
             }
             return View();
         }

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace CHOM.Areas.Admin.Controllers
 {
@@ -15,10 +16,11 @@ namespace CHOM.Areas.Admin.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult Index(int page=1,int pageSize=16)
         {
-            var model = _db.BoSuuTams.ToList();
+            var model = _db.BoSuuTams.OrderByDescending(x => x.ID).Skip((page - 1)*pageSize).Take(pageSize).ToList();
             ViewBag.ListMenu = _db.MucLucs.ToList();
+            ViewData["Pagination"] = _db.BoSuuTams.ToList().ToPagedList(page,pageSize);
             return View(model);
         }
         [HttpGet]
@@ -35,12 +37,24 @@ namespace CHOM.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Create(BoSuuTam boSuuTam)
+        public async Task<IActionResult> Create(IFormFile uploadFile,BoSuuTam boSuuTam)
         {
             ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.Ten == "Gallery").ToList(), "ID", "Ten", boSuuTam.IDMucLuc);
+            if (uploadFile == null)
+            {
+                ViewBag.Message = "Vui lòng chọn ảnh";
+                return View(boSuuTam);
+            }
             if (!ModelState.IsValid) return View(boSuuTam);
             try
             {
+                string fileName = uploadFile.FileName;
+                fileName = Path.GetFileName(fileName);
+                string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//imageGallery", fileName);
+                var stream = new FileStream(uploadPaths, FileMode.Create);
+                await uploadFile.CopyToAsync(stream);
+                stream.Dispose();
+                boSuuTam.HinhAnh = uploadFile.FileName;
                 boSuuTam.NgayTao = DateTime.Now;
                 await _db.AddAsync(boSuuTam);
                 await _db.SaveChangesAsync();
@@ -55,11 +69,11 @@ namespace CHOM.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Edit(string id)
         {
-            if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
+            if (string.IsNullOrEmpty(id)) return Redirect("/Admin/Gallery");
             try
             {
                 var model = _db.BoSuuTams.Find(int.Parse(id));
-                ViewBag.ListMenu = new SelectList(_db.MucLucs.ToList(), "ID", "Ten", model.IDMucLuc);
+                ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.Ten == "Gallery").ToList(), "ID", "Ten", model.IDMucLuc);
                 return View(model);
             }
             catch (Exception ex)
@@ -68,17 +82,26 @@ namespace CHOM.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(BoSuuTam boSuuTam,string? newFile)
+        public async Task<IActionResult> Edit(IFormFile? newFile,BoSuuTam boSuuTam)
         {
             ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.Ten == "Gallery").AsNoTracking().ToList(), "ID", "Ten", boSuuTam.IDMucLuc);
             if (!ModelState.IsValid) return View(boSuuTam);
             try
             {
-                if (newFile != boSuuTam.HinhAnh && newFile != null)
+                if (newFile != null)
                 {
-                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", boSuuTam.HinhAnh);
-                    System.IO.File.Delete(path);
-                    boSuuTam.HinhAnh = newFile;
+                    if (newFile.FileName != boSuuTam.HinhAnh)
+                    {
+                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//imageGallery", boSuuTam.HinhAnh);
+                        System.IO.File.Delete(path);
+                        string fileName = newFile.FileName;
+                        fileName = Path.GetFileName(fileName);
+                        string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//imageGallery", fileName);
+                        var stream = new FileStream(uploadPaths, FileMode.Create);
+                        await newFile.CopyToAsync(stream);
+                        stream.Dispose();
+                        boSuuTam.HinhAnh = newFile.FileName;
+                    }
                 }
                 _db.Attach(boSuuTam);
                 _db.Entry(boSuuTam).State = EntityState.Modified;
@@ -100,7 +123,7 @@ namespace CHOM.Areas.Admin.Controllers
                 var check = await _db.BoSuuTams.SingleOrDefaultAsync(x => x.ID == int.Parse(id));
                 if (check != null)
                 {
-                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", check.HinhAnh);
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//imageGallery", check.HinhAnh);
                     System.IO.File.Delete(path);
                     _db.BoSuuTams.Remove(check);
                     await _db.SaveChangesAsync();
@@ -121,61 +144,6 @@ namespace CHOM.Areas.Admin.Controllers
             {
                 status = false
             });
-        }
-        [HttpPost]
-        public async Task<JsonResult> DeleteImage(string deleteFile)
-        {
-            try
-            {
-                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", deleteFile);
-                System.IO.File.Delete(path);
-                return Json(new
-                {
-                    status = true,
-                });
-            }
-            catch(Exception ex)
-            {
-                return Json(new
-                {
-                    status = false
-                });
-            }
-        }
-
-        [HttpPost]
-        public async Task<JsonResult> AddImage(IFormFile File)
-        {
-            if (File == null)
-            {
-                return Json(new
-                {
-                    status = false,
-                    message = "Vui lòng chọn file ảnh trước khi tải"
-                });
-            }
-            try
-            {
-                string fileName = File.FileName;
-                fileName = Path.GetFileName(fileName);
-                string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", fileName);
-                var stream = new FileStream(uploadPaths, FileMode.Create);
-                await File.CopyToAsync(stream);
-                stream.Dispose();
-                ViewBag.UploadFile = null;
-                return Json(new
-                {
-                    status = true,
-                    fileName = File.FileName
-                });
-            }
-            catch (Exception ex)
-            {
-                return Json(new
-                {
-                    status = false
-                });
-            }
         }
     }
 }

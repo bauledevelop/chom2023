@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CHOM.Data.Video>
+
+@{
+    ViewData["Title"] = "Video";
+    Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
+}
+
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+    <!-- Page Header Start-->
+    @await Component.InvokeAsync("HeaderAdmin")
+    <!-- Page Header Ends-->
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+        <!-- Page Sidebar Start-->
+        @await Component.InvokeAsync("SideBar")
+        <!-- Page Sidebar Ends-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Feature Unable /Disable Order Starts-->
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header pb-0">
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="display" id="basic-2">
+                                        <thead>
+                                            <tr>
+                                                <th>Tên file</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model.Count() > 0)
+                                            {
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            <video style="width: 50%;height: auto" autoplay muted loop id="myVideo">
+                                                                <source src="~/contact/@item.FileName" type="video/mp4">
+                                                            </video>
+                                                        </td>
+                                                        <td>
+                                                            <a href="/Admin/Video/Edit/@item.ID" class="btn btn-sm btn-warning">Sửa</a>
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -16,10 +16,5 @@ namespace CHOM.Data
         [Display(Name = "Phương thức")]
         [Required(ErrorMessage = "Vui lòng nhập phương thức ")]
         public string PhuongThuc { set; get; }
-        [Display(Name = "Thứ tự")]
-        [Required(ErrorMessage = "Vui lòng nhập thứ tự")]
-        public int ThuTu { set;get; }
-        public string? Link { set; get; }
-
     }
 }

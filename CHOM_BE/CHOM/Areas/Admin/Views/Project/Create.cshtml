@@ -4,10 +4,6 @@
     ViewData["Title"] = "Tạo dự án";
     Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
 }
-@section js{
-    <script type="text/javascript" src="~/Admin/js/Project/Create.js"></script>
-}
-
 <div class="page-wrapper compact-wrapper" id="pageWrapper">
     <!-- Page Header Start-->
     @await Component.InvokeAsync("HeaderAdmin")
@@ -56,28 +52,23 @@
                                             <select asp-for="IDMucLuc" asp-items="@ViewBag.ListMenu" class="form-control"></select>
                                             <span asp-validation-for="IDMucLuc" class="text-danger"></span>
                                         </div>
-                                        <div class="form-group d-flex flex-column"> 
-                                            <label asp-for="HinhGT" class="control-label"></label>
-                                            <input asp-for="HinhGT" class="txt-Img" type="hidden" />
-                                            <input class="addFile" type="file" />
-                                            <div class="alert alert-danger txt-notification w-50 mt-3"></div>
-                                            <img class="uploadFile mt-3 img-uploadFile" />
-                                            <button type="button" class="w-25 mt-3 btn btn-outline-dark btn-uploadfile">Tải ảnh</button>
+                                        <div class="form-group d-flex flex-column">
+                                            <label>Hình ảnh giới thiệu</label>
+                                            <input name="singleFile" type="file" />
                                         </div>
                                         <div class="form-group mt-2 d-flex flex-column">
-                                            <label>Hình ảnh</label>
+                                            <label>Hình ảnh của dự án</label>
                                             <input name="uploadFiles" multiple type="file" />
                                         </div>
-                                        <div class="form-group mt-3">
-                                            <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                                        <div class="form-group btn-event mt-5">
+                                            <a class="btn btn-back-hover" href="/Admin/Project">Quay về</a>
+                                            <input type="submit" role="button" value="Tạo mới" class="btn cl-btn" />
                                         </div>
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="btn btn-success mt-5">
-                            <a href="/Admin/Project" style="color: #ffffff">Quay về danh sách</a>
-                        </div>
+
                     </div>
 
 

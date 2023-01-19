@@ -47,8 +47,8 @@
                                                 <tr class="btn-@item.ID">
                                                     <td><img src="/fileImages/@item.FileName" /></td>
                                                     <td>
-                                                        <a href="/Admin/Image/Edit/@item.ID" class="btn btn-sm btn-warning">Edit</a>
-                                                        <button data-id="@item.ID" class="btn btn-sm btn-danger btn-delete " type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Delete</button>
+                                                        <a href="/Admin/Image/Edit/@item.ID" class="btn btn-sm btn-warning">Sửa</a>
+                                                        <button data-id="@item.ID" class="btn btn-sm btn-danger btn-delete " type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Xóa</button>
                                                     </td>
                                                 </tr>
                                             }
@@ -75,7 +75,7 @@
             </div>
             <div class="modal-body">Bạn có muốn xóa hình ảnh này?</div>
             <div class="modal-footer">
-                <button class="btn btn-success" type="button" data-bs-dismiss="modal">Quay lại</button>
+                <button class="btn btn-back-hover" type="button" data-bs-dismiss="modal">Quay lại</button>
                 <button class="btn btn-danger btn-success-delete" type="button">Đồng ý</button>
             </div>
         </div>

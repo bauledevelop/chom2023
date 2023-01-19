@@ -31,7 +31,7 @@
                         <div class="card">
                             <div class="card-header pb-0">
                                 <h5>@ViewBag.Title</h5>
-                                <div class="mt-1"><a href="/Admin/SocialMedia/Create" class="btn btn-success btn-sm">Tạo liên hệ</a></div>
+                                <div></div>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -40,8 +40,6 @@
                                             <tr>
                                                 <th>Ten</th>
                                                 <th>Phương thức</th>
-                                                <th>Thứ tự</th>
-                                                <th>Link</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -50,12 +48,9 @@
                                             {
                                                 <tr class="btn-@item.ID">
                                                     <td>@item.Ten</td>
-                                                    <td>@item.ThuTu</td>
                                                     <td>@item.PhuongThuc</td>
-                                                    <td>@item.Link</td>
                                                     <td>
-                                                        <a href="/Admin/SocialMedia/Edit/@item.ID" class="btn btn-sm btn-warning">Edit</a>
-                                                        <button data-id="@item.ID" class="btn btn-sm btn-danger btn-delete " type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Delete</button>
+                                                        <a href="/Admin/SocialMedia/Edit/@item.ID" class="btn btn-sm btn-warning">Sửa</a>
                                                     </td>
                                                 </tr>
                                             }
@@ -66,23 +61,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Xóa liên hệ</h5>
-                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">Bạn có muốn xóa liên hệ này?</div>
-            <div class="modal-footer">
-                <button class="btn btn-success" type="button" data-bs-dismiss="modal">Quay lại</button>
-                <button class="btn btn-danger btn-success-delete" type="button">Đồng ý</button>
             </div>
         </div>
     </div>

@@ -1,12 +1,29 @@
-﻿@model IEnumerable<CHOM.Data.DoiNgu>
+﻿@model CHOM.Data.PhanHoi
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/Layout/_Layout.cshtml";
-    var about = (CHOM.Data.About)ViewBag.About;
-    var lienhe = (IEnumerable<CHOM.Data.LienHe>)ViewBag.LienHe;
     var count = 0;
+    var contact = (CHOM.Data.Contact)ViewBag.Contact;
+    var lienHe = (IEnumerable<CHOM.Data.LienHe>)ViewBag.LienHe;
 }
+@section css{
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Client/dict/css/style.css" rel="stylesheet" />
+    <link href="~/Client/dict/css/style-gallery.css" rel="stylesheet" />
+    <link href="~/Client/dict/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
+}
+@section js{
+    <script>
+        const phonenumber = document.getElementById("phonenumber").innerHTML;
+        const begin = phonenumber.substring(0, 4);
+        const middle = phonenumber.substring(4, 7);
+        const end = phonenumber.substring(phonenumber.length - 3);
+        document.getElementById("phonenumber").innerHTML = begin + " " + middle + " " + end;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+}
 <!-- Content Scroll -->
 <div id="content-scroll">
 
@@ -14,216 +31,124 @@
     <!-- Main -->
     <div id="main">
 
-        <!-- Hero Section -->
-        <div id="hero">
-            <div id="hero-styles">
-                <div id="hero-caption" class="content-max-width parallax-scroll-caption">
-                    <div class="inner">
-                        <h5 class="hero-subtitle"><span>ABOUT US</span></h5>
-                        <h1 class="hero-title">
-                            <span class="secondary-font">@about.TuaDe</span>
-                        </h1>
-                    </div>
+        <div class="container text-center info-content">
+            <div class="row about-content">
+                <div class="col-12">
+                    <h2 style="font-weight: normal; margin-bottom: 0;">Về chúng tôi</h1>
                 </div>
             </div>
-        </div>
-        <!--/Hero Section -->
-        <!-- Main Content -->
-        <div id="main-content">
-            <!-- Main Page Content -->
-            <div id="main-page-content" class="content-max-width">
+            <div class="row about-content">
+                <div class="col-lg-6">
+                    <div class="scrollbar" id="style-4">
+                        <div class="force-overflow">
+                            <div>
+                                <img class="image-member" src="~/contact/@contact.HinhAnh" alt="member">
+                            </div>
+                            <div class="content-row light-section" data-bgcolor="#fafafa">
 
+                                <dl class="accordion has-animation">
 
-                <!-- Row -->
-                <div class="content-row row_padding_bottom light-section" data-bgcolor="#fafafa">
+                                    <dt class="accordion-active">
+                                        <span class="name-member"><span class="line-title"></span> @contact.Ten</span>
+                                    </dt>
+                                    <dd class="accordion-content">
+                                        @contact.GioiThieu
+                                    </dd>
 
-                    <h2 class="has-animation">
-                        @about.NoiDung
-                    </h2>
+                                </dl>
+                                <dl class="accordion has-animation">
 
-                </div>
-                <!--/Row -->
-                <!-- Row -->
-                <div class="content-row light-section" data-bgcolor="#fafafa">
+                                    <dt class="accordion-active">
+                                        <span class="name-info"><span class="line-title"></span>Cột mốc<span class="line-title"></span></span>
+                                    </dt>
+                                    <dd class="accordion-content">
+                                        @contact.CotMoc
+                                    </dd>
 
-                    <h5 class="has-animation gray-color">MEET THE</h5>
+                                </dl>
 
-                    <h1 class="big-title has-animation">
-                        Super <span class="secondary-font">
-                            Team
-                            behind
-                        </span>
-                    </h1>
-
-                    <hr>
-                    <hr>
-
-                </div>
-                <!--/Row -->
-                <!-- Row -->
-                <div class="content-row dark-section change-header-color full" data-bgcolor="#171717">
-
-                    <div class="swiper-container team-looped-carousel has-animation autocenter light-cursor"
-                         data-delay="0">
-                        <div class="swiper-wrapper">
-                            @foreach(var item in Model)
-                            {
-                                <div class="swiper-slide">
-                                    <div class="slide-img">
-                                        <img src="/uploadFiles/@item.HinhAnh" alt="Image Title">
-                                    </div>
-                                    <div class="team-caption">
-                                        <h5>@item.Ten</h5>
-                                        <p>@item.CongViec</p>
-                                    </div>
-                                </div>
-
-                            }
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-lg-6 form-contact">
+                    <form method="post" action="/Contact" id="contactform">
+                        @if(ViewBag.Message != null)
+                        {
+                            <div class="alert alert-danger mt-3">@ViewBag.Message</div>
+                        }
+                        @if(ViewBag.Success != null)
+                        {
+                            <div class="alert alert-success mt-3">@ViewBag.Success</div>
+                        }
+                        <div class=" has-animation" data-delay="100">
+                            <input asp-for="Ten" type="text" id="name" size="30" value="" placeholder="Tên của bạn">
+                            <label class="input_label"></label>
+                            <span asp-validation-for="Ten" class="text-danger"></span>
+
+                        </div>
+                        <div class="message-box has-animation" data-delay="150">
+                            <input asp-for="Email" type="text" id="email" size="30" value="" placeholder="Email"><label class="input_label"></label>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+
+                        </div>
+                        <div class="message-box has-animation" data-delay="100">
+                            <input asp-for="SDT" type="text" id="phone" size="30" value="" placeholder="Số điện thoại">
+                            <label class="input_label"></label>
+                            <span asp-validation-for="SDT" class="text-danger"></span>
+
+                        </div>
+                        <div class="message-box has-animation" data-delay="150" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
+                            <select class="select-form" asp-for="YeuCau" id="cars">
+                                <option value="1">Kiến trúc cảnh quan</option>
+                                <option value="2">Kiến trúc nội thất</option>
+                                <option value="3">Kiến trúc thiết kế</option>
+                            </select>
+                        </div>
+                        <div class="message-box has-animation" data-delay="100">
+                            <textarea asp-for="NoiDung" cols="40" rows="4" id="comments" placeholder="Nội dung"></textarea><label class="input_label slow"></label>
+                            <span asp-validation-for="NoiDung" class="text-danger"></span>
+
+                        </div>
+                        <div class="button-box has-animation hide-ball" data-delay="100">
+                            <div class="clapat-button-wrap parallax-wrap">
+                                <div class="clapat-button parallax-element">
+                                    <div class="button-border rounded" data-btncolor="#2b2a35" data-btntextcolor="#fff"><input type="submit" class="send_message" id="submit" value="Gửi phản hồi" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
 
                 </div>
-                <!--/Row -->
-                <!-- Row -->
-                <div class="content-row row_padding_top" data-bgcolor="#171717">
-                    @for(var i=0;i<3;i++)
+                <div class="col footer-info">
+                    <img src="~/Client/dict/images/logo.svg" alt="logo" style="height: 40px;">
+                    @foreach(var item in lienHe)
                     {
-                        if (i==0)
+                        if (item.PhuongThuc == "Email")
                         {
-                            var item = lienhe.SingleOrDefault(x => x.PhuongThuc == "Email");
-                            <div class="one_third has-animation" data-delay="100">
-                                <div class="box-icon-wrapper">
-                                    <div class="box-icon">
-                                        <i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="box-icon-content">
-                                        <h5 class="no-margins">
-                                            <a href="@item.Link"
-                                       class="link"><span>@item.Ten</span></a>
-                                        </h5>
-                                        <p>@item.PhuongThuc</p>
-                                    </div>
-                                </div>
-
-                            </div>
+                            var link = "mailto:" + item.Ten;
+                            <br/>
+                            <a class=" text-center" href="@link"><span class="info-title"> Email: </span>@item.Ten</a>
                         }
-                        if (i==1)
+                        if (item.PhuongThuc == "Phone")
                         {
-                            var item = lienhe.SingleOrDefault(x => x.PhuongThuc == "Address");
-
-                            <div class="one_third has-animation" data-delay="200">
-
-                                <div class="box-icon-wrapper">
-                                    <div class="box-icon">
-                                        <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="box-icon-content">
-                                        <h5 class="no-margins">@item.Ten</h5>
-                                        <p>@item.PhuongThuc</p>
-                                    </div>
-                                </div>
-
-                            </div>
+                            var link = "tel:" + item.Ten;
+                            <br/>
+                            <a class=" text-center" href="@link"> <span class="info-title"> Điện thoại: </span><span id="phonenumber">@item.Ten</span></a>
                         }
-                        if(i==2)
+                        if (item.PhuongThuc == "Address")
                         {
-                            var item = lienhe.SingleOrDefault(x => x.PhuongThuc == "Phone");
-
-                            <div class=" one_third last has-animation" data-delay="300">
-
-                                <div class="box-icon-wrapper">
-                                    <div class="box-icon">
-                                        <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="box-icon-content">
-                                        <h5 class="no-margins">@item.Ten</h5>
-                                        <p>@item.PhuongThuc</p>
-                                    </div>
-                                </div>
-
-                            </div>
-
+                            <br />
+                            <a class="text-center" href="javascript:void(0)"><span class="info-title"> Địa chỉ: </span>@item.Ten</a>
                         }
                     }
+                    <br>
+                    
                 </div>
-                <!--/Row -->
-
-
-
-
             </div>
-            <!--/Main Page Content -->
-
-
-
-
-
         </div>
-        <!--/Main Content -->
-
     </div>
     <!--/Main -->
-    <!-- Footer -->
-    <footer class="hidden">
-        <div id="footer-container">
-
-            <div id="backtotop" class="button-wrap left">
-                <div class="icon-wrap parallax-wrap">
-                    <div class="button-icon parallax-element">
-                        <i class="fa fa-angle-up"></i>
-                    </div>
-                </div>
-                <div class="button-text sticky left"><span data-hover="Back Top">Back Top</span></div>
-            </div>
-
-            <div class="footer-middle">
-                <div class="copyright">
-                    2022 © <a class="link" target="_blank"
-                              href="https://www.clapat.com/">ClaPat</a>. All rights reserved.
-                </div>
-            </div>
-
-            <div class="socials-wrap">
-                <div class="socials-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></div>
-                <div class="socials-text">Follow Us</div>
-                <ul class="socials">
-                    <li>
-                        <span class="parallax-wrap">
-                            <a class="parallax-element"
-                               href="https://www.dribbble.com/clapat" target="_blank">Db</a>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="parallax-wrap">
-                            <a class="parallax-element"
-                               href="https://www.twitter.com/clapatdesign"
-                               target="_blank">Tw</a>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="parallax-wrap">
-                            <a class="parallax-element"
-                               href="https://www.behance.com/clapat" target="_blank">Be</a>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="parallax-wrap">
-                            <a class="parallax-element"
-                               href="https://www.facebook.com/clapat.ro" target="_blank">Fb</a>
-                        </span>
-                    </li>
-                    <li>
-                        <span class="parallax-wrap">
-                            <a class="parallax-element"
-                               href="https://www.instagram.com/clapat.themes/">In</a>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </footer>
-    <!--/Footer -->
 
 
 </div>

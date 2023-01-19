@@ -18,8 +18,7 @@ namespace CHOM.Data
         [Column(TypeName = "nvarchar(MAX)")]
         [MaxLength(int.MaxValue)]
         [Display(Name = "Hình")]
-        [Required(ErrorMessage = "Vui lòng chọn hình giới thiệu")]
-        public string HinhGT { get; set; }
+        public string? HinhGT { get; set; }
 
         [MaxLength, Column(TypeName = "ntext")]
         [Display]
@@ -27,7 +26,7 @@ namespace CHOM.Data
         [Display(Name ="Năm")]
         [Required(ErrorMessage = "Vui lòng chọn năm")]
         public int Nam { set; get; }
-        [Display(Name = "Mục lục")]
+        [Display(Name = "Loại")]
         public int IDMucLuc { get; set; }
         [ForeignKey("IDMucLuc")]
         public virtual MucLuc? MucLuc { set; get; }

@@ -1,9 +1,12 @@
 ﻿@model IEnumerable<CHOM.Data.BoSuuTam>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
 @{
     ViewData["Title"] = "Danh sách bộ sưu tập";
     Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
     var listMenu = (IEnumerable<CHOM.Data.MucLuc>)ViewBag.ListMenu;
-
+    var paginations = (IPagedList)ViewData["Pagination"];
 }
 @section js{
     <script type="text/javascript" src="~/Admin/js/Gallery/Home.js"></script>
@@ -25,47 +28,66 @@
                 </div>
             </div>
             <!-- Container-fluid starts-->
-            <div class="container-fluid">
-                <div class="row">
-                    <!-- Feature Unable /Disable Order Starts-->
-                    <div class="col-sm-12">
-                        <div class="card">
+            <div class="container-fluid product-wrapper card">
+                <div class="product-grid">
+                    <div class="product-wrapper-grid">
+                        <div class="row">
                             <div class="card-header pb-0">
-                                <h5>@ViewBag.Title</h5>
-                                <div class="mt-1"><a href="/Admin/Gallery/Create" class="btn btn-success btn-sm">Tạo hình ảnh</a></div>
+                                <h5></h5>
+                                <a href="/Admin/Gallery/Create" class="btn btn-success btn-sm">Tạo bộ sưu tập</a>
                             </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="display" id="basic-2">
-                                        <thead>
-                                            <tr>
-                                                <th>Hình ảnh</th>
-                                                <th>Mục lục</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach (var item in Model)
-                                            {
-                                                <tr class="btn-@item.ID">
-                                                    <td><img src="/uploadFiles/@item.HinhAnh"/></td>
-                                                    <td >
-                                                        @(listMenu.SingleOrDefault(x => x.ID == item.IDMucLuc).Ten)
-                                                    </td>
-                                                    <td>
-                                                        <a href="/Admin/Gallery/Edit/@item.ID" class="btn btn-sm btn-warning">Edit</a>
-                                                        <button data-id="@item.ID" class="btn btn-sm btn-danger btn-delete " type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Delete</button>
-                                                    </td>
-                                                </tr>
-                                            }
-                                        </tbody>
-                                    </table>
+                                <div class="margin-list row">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 btn-@item.ID">
+                                            <div class="card">
+                                                <div class="product-box">
+                                                    <div class="product-img">
+                                                        <img class="img-fluid" src="~/imageGallery/@item.HinhAnh" alt="">
+                                                        <div class="product-hover">
+                                                            <ul>
+                                                                <li><a href="/Admin/Gallery/Edit/@item.ID"><i class="fa-solid fa-pen cl-pen"></i></a></li>
+                                                                <li><a data-bs-toggle="modal" class="btn-delete" data-id="@item.ID" data-original-title="test" data-bs-target="#exampleModal"><i class="fa-solid fa-trash cl-trash"></i></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
                                 </div>
+                        </div>
+                    </div>
+                    <div class="page-bottom b-r-0">
+                        <div class="row">
+                            <div class="col-12 col-sm-6">
+                                <div class="info-block">
+                                    @if (paginations != null)
+                                    {
+                                        @Html.PagedListPager(paginations, page => Url.Action("Gallery","Admin",new {page=page}),new PagedListRenderOptions{
+                                        DisplayLinkToIndividualPages = true,
+                                        DisplayPageCountAndCurrentLocation = false,
+                                        MaximumPageNumbersToDisplay  = 5,
+                                        LiElementClasses = new string[] { "page-item" },
+                                        PageClasses = new string[] { "page-link" },
+
+                                    })
+                                    }
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-sm-6 text-end">
+                                @if (paginations != null)
+                                {
+                                    <div class="pagination-content"><span class="f-w-600">Hiện @paginations.FirstItemOnPage - @paginations.LastItemOnPage trong @paginations.TotalItemCount kết quả</span></div>
+                                }
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Container-fluid Ends-->
         </div>
     </div>
 </div>
@@ -77,9 +99,9 @@
                 <h5 class="modal-title" id="exampleModalLabel">Xóa hình ảnh</h5>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">Bạn có muốn xóa hình ảnh này?</div>
+            <div class="modal-body">Bạn có muốn xóa hình ảnh này này?</div>
             <div class="modal-footer">
-                <button class="btn btn-success" type="button" data-bs-dismiss="modal">Quay lại</button>
+                <button class="btn btn-back-hover" type="button" data-bs-dismiss="modal">Quay lại</button>
                 <button class="btn btn-danger btn-success-delete" type="button">Đồng ý</button>
             </div>
         </div>

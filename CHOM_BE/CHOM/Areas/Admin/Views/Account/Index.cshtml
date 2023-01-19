@@ -1,0 +1,66 @@
+﻿@model CHOM.Data.TaiKhoan
+
+@{
+    ViewData["Title"] = "Thay đổi tài khoản";
+    Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
+}
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+    <!-- Page Header Start-->
+    @await Component.InvokeAsync("HeaderAdmin")
+    <!-- Page Header Ends-->
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+        <!-- Page Sidebar Start-->
+        @await Component.InvokeAsync("SideBar")
+        <!-- Page Sidebar Ends-->
+        <!-- Page Sidebar Ends-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <h5>@ViewBag.Title</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="date-picker">
+                                    <form action="/Admin/Account" method="post">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        @if (ViewBag.Message != null)
+                                        {
+                                            <div class="alert alert-danger">@ViewBag.Message</div>
+                                        }
+                                        <input asp-for="UserName" type="hidden" />
+                                        <div class="form-group">
+                                            <label asp-for="UserName" class="control-label"></label>
+                                            <input asp-for="UserName" disabled class="form-control" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="Password" class="control-label"></label>
+                                            <input asp-for="Password" type="password" class="form-control" />
+                                            <span asp-validation-for="Password" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group btn-event mt-5">
+                                            <input type="submit" role="button" value="Chỉnh sửa" class="btn cl-btn" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+        </div>
+    </div>
+</div>

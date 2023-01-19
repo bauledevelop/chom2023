@@ -30,49 +30,32 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="date-picker">
-                                    <div class="col-md-4">
-                                        <form action="/Admin/SocialMedia/Edit" method="post">
-                                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                            @if (ViewBag.Message != null)
-                                            {
-                                                <div class="alert alert-danger">@ViewBag.Message</div>
-                                            }
-                                            <input type="hidden" asp-for="ID" />
-                                            <div class="form-group">
-                                                <label asp-for="Ten" class="control-label"></label>
-                                                <input asp-for="Ten" class="form-control" />
-                                                <span asp-validation-for="Ten" class="text-danger"></span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label asp-for="PhuongThuc" class="control-label"></label>
-                                                <input asp-for="PhuongThuc" class="form-control" />
-                                                <span asp-validation-for="PhuongThuc" class="text-danger"></span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label asp-for="ThuTu" class="control-label"></label>
-                                                <input asp-for="ThuTu" class="form-control" />
-                                                <span asp-validation-for="ThuTu" class="text-danger"></span>
-                                            </div>
-                                            <div class="form-group">
-                                                <label asp-for="Link" class="control-label"></label>
-                                                <input asp-for="Link" class="form-control" />
-                                                <span asp-validation-for="Link" class="text-danger"></span>
-                                            </div>
-                                            <div class="form-group mt-3">
-                                                <input type="submit" value="Chỉnh sửa" class="btn btn-primary" />
-                                            </div>
-                                        </form>
+                                <form action="/Admin/SocialMedia/Edit" method="post">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    @if (ViewBag.Message != null)
+                                    {
+                                        <div class="alert alert-danger">@ViewBag.Message</div>
+                                    }
+                                    <input type="hidden" asp-for="ID" />
+                                    <input type="hidden" asp-for="PhuongThuc" />
+                                    <div class="form-group">
+                                        <label asp-for="Ten" class="control-label"></label>
+                                        <input asp-for="Ten" class="form-control" />
+                                        <span asp-validation-for="Ten" class="text-danger"></span>
                                     </div>
-                                </div>
+                                    <div class="form-group">
+                                        <label asp-for="PhuongThuc" class="control-label"></label>
+                                        <input asp-for="PhuongThuc" disabled class="form-control" />
+                                        <span asp-validation-for="PhuongThuc" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group btn-event mt-5">
+                                        <a class="btn btn-back-hover" href="/Admin/SocialMedia">Quay về</a>
+                                        <input type="submit" role="button" value="Chỉnh sửa" class="btn cl-btn" />
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <div class="btn btn-success mt-5">
-                            <a href="/Admin/SocialMedia" style="color: #ffffff">Quay về danh sách</a>
-                        </div>
                     </div>
-
-
                 </div>
             </div>
             <!-- Container-fluid Ends-->

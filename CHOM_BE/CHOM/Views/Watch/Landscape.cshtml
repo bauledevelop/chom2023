@@ -4,31 +4,30 @@
     Layout = "~/Views/Shared/Layout/_Layout.cshtml";
     var count = 0;
     var countItem = 0;
+    var Next = (CHOM.Data.DuAn)ViewBag.Next;
+    var Prev = (CHOM.Data.DuAn)ViewBag.Prev;
+}
+@section css{
+    <link href="~/Client/dict/css/style.css" rel="stylesheet" />
+    <link href="~/Client/dict/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <style>
+        .canvas-slider {
+            /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+            filter: gray;
+            /* IE5+ */
+            -webkit-filter: grayscale(1);
+            /* Webkit Nightlies & Chrome Canary */
+            -webkit-transition: all .8s ease-in-out;
+        }
+
+            .canvas-slider:hover {
+                filter: none;
+                -webkit-filter: grayscale(0);
+            }
+    </style>
 }
 @section js{
-    <script type="text/javascript">
-        var count = 1;
-        var btnTang = document.getElementById("btnTang");
-        var btnGiam = document.getElementById("btnGiam");
-        var disp = document.getElementById("display");
-        var _max = $('.text-shadow').data('id');
-        btnTang.onclick = function () {
-            if (count < _max) {
-                count++;
-            }
-
-            disp.innerHTML = count;
-        }
-        btnGiam.onclick = function () {
-            if (count > _max || count < 0) {
-                count = _max;
-            }
-
-            else count--;
-
-            disp.innerHTML = count;
-        }
-    </script>
 }
 <!-- Main -->
 <div id="content-scroll">
@@ -86,43 +85,41 @@
             <div class="showcase-pagination-wrap">
                 <div class="showcase-pagination"></div>
             </div>
-            <!--/Showcase Pagination -->
-
-
+            <div class="swiper-pagination"></div>
+            <div id="hero-footer">
+                <div class="box-pagination-project">
+                    <a class="button-prev-project button-wrap swiper-prev" href="/Watch/Landscape/@Prev.ID" data-type="page-transition">
+                        <div class="button-icon parallax-element" style="width: auto">
+                            <i class="fa fa-angle-left"></i>
+                        </div>
+                        <div class="button-text text-shadow">Prev Project</div>
+                    </a>
+                    <div class="index-project">
+                        <div id="display" class="text-shadow">
+                            1
+                        </div>
+                        <div class="line-index-project"></div>
+                        <div class="text-shadow" data-id="@Model.Count()">
+                            @Model.Count()
+                        </div>
+                    </div>
+                    <a class="button-next-project button-wrap swiper-prev" href="/Watch/Landscape/@Next.ID" data-type="page-transition">
+                        <div class="button-text text-shadow">Next Project</div>
+                        <div class="button-icon parallax-element" style="width: auto">
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
         <!--/Main Content -->
 
     </div>
     <!--/Main -->
-    <!-- Footer -->
-    <footer class="hidden">
-        <div id="footer-container">
-            <div class="box-pagination-project">
-                <div id="btnGiam" class="button-prev-project button-wrap disable-drag swiper-prev">
-                    <div class="button-icon parallax-element" style="width: auto">
-                        <i class="fa fa-angle-left"></i>
-                    </div>
-                    <div class="button-text text-shadow">Project 1</div>
-                </div>
-                <div class="index-project">
-                    <div id="display" class="text-shadow">
-                        1
-                    </div>
-                    <div class="line-index-project"></div>
-                    <div class="text-shadow" data-id="@Model.Count()">
-                        @Model.Count()
-                    </div>
-                </div>
-                <div id="btnGiam" class="button-next-project button-wrap disable-drag swiper-prev">
-                    <div class="button-text text-shadow">Project @Model.Count()</div>
-                    <div class="button-icon parallax-element" style="width: auto">
-                        <i class="fa fa-angle-right"></i>
-                    </div>
-                </div>
-            </div>
-
+    <div id="hero-image-wrapper" style="opacity: 0.4;">
+        <div id="hero-background-layer" class="parallax-scroll-image">
+            <div id="hero-bg-image" style="background-image:url(/uploadFiles/@ViewBag.Image)"></div>
         </div>
-    </footer>
-    <!--/Footer -->
+    </div>
 
 </div>

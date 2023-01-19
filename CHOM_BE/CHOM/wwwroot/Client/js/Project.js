@@ -10,22 +10,22 @@ var itemactive = header.getElementsByClassName("swiper-slide-active");
 btnTang.onclick = function () {
     console.log(total);
     setTimeout(() => {
-        if (count >= total) {
+        count++;
+        if (count > total) {
             count = 1;
-        } else {
-            count++;
         }
         disp.innerHTML = count;
-    }, 400);
+    }, 600);
     };
 btnGiam.onclick = function() {
     setTimeout(() => {
-        if (count > total || count == 1) {
+        count--;
+        if (count == 0) {
             count = total;
-        } else count--;
+        }
 
         disp.innerHTML = count;
-    }, 400);
+    }, 600);
     };
 
 function scrolled() {

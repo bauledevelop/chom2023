@@ -16,6 +16,7 @@ namespace CHOM.Controllers
         [Route("/")]
         public IActionResult Index()
         {
+            ViewBag.Video = _db.Videos.SingleOrDefault();
             return View();
         }
         [Route("/Home")]

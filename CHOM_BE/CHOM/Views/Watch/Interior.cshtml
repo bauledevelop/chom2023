@@ -3,8 +3,15 @@
 @{
     ViewData["Title"] = "Interior";
     Layout = "~/Views/Shared/Layout/_Layout.cshtml";
+    var Next = (CHOM.Data.DuAn)ViewBag.Next;
+    var Prev = (CHOM.Data.DuAn)ViewBag.Prev;
 }
 @section css{
+    <link href="~/Client/dict/css/style.css" rel="stylesheet" />
+    <link href="~/Client/dict/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+
+
     <style>
         .canvas-slider {
             /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
@@ -79,13 +86,12 @@
                 <div class="swiper-pagination"></div>
                 <div id="hero-footer">
                     <div class="box-pagination-project">
-                        <div id="btnGiam"
-                             class="button-prev-project button-wrap disable-drag swiper-prev">
+                        <a class="button-prev-project button-wrap swiper-prev" href="/Watch/Interior/@Prev.ID" data-type="page-transition">
                             <div class="button-icon parallax-element" style="width: auto">
                                 <i class="fa fa-angle-left"></i>
                             </div>
-                            <div class="button-text text-shadow"></div>
-                        </div>
+                            <div class="button-text text-shadow">Prev Project</div>
+                        </a>
                         <div class="index-project">
                             <div id="display" class="text-shadow">
                                 1
@@ -95,13 +101,12 @@
                                 @Model.Count()
                             </div>
                         </div>
-                        <div id="btnGiam"
-                             class="button-next-project button-wrap disable-drag swiper-prev">
-                            <div class="button-text text-shadow"></div>
+                        <a class="button-next-project button-wrap swiper-prev" href="/Watch/Interior/@Next.ID" data-type="page-transition">
+                            <div class="button-text text-shadow">Next Project</div>
                             <div class="button-icon parallax-element" style="width: auto">
                                 <i class="fa fa-angle-right"></i>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

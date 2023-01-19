@@ -1,0 +1,75 @@
+﻿@model CHOM.Data.Contact
+
+@{
+    ViewData["Title"] = "Giới thiệu";
+    Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
+}
+<div class="page-wrapper compact-wrapper" id="pageWrapper">
+    <!-- Page Header Start-->
+    @await Component.InvokeAsync("HeaderAdmin")
+    <!-- Page Header Ends-->
+    <!-- Page Body Start-->
+    <div class="page-body-wrapper">
+        <!-- Page Sidebar Start-->
+        @await Component.InvokeAsync("SideBar")
+        <!-- Page Sidebar Ends-->
+        <!-- Page Sidebar Ends-->
+        <div class="page-body">
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <h5>@ViewBag.Title</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form action="/Admin/Contact/Edit" enctype="multipart/form-data"  method="post">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    @if (ViewBag.Message != null)
+                                    {
+                                        <div class="alert alert-danger">@ViewBag.Message</div>
+                                    }
+                                    <input type="hidden" asp-for="ID" />
+                                    <input type="hidden" asp-for="HinhAnh"/>
+                                    <div class="form-group d-flex flex-column">
+                                        <label asp-for="HinhAnh" class="control-label"></label>
+                                        <input name="newFile" type="file" />
+                                        <img class="uploadFile mt-3 img-uploadFile" src="/contact/@Model.HinhAnh" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Ten" class="control-label"></label>
+                                        <input asp-for="Ten" class="form-control" />
+                                        <span asp-validation-for="Ten" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="GioiThieu" class="control-label"></label>
+                                        <textarea asp-for="GioiThieu" class="form-control" ></textarea>
+                                        <span asp-validation-for="GioiThieu" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="CotMoc" class="control-label"></label>
+                                        <textarea asp-for="CotMoc" class="form-control" ></textarea>
+                                        <span asp-validation-for="CotMoc" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group btn-event mt-5">
+                                        <a class="btn btn-back-hover" href="/Admin/Contact">Quay về</a>
+                                        <input type="submit" role="button" value="Chỉnh sửa" class="btn cl-btn" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid Ends-->
+        </div>
+    </div>
+</div>
+

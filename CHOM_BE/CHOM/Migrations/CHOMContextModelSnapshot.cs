@@ -22,29 +22,6 @@ namespace CHOM.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("CHOM.Data.About", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("NoiDung")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("TuaDe")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("About");
-                });
-
             modelBuilder.Entity("CHOM.Data.BoSuuTam", b =>
                 {
                     b.Property<int>("ID")
@@ -54,7 +31,6 @@ namespace CHOM.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
                     b.Property<string>("HinhAnh")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -71,7 +47,7 @@ namespace CHOM.Migrations
                     b.ToTable("BoSuuTam");
                 });
 
-            modelBuilder.Entity("CHOM.Data.DoiNgu", b =>
+            modelBuilder.Entity("CHOM.Data.Contact", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -79,22 +55,26 @@ namespace CHOM.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
-                    b.Property<string>("CongViec")
+                    b.Property<string>("CotMoc")
+                        .IsRequired()
+                        .HasColumnType("ntext");
+
+                    b.Property<string>("GioiThieu")
+                        .IsRequired()
+                        .HasColumnType("ntext");
+
+                    b.Property<string>("HinhAnh")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Ten")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("HinhAnh")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Ten")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("ID");
 
-                    b.ToTable("DoiNgus");
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("CHOM.Data.DuAn", b =>
@@ -106,7 +86,6 @@ namespace CHOM.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
                     b.Property<string>("HinhGT")
-                        .IsRequired()
                         .HasMaxLength(2147483647)
                         .HasColumnType("nvarchar(MAX)");
 
@@ -140,7 +119,6 @@ namespace CHOM.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
 
                     b.Property<string>("FileName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("IDDuAn")
@@ -177,9 +155,6 @@ namespace CHOM.Migrations
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("ThuTu")
-                        .HasColumnType("int");
 
                     b.HasKey("ID");
 
@@ -219,6 +194,46 @@ namespace CHOM.Migrations
                     b.ToTable("MucLuc");
                 });
 
+            modelBuilder.Entity("CHOM.Data.PhanHoi", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("NoiDung")
+                        .IsRequired()
+                        .HasColumnType("ntext");
+
+                    b.Property<string>("SDT")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("Ten")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("YeuCau")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("PhanHois");
+                });
+
             modelBuilder.Entity("CHOM.Data.TaiKhoan", b =>
                 {
                     b.Property<string>("UserName")
@@ -232,6 +247,23 @@ namespace CHOM.Migrations
                     b.HasKey("UserName");
 
                     b.ToTable("TaiKhoan");
+                });
+
+            modelBuilder.Entity("CHOM.Data.Video", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Videos");
                 });
 
             modelBuilder.Entity("CHOM.Data.BoSuuTam", b =>

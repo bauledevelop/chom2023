@@ -8,7 +8,7 @@ namespace CHOM.Data
         [Key]
         public int ID { set; get; }
         [Display(Name = "Hình ảnh")]
-        public string FileName { set; get; }
+        public string? FileName { set; get; }
         [Column(TypeName = "nvarchar")]
         [StringLength(50)]
         [Display(Name = "Tiêu đề")]

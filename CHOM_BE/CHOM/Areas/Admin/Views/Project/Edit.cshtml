@@ -4,9 +4,6 @@
     ViewData["Title"] = "Chỉnh sửa dự án";
     Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
 }
-@section js{
-    <script type="text/javascript" src="~/Admin/js/Project/Edit.js"></script>
-}
 
 <div class="page-wrapper compact-wrapper" id="pageWrapper">
     <!-- Page Header Start-->
@@ -42,6 +39,7 @@
                                             <div class="alert alert-danger">@ViewBag.Message</div>
                                         }
                                         <input asp-for="ID" type="hidden" />
+                                        <input asp-for="HinhGT" type="hidden" />
                                         <div class="form-group">
                                             <label asp-for="TuaDe" class="control-label"></label>
                                             <input asp-for="TuaDe" class="form-control" />
@@ -58,27 +56,23 @@
                                             <span asp-validation-for="IDMucLuc" class="text-danger"></span>
                                         </div>
                                         <div class="form-group d-flex flex-column">
-                                            <label asp-for="HinhGT" class="control-label"></label>
-                                            <input asp-for="HinhGT" type="hidden" />
-                                            <input name="newFile" type="hidden" class="txt-Img" />
-                                            <input class="addFile" multiple type="file" />
-                                            <div class="alert alert-danger txt-notification w-50 mt-3"></div>
-                                            <img class="uploadFile mt-3 img-uploadFile" src="/uploadFiles/@Model.HinhGT" />
-                                            <button type="button" class="w-25 mt-3 btn btn-outline-dark btn-uploadfile">Tải ảnh</button>
+                                            <div class="form-group d-flex flex-column">
+                                                <label>Hình ảnh giới thiệu</label>
+                                                <input name="singleFile" type="file" />
+                                                <img class="uploadFile mt-3 img-uploadFile" src="/uploadFiles/@Model.HinhGT" />
+                                            </div> 
                                         </div>
                                         <div class="form-group mt-2 d-flex flex-column">
                                             <label>Thay đổi danh sách hình ảnh</label>
                                             <input name="mulFile" multiple type="file" />
                                         </div>
-                                        <div class="form-group mt-3">
-                                            <input type="submit" value="Chỉnh sửa" class="btn btn-primary" />
+                                        <div class="form-group btn-event mt-5">
+                                            <a class="btn btn-back-hover" href="/Admin/Project">Quay về</a>
+                                            <input type="submit" role="button" value="Chỉnh sửa" class="btn cl-btn" />
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                        </div>
-                        <div class="btn btn-success mt-5">
-                            <a href="/Admin/Project" style="color: #ffffff">Quay về danh sách</a>
                         </div>
                     </div>
 

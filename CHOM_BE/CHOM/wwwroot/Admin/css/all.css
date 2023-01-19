@@ -11,6 +11,64 @@
 }
 td img {
     width: 300px;
-    height: 150px;
+    height: auto;
     border-radius: 1em;
+}
+.form-group{
+    margin-top: 5px;
+}
+.img-logo{
+    width: 30%;
+}
+.logo-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-header{
+    display: flex;
+    justify-content: space-between;
+}
+a{
+    font-size: 14px !important;
+}
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+    padding: 0 !important;
+}
+.for-light {
+    height: 70px !important;
+}
+.cl-btn {
+    background: #808080;
+    color: #DDDDDD;
+}
+.cl-btn:hover {
+    color: white;
+    background: #000;
+    transition: all ease-in-out 0.5s;
+}
+.btn-back-hover {
+    margin-right: 5px;
+}
+.btn-back-hover:hover {
+    color: white;
+    background: #000;
+    transition: all ease-in-out 0.5s;
+
+}
+.btn-event{
+    display: flex;
+    justify-content: end;
+}
+.cl-pen {
+    color: #FFFF66;
+}
+.cl-trash {
+    color: #BB0000;
+}
+.margin-list{
+    margin: 10px;
 }
