@@ -39,18 +39,13 @@
                                     <input type="hidden" asp-for="ID" />
                                     <input type="hidden" asp-for="PhuongThuc" />
                                     <div class="form-group">
-                                        <label asp-for="Ten" class="control-label"></label>
+                                        <label class="control-label">@Model.PhuongThuc</label>
                                         <input asp-for="Ten" class="form-control" />
                                         <span asp-validation-for="Ten" class="text-danger"></span>
                                     </div>
-                                    <div class="form-group">
-                                        <label asp-for="PhuongThuc" class="control-label"></label>
-                                        <input asp-for="PhuongThuc" disabled class="form-control" />
-                                        <span asp-validation-for="PhuongThuc" class="text-danger"></span>
-                                    </div>
                                     <div class="form-group btn-event mt-5">
                                         <a class="btn btn-back-hover" href="/Admin/SocialMedia">Quay về</a>
-                                        <input type="submit" role="button" value="Chỉnh sửa" class="btn cl-btn" />
+                                        <input type="submit" role="button" value="Chỉnh sửa" class="btn cl-btn cl-btn-edit" />
                                     </div>
                                 </form>
                             </div>

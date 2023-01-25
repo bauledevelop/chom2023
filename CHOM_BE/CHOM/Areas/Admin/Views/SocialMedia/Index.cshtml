@@ -38,20 +38,20 @@
                                     <table class="display" id="basic-2">
                                         <thead>
                                             <tr>
-                                                <th>Ten</th>
-                                                <th>Phương thức</th>
                                                 <th></th>
+                                                <th>Phương thức</th>
+                                                <th>Tên</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach (var item in Model)
                                             {
                                                 <tr class="btn-@item.ID">
-                                                    <td>@item.Ten</td>
-                                                    <td>@item.PhuongThuc</td>
                                                     <td>
                                                         <a href="/Admin/SocialMedia/Edit/@item.ID" class="btn btn-sm btn-warning">Sửa</a>
                                                     </td>
+                                                    <td>@item.PhuongThuc</td>
+                                                    <td>@item.Ten</td>
                                                 </tr>
                                             }
                                         </tbody>

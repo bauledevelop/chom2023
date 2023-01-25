@@ -20,6 +20,7 @@ namespace CHOM.Areas.Admin.Controllers
         {
             var model = _db.DuAns.OrderByDescending(x => x.ID).ToList();
             ViewBag.ListMenu = _db.MucLucs.ToList();
+            ViewBag.ListHinhAnh = _db.HinhAnhs.ToList();
             return View(model);
         }
         [HttpGet]

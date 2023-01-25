@@ -64,11 +64,25 @@ a{
     justify-content: end;
 }
 .cl-pen {
-    color: #FFFF66;
+    color: #FFCC00;
 }
 .cl-trash {
     color: #BB0000;
 }
 .margin-list{
     margin: 10px;
+}
+.img-fluid{
+    padding: 7px !important;
+}
+.cl-btn-edit:hover {
+    background: #FF9900;
+    color: #FFFFFF;
+}
+.cl-btn-create:hover {
+    background: #00CC00;
+    color: #FFFFFF;
+}
+.login-form{
+    border-radius: 1em;
 }

@@ -3,6 +3,7 @@
     ViewData["Title"] = "Danh sách dự án";
     Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
     var listMenu = (IEnumerable<CHOM.Data.MucLuc>)ViewBag.ListMenu;
+    var listHinhAnh = (IEnumerable<CHOM.Data.HinhAnh>)ViewBag.ListHinhAnh;
 }
 
 @section js{
@@ -39,10 +40,11 @@
                                     <table class="display" id="basic-2">
                                         <thead>
                                             <tr>
-                                                <th>Hình</th>
+                                                <th>Hình giới thiệu</th>
                                                 <th>Tên dự án</th>
                                                 <th>Năm</th>
                                                 <th>Mục lục</th>
+                                                <th>Hình ảnh</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -59,7 +61,9 @@
                                                             @(listMenu.SingleOrDefault(x => x.ID == item.IDMucLuc).Ten)
                                                         </td>
                                                         <td>
-                                                            <a target="_blank" href="/Admin/Image/Index/@item.ID" class="btn btn-sm btn-primary">Xem</a>
+                                                            <a target="_blank" href="/Admin/Image/Index/@item.ID" class="btn btn-sm btn-primary">@(listHinhAnh.Where(x => x.IDDuAn == item.ID).Count()) Hình</a>
+                                                        </td>
+                                                        <td>
                                                             <a href="/Admin/Project/Edit/@item.ID" class="btn btn-sm btn-warning">Sửa</a>
                                                             <button data-id="@item.ID" class="btn btn-sm btn-danger btn-delete" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Xóa</button>
                                                         </td>

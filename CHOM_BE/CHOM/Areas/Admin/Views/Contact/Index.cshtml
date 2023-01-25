@@ -50,10 +50,10 @@
                                                         <td><img src="/contact/@item.HinhAnh" /></td>
                                                         <td>@item.Ten</td>
                                                         <td>
-                                                            @item.GioiThieu
+                                                            @Html.Raw(item.GioiThieu)
                                                         </td>
                                                         <td>
-                                                            @item.CotMoc
+                                                            @Html.Raw(item.CotMoc)
                                                         </td>
                                                         <td>
                                                             <a href="/Admin/Contact/Edit/@item.ID" class="btn btn-sm btn-warning">Sửa</a>

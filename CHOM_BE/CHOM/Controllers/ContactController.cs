@@ -1,4 +1,5 @@
 ﻿using CHOM.Data;
+using CHOM.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CHOM.Controllers
@@ -6,9 +7,11 @@ namespace CHOM.Controllers
     public class ContactController : Controller
     {
         private readonly CHOMContext _db;
-        public ContactController(CHOMContext db)
+        private readonly IEmailSender _emailSender;
+        public ContactController(CHOMContext db, IEmailSender emailSender)
         {
             _db = db;
+            _emailSender = emailSender;
         }
 
         public IActionResult Index()
@@ -50,6 +53,23 @@ namespace CHOM.Controllers
             }
             try
             {
+                var mailContent = new MailContent();
+                var emailAdmin = _db.LienHes.SingleOrDefault(x => x.PhuongThuc == "Email");
+                mailContent.To = emailAdmin.Ten;
+                mailContent.Subject = "Phản hồi đến từ khách hàng";
+                string content = string.Empty;
+                using (StreamReader reader = new StreamReader(Path.Combine("assets/template/Feedback.html")))
+                {
+                    content = reader.ReadToEnd();
+                }
+                content = content.Replace("{{CustomerName}}", phanHoi.Email);
+                content = content.Replace("{{Email}}", phanHoi.Email);
+                content = content.Replace("{{Name}}", phanHoi.Ten);
+                content = content.Replace("{{Phone}}", phanHoi.SDT);
+                content = content.Replace("{{Request}}", phanHoi.YeuCau);
+                content = content.Replace("{{Content}}", phanHoi.NoiDung);
+                mailContent.Body = content;
+                await _emailSender.SendMail(mailContent);
                 phanHoi.CreatedDate = DateTime.Now;
                 _db.PhanHois.Add(phanHoi);
                 await _db.SaveChangesAsync();
