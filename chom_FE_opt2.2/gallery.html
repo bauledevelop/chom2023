@@ -131,35 +131,35 @@
                         <div class="gallery-item">
                             <div class="content">
                                 <a class="uk-inline" href="images/interiors/interior01.jpg" data-caption="Caption 1">
-                                    <img src="https://source.unsplash.com/random/?architecture,care" width="1800" height="1200" alt="">
+                                    <img src="images/interiors/interior01.jpg" width="1800" height="1200" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="gallery-item">
                             <div class="content">
                                 <a class="uk-inline" href="images/interiors/interior02.jpg" data-caption="Caption 1">
-                                    <img src="https://source.unsplash.com/random/?architecture,studied" width="1800" height="1200" alt="">
+                                    <img src="images/interiors/interior02.jpg" width="1800" height="1200" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="gallery-item">
                             <div class="content">
                                 <a class="uk-inline" href="images/interiors/interior03.jpg" data-caption="Caption 1">
-                                    <img src="https://source.unsplash.com/random/?architecture,substance" width="1800" height="1200" alt="">
+                                    <img src="images/interiors/interior03.jpg" width="1800" height="1200" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="gallery-item">
                             <div class="content">
                                 <a class="uk-inline" href="images/interiors/interior04.jpg" data-caption="Caption 1">
-                                    <img src="https://source.unsplash.com/random/?architecture,choose" width="1800" height="1200" alt="">
+                                    <img src="images/interiors/interior04.jpg" width="1800" height="1200" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="gallery-item">
                             <div class="content">
                                 <a class="uk-inline" href="images/interiors/interior05.jpg" data-caption="Caption 1">
-                                    <img src="https://source.unsplash.com/random/?architecture,past" width="1800" height="1200" alt="">
+                                    <img src="images/interiors/interior05.jpg" width="1800" height="1200" alt="">
                                 </a>
                             </div>
                         </div>
@@ -351,6 +351,7 @@
             return parseInt(window.getComputedStyle(elem).getPropertyValue(style));
         };
         var getHeight = function(item) {
+            console.log(item.querySelector(".content").getBoundingClientRect());
             return item.querySelector(".content").getBoundingClientRect().height;
         };
         var resizeAll = function() {
@@ -363,7 +364,7 @@
             });
         };
         gallery.querySelectorAll("img").forEach(function(item) {
-            item.classList.add("byebye");
+            // item.classList.add("byebye");
             if (item.complete) {
                 console.log(item.src);
             } else {
@@ -373,7 +374,7 @@
                     var gitem = item.parentElement.parentElement.parentElement;
                     gitem.style.gridRowEnd =
                         "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
-                    item.classList.remove("byebye");
+                    // item.classList.remove("byebye");
                 });
             }
         });
