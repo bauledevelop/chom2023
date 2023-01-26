@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Build.Evaluation;
 using Microsoft.EntityFrameworkCore;
+using Shop.Mvc.Entensions;
 
 namespace CHOM.Areas.Admin.Controllers
 {
@@ -15,6 +16,7 @@ namespace CHOM.Areas.Admin.Controllers
         public ProjectController(CHOMContext db) 
         {
             _db = db;
+
         }
         public IActionResult Index()
         {

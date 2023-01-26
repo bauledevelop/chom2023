@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Shop.Mvc.Entensions;
 
 namespace CHOM.Areas.Admin.Controllers
 {
@@ -13,6 +14,7 @@ namespace CHOM.Areas.Admin.Controllers
         public SocialMediaController(CHOMContext db)
         {
             _db = db;
+
         }
         public IActionResult Index()
         {

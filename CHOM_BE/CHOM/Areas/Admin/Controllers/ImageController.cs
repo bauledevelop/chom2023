@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Shop.Mvc.Entensions;
 
 namespace CHOM.Areas.Admin.Controllers
 {
@@ -19,18 +20,31 @@ namespace CHOM.Areas.Admin.Controllers
         public IActionResult Index(string id)
         {
             var model = _db.HinhAnhs.Where(x => x.IDDuAn == int.Parse(id)).OrderByDescending(x => x.ID).ToList();
+            string idProject = id;
+            HttpContext.Session.Set<string>("IDProject",idProject);
             return View(model);
         }
 
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.ListProject = new SelectList(_db.DuAns.ToList(),"ID", "TuaDe");
-            return View();
+            var getIdProject = HttpContext.Session.Get<string>("IDProject");
+            if (getIdProject == null)
+            {
+                return Redirect("/Admin/Project");
+            }
+            else
+            {
+                ViewBag.IDProject = getIdProject;
+                ViewBag.ListProject = new SelectList(_db.DuAns.ToList(), "ID", "TuaDe");
+                return View();
+            }
+
         }
         [HttpPost]
         public async Task<IActionResult> Create(List<IFormFile>? uploadFile, HinhAnh hinhanh)
         {
+            ViewBag.IDProject = HttpContext.Session.Get<string>("IDProject");
             ViewBag.ListProject = new SelectList(_db.DuAns.ToList(), "ID", "TuaDe",hinhanh.IDDuAn);
             if (uploadFile.Count() == 0)
             {
@@ -69,6 +83,12 @@ namespace CHOM.Areas.Admin.Controllers
             if (string.IsNullOrEmpty(id)) throw new ArgumentNullException(nameof(id));
             try
             {
+                var getIdProject = HttpContext.Session.Get<string>("IDProject");
+                if (getIdProject == null)
+                {
+                    return Redirect("/Admin/Project");
+                }
+                ViewBag.IDProject = getIdProject;
                 var model = _db.HinhAnhs.Find(int.Parse(id));
                 ViewBag.ListProject = new SelectList(_db.DuAns.ToList(), "ID", "TuaDe", model.IDDuAn);
                 return View(model);
@@ -82,7 +102,7 @@ namespace CHOM.Areas.Admin.Controllers
         public async Task<IActionResult> Edit(IFormFile newFile,HinhAnh hinhanh)
         {
             ViewBag.ListProject = new SelectList(_db.DuAns.ToList(), "ID", "TuaDe", hinhanh.IDDuAn);
-
+            ViewBag.IDProject = HttpContext.Session.Get<string>("IDProject");
             if (!ModelState.IsValid) return View(hinhanh);
             try
             {

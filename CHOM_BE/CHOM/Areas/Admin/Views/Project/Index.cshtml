@@ -44,7 +44,7 @@
                                                 <th>Tên dự án</th>
                                                 <th>Năm</th>
                                                 <th>Mục lục</th>
-                                                <th>Hình ảnh</th>
+                                                <th>Tổng hình ảnh chi tiết</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -61,7 +61,7 @@
                                                             @(listMenu.SingleOrDefault(x => x.ID == item.IDMucLuc).Ten)
                                                         </td>
                                                         <td>
-                                                            <a target="_blank" href="/Admin/Image/Index/@item.ID" class="btn btn-sm btn-primary">@(listHinhAnh.Where(x => x.IDDuAn == item.ID).Count()) Hình</a>
+                                                            <a href="/Admin/Image/Index/@item.ID" class="btn btn-sm btn-primary">@(listHinhAnh.Where(x => x.IDDuAn == item.ID).Count()) Hình</a>
                                                         </td>
                                                         <td>
                                                             <a href="/Admin/Project/Edit/@item.ID" class="btn btn-sm btn-warning">Sửa</a>

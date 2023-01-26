@@ -86,3 +86,10 @@ a{
 .login-form{
     border-radius: 1em;
 }
+.btn-block:hover{
+    color: #FFFFFF !important;
+}
+.btn-black{
+    color: #FFFFFF !important;
+    background: #000000;
+}
