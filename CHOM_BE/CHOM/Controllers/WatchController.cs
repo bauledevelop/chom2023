@@ -15,7 +15,7 @@ namespace CHOM.Controllers
         {
             ViewBag.ID = id;
             var listDuAn = _db.DuAns.SingleOrDefault(x => x.ID == int.Parse(id));
-            ViewBag.Title = listDuAn.TuaDe;
+            ViewBag.TuaDe = listDuAn.TuaDe;
             var checkPrev = _db.DuAns.OrderByDescending(x => x.ID).FirstOrDefault(x => x.ID < int.Parse(id) && x.IDMucLuc == 2);
             if (checkPrev == null)
             {
@@ -42,7 +42,6 @@ namespace CHOM.Controllers
         {
             ViewBag.ID = id;
             var project = _db.DuAns.SingleOrDefault(x => x.ID == int.Parse(id));
-            ViewBag.Title = project.TuaDe;
             ViewBag.Image = project.HinhGT;
             var checkPrev = _db.DuAns.OrderByDescending(x => x.ID).FirstOrDefault(x => x.ID < int.Parse(id) && x.IDMucLuc == 3);
             if (checkPrev == null)
