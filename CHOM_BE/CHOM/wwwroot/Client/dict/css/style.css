@@ -2753,9 +2753,10 @@ footer .socials-wrap {
 }
 
 #main .button-text {
-    font-size: 16px;
+    font-size: 12px;
     line-height: 30px;
-    font-weight: 400;
+    font-weight: 600;
+    padding: 0 10px;
     margin: 15px 0;
     transition: transform .2s ease-out;
 }
@@ -2910,7 +2911,7 @@ nav.open {
 }
 
 .index-project {
-    color: #fff;
+    color: #000;
     font-size: 12px;
     font-weight: 600;
     display: flex;
@@ -2919,7 +2920,7 @@ nav.open {
 }
 
 .line-index-project {
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid;
     width: 16px;
     margin: 0 12px;
 }
@@ -2944,19 +2945,25 @@ nav.open {
     width: 2px;
 }
 
+.black-logo {
+    color: #000;
+}
 
-/* 
-.font-title {
-    font-family: 'Poppins', sans-serif;
-} */
+.white-logo {
+    color: #fff;
+}
+
+.text-white {
+    color: #fff;
+    border-color: #fff;
+}
 
 
 /*--------------------------------------------------
 	07. Responsive
 ---------------------------------------------------*/
-
 @media only screen and (max-width: 1466px) {
-    h1.big-title {
+    h1 .big-title {
         font-size: 90px;
         line-height: 110px;
         margin-left: -3px;
