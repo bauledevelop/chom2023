@@ -34,7 +34,7 @@
         <div class="container text-center info-content">
             <div class="row about-content">
                 <div class="col-12">
-                    <h2 style="font-weight: normal; margin-bottom: 0;">Về chúng tôi</h1>
+                    <h2 style="font-weight: normal; margin-bottom: 0;">About Us</h2>
                 </div>
             </div>
             <div class="row about-content">
@@ -59,7 +59,9 @@
                                 <dl class="accordion has-animation">
 
                                     <dt class="accordion-active">
-                                        <span class="name-info"><span class="line-title"></span>Cột mốc<span class="line-title"></span></span>
+                                        <span class="name-info">
+                                            <span class="line-title"></span>Milestones<span class="line-title"></span>
+                                        </span>
                                     </dt>
                                     <dd class="accordion-content">
                                         @Html.Raw(contact.CotMoc)
@@ -82,38 +84,36 @@
                             <div class="alert alert-success mt-3">@ViewBag.Success</div>
                         }
                         <div class=" has-animation" data-delay="100">
-                            <input asp-for="Ten" type="text" id="name" size="30" value="" placeholder="Tên của bạn">
+                            <input asp-for="Ten" type="text" id="name" size="30" value="" placeholder="Your Name">
                             <label class="input_label"></label>
                             <span asp-validation-for="Ten" class="text-danger"></span>
 
                         </div>
                         <div class="message-box has-animation" data-delay="150">
-                            <input asp-for="Email" type="text" id="email" size="30" value="" placeholder="Email"><label class="input_label"></label>
+                            <input asp-for="Email" type="text" id="email" size="30" value="" placeholder="Your Email"><label class="input_label"></label>
                             <span asp-validation-for="Email" class="text-danger"></span>
 
                         </div>
                         <div class="message-box has-animation" data-delay="100">
-                            <input asp-for="SDT" type="text" id="phone" size="30" value="" placeholder="Số điện thoại">
+                            <input asp-for="SDT" type="text" id="phone" size="30" value="" placeholder="Your Phone">
                             <label class="input_label"></label>
                             <span asp-validation-for="SDT" class="text-danger"></span>
 
                         </div>
                         <div class="message-box has-animation" data-delay="150" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
                             <select class="select-form" asp-for="YeuCau" id="cars">
-                                <option value="1">Kiến trúc cảnh quan</option>
-                                <option value="2">Kiến trúc nội thất</option>
-                                <option value="3">Kiến trúc thiết kế</option>
+                                <option value="1">Landscape architecture</option>
+                                <option value="2">Interior architecture</option>
+                                <option value="3">Design architecture</option>
                             </select>
                         </div>
                         <div class="message-box has-animation" data-delay="100">
-                            <textarea asp-for="NoiDung" cols="40" rows="4" id="comments" placeholder="Nội dung"></textarea><label class="input_label slow"></label>
-                            <span asp-validation-for="NoiDung" class="text-danger"></span>
-
+                            <textarea asp-for="NoiDung" cols="40" rows="4" id="comments" placeholder="Comment"></textarea><label class="input_label slow"></label>
                         </div>
                         <div class="button-box has-animation hide-ball" data-delay="100">
                             <div class="clapat-button-wrap parallax-wrap">
                                 <div class="clapat-button parallax-element">
-                                    <div class="button-border rounded" data-btncolor="#2b2a35" data-btntextcolor="#fff"><input type="submit" class="send_message" id="submit" value="Gửi phản hồi" /></div>
+                                    <div class="button-border rounded" data-btncolor="#2b2a35" data-btntextcolor="#fff"><input type="submit" class="send_message" id="submit" value="Send" /></div>
                                 </div>
                             </div>
                         </div>
@@ -128,18 +128,18 @@
                         {
                             var link = "mailto:" + item.Ten;
                             <br/>
-                            <a class=" text-center" href="@link"><span class="info-title"> Email: </span>@item.Ten</a>
+                            <a class=" text-center" href="@link"><span class="info-title"> @item.PhuongThuc: </span>@item.Ten</a>
                         }
                         if (item.PhuongThuc == "Phone")
                         {
                             var link = "tel:" + item.Ten;
                             <br/>
-                            <a class=" text-center" href="@link"> <span class="info-title"> Điện thoại: </span><span id="phonenumber">@item.Ten</span></a>
+                            <a class=" text-center" href="@link"> <span class="info-title"> @item.PhuongThuc: </span><span id="phonenumber">@item.Ten</span></a>
                         }
                         if (item.PhuongThuc == "Address")
                         {
                             <br />
-                            <a class="text-center" href="javascript:void(0)"><span class="info-title"> Địa chỉ: </span>@item.Ten</a>
+                            <a class="text-center" href="javascript:void(0)"><span class="info-title"> @item.PhuongThuc: </span>@item.Ten</a>
                         }
                     }
                     <br>
