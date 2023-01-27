@@ -671,8 +671,8 @@ img {
     border: 0 none;
     max-width: 100%;
     vertical-align: middle;
-    height: 100%;
-    object-fit: cover;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 h1,
@@ -2866,6 +2866,10 @@ nav.open {
 
 .slide-img {
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 80vh;
 }
 
 .number-index-project {
