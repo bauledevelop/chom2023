@@ -3,6 +3,15 @@
 @{
     ViewData["Title"] = "Chỉnh sửa liên hệ";
     Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
+    var title = "";
+    if (Model.PhuongThuc == "Phone")
+    {
+        title = Model.PhuongThuc + " (Vui lòng chỉ nhập số và không nhập quá 12 kí tự)";
+    }
+    else
+    {
+        title = Model.PhuongThuc + " (Vui lòng không nhập quá 100 kí tự)";
+    }
 }
 <div class="page-wrapper compact-wrapper" id="pageWrapper">
     <!-- Page Header Start-->
@@ -16,10 +25,6 @@
         <!-- Page Sidebar Ends-->
         <div class="page-body">
             <div class="container-fluid">
-                <div class="page-title">
-                    <div class="row">
-                    </div>
-                </div>
             </div>
             <!-- Container-fluid starts-->
             <div class="container-fluid">
@@ -39,7 +44,7 @@
                                     <input type="hidden" asp-for="ID" />
                                     <input type="hidden" asp-for="PhuongThuc" />
                                     <div class="form-group">
-                                        <label class="control-label">@Model.PhuongThuc</label>
+                                        <label class="control-label">@title</label>
                                         <input asp-for="Ten" class="form-control" />
                                         <span asp-validation-for="Ten" class="text-danger"></span>
                                     </div>

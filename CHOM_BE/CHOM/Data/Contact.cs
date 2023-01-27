@@ -8,11 +8,12 @@ namespace CHOM.Data
         [Key]
         public int ID { set; get; }
         [StringLength(100)]
-        [Display(Name = "Hình ảnh")]
+        [Display(Name = "Hình ảnh (Vui lòng chọn một hình và dung lượng không quá 1MB)")]
         public string? HinhAnh { set; get; }
         [Column(TypeName = "nvarchar")]
         [StringLength(50)]
-        [Display(Name = "Tên")]
+        [Display(Name = "Tên (Vui lòng nhập tên dưới 30 kí tự)")]
+        [MaxLength(30,ErrorMessage = "Vui lòng nhập không quá 30 kí tự")]
         public string Ten { set; get; }
         [Column(TypeName = "ntext")]
         [Display(Name = "Giới thiệu")]

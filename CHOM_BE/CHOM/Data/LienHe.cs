@@ -9,7 +9,9 @@ namespace CHOM.Data
         [Key]
         public int ID { set; get; }
         [Column(TypeName = "nvarchar")]
-        [StringLength(50)]
+        [StringLength(100)]
+        [Required(ErrorMessage = "Vui lòng nhập kí tự")]
+        [MaxLength(100,ErrorMessage = "Vui lòng không nhập quá 50 kí tự")]
         public string Ten { set; get; }
         [Column(TypeName = "nvarchar")]
         [StringLength(50)]

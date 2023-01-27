@@ -15,7 +15,7 @@ td img {
     border-radius: 1em;
 }
 .form-group{
-    margin-top: 5px;
+    margin-top: 15px;
 }
 .img-logo{
     width: 30%;
@@ -52,14 +52,11 @@ a{
 }
 .btn-back-hover {
     margin-right: 5px;
+    background: #808080;
+    color: #FFFFFF !important;
 }
-.btn-back-hover:hover {
-    color: white;
-    background: #000;
-    transition: all ease-in-out 0.5s;
 
-}
-.btn-event{
+.btn-event {
     display: flex;
     justify-content: end;
 }
@@ -75,13 +72,13 @@ a{
 .img-fluid{
     padding: 7px !important;
 }
-.cl-btn-edit:hover {
-    background: #FF9900;
-    color: #FFFFFF;
+.cl-btn-edit {
+    background: #FF9900 !important;
+    color: #FFFFFF !important;
 }
-.cl-btn-create:hover {
-    background: #00CC00;
-    color: #FFFFFF;
+.cl-btn-create {
+    background: #00CC00 !important;
+    color: #FFFFFF !important;
 }
 .login-form{
     border-radius: 1em;
@@ -92,4 +89,10 @@ a{
 .btn-black{
     color: #FFFFFF !important;
     background: #000000;
+}
+body {
+    background-color: #f4f6fd !important;
+}
+.header-wrapper {
+    background-color: #f4f6fd !important;
 }
