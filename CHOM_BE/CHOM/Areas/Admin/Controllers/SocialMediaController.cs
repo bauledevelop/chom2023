@@ -41,6 +41,22 @@ namespace CHOM.Areas.Admin.Controllers
             if (!ModelState.IsValid) return View(lienHe);
             try
             {
+                if (lienHe.PhuongThuc == "Phone")
+                {
+                    if (lienHe.Ten.Length > 12)
+                    {
+                        ViewBag.Message = "Vui lòng chỉ nhập 12 kí tự";
+                        return View(lienHe);
+                    }
+                    for(var i=0;i<lienHe.Ten.Length;i++)
+                    {
+                        if (lienHe.Ten[i] < '0' || lienHe.Ten[i] >'9')
+                        {
+                            ViewBag.Message = "Vui lòng chỉ nhập số";
+                            return View(lienHe);
+                        }
+                    }
+                }
                 _db.Attach(lienHe);
                 _db.Entry(lienHe).State = EntityState.Modified;
                 await _db.SaveChangesAsync();

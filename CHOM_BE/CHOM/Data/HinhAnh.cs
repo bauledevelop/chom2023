@@ -7,7 +7,7 @@ namespace CHOM.Data
     {
         [Key]
         public int ID { set; get; }
-        [Display(Name = "Hình ảnh")]
+        [Display(Name = "Hình ảnh (Vui lòng chọn 1 ảnh và dung lượng dưới 1MB)")]
         public string? FileName { set; get; }
         [Column(TypeName = "nvarchar")]
         [StringLength(50)]

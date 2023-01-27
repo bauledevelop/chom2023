@@ -11,8 +11,9 @@ namespace CHOM.Data
         public int ID { get; set; }
         [Required(ErrorMessage ="Vui lòng nhập tên dự án")]
         [Column(TypeName = "nvarchar")]
-        [Display(Name = "Tên dự án")]
+        [Display(Name = "Tên dự án (Vui lòng viết dưới 50 kí tự)")]
         [MaxLength(100)]
+        [StringLength(maximumLength: 50, ErrorMessage = "Không nhập quá 50 ký tự")]
         public string TuaDe { get; set; }
 
         [Column(TypeName = "nvarchar(MAX)")]
@@ -23,7 +24,7 @@ namespace CHOM.Data
         [MaxLength, Column(TypeName = "ntext")]
         [Display]
         public string? NoiDung { get; set; }
-        [Display(Name ="Năm")]
+        [Display(Name ="Năm (Vui lòng nhập số)")]
         [Required(ErrorMessage = "Vui lòng chọn năm")]
         public int Nam { set; get; }
         [Display(Name = "Loại")]
