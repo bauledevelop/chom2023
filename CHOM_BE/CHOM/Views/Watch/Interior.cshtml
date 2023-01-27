@@ -27,7 +27,7 @@
                 -webkit-filter: grayscale(0);
             }
     </style>
-}4
+}
 @section js{
     <script type="text/javascript">
         var count = 1;
@@ -90,30 +90,25 @@
                             <div class="button-icon parallax-element" style="width: auto">
                                 <i class="fa fa-angle-left"></i>
                             </div>
-                            <div class="button-text text-shadow">Prev Project</div>
+                            <div class="button-text">Prev Project</div>
                         </a>
                         <div class="index-project">
-                            <div id="display" class="text-shadow">
+                            <div id="display">
                                 1
                             </div>
                             <div class="line-index-project"></div>
-                            <div class="text-shadow" data-id="@Model.Count()">
+                            <div data-id="@Model.Count()">
                                 @Model.Count()
                             </div>
                         </div>
                         <a class="button-next-project button-wrap swiper-prev" href="/Watch/Interior/@Next.ID" data-type="page-transition">
-                            <div class="button-text text-shadow">Next Project</div>
+                            <div class="button-text">Next Project</div>
                             <div class="button-icon parallax-element" style="width: auto">
                                 <i class="fa fa-angle-right"></i>
                             </div>
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div id="hero-image-wrapper" style="opacity: 0.4;">
-            <div id="hero-background-layer" class="parallax-scroll-image">
-                <div id="hero-bg-image" style="background-image:url(/uploadFiles/@ViewBag.Image)"></div>
             </div>
         </div>
         <!--/Hero Section -->

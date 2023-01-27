@@ -5,39 +5,8 @@
 }
 
 @section js{
-    <script type="text/javascript">
-        var gallery = document.querySelector("#gallery");
-        var getVal = function (elem, style) {
-            return parseInt(window.getComputedStyle(elem).getPropertyValue(style));
-        };
-        var getHeight = function (item) {
-            return item.querySelector(".content").getBoundingClientRect().height;
-        };
-        var resizeAll = function () {
-            var altura = getVal(gallery, "grid-auto-rows");
-            var gap = getVal(gallery, "grid-row-gap");
-            gallery.querySelectorAll(".gallery-item").forEach(function (item) {
-                var el = item;
-                el.style.gridRowEnd =
-                    "span " + Math.ceil((getHeight(item) + gap) / (altura + gap));
-            });
-        };
-        gallery.querySelectorAll("img").forEach(function (item) {
-            item.classList.add("byebye");
-            if (item.complete) {
-                console.log(item.src);
-            } else {
-                item.addEventListener("load", function () {
-                    var altura = getVal(gallery, "grid-auto-rows");
-                    var gap = getVal(gallery, "grid-row-gap");
-                    var gitem = item.parentElement.parentElement.parentElement;
-                    gitem.style.gridRowEnd =
-                        "span " + Math.ceil((getHeight(gitem) + gap) / (altura + gap));
-                    item.classList.remove("byebye");
-                });
-            }
-        });
-    </script>
+    
+    <script src="~/Client/js/Gallery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.19/dist/js/uikit.min.js"></script>
@@ -51,6 +20,7 @@
     <link href="~/Client/dict/css/style.css" rel="stylesheet" />
     <link href="~/Client/dict/css/style-gallery.css" rel="stylesheet" />
     <link href="~/Client/dict/css/main.css" rel="stylesheet" />
+    <link href="~/Client/css/Gallery.css" rel="stylesheet" />
 
     <link href="~/Client/dict/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
@@ -66,7 +36,7 @@
                 <div class="content">
                     <a class="uk-inline" href="/imageGallery/@item.HinhAnh" data-caption="">
                         <img src="/imageGallery/@item.HinhAnh" width="1800"
-                         height="1200" alt="hình về một cái gì đó trong bộ sưu tập">
+                         height="1200" alt="img gallery">
                     </a>
                 </div>
             </div>

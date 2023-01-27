@@ -140,7 +140,7 @@
                             <div id="showcase-carousel-holder">
                                 <div id="itemsWrapperLinks">
                                     <div id="showcase-carousel" class="swiper-container">
-                                        <div id="itemsWrapper" class="swiper-wrapper webgl-fitthumbs" onscroll="scrolled()">
+                                        <div id="itemsWrapper" class="swiper-wrapper webgl-fitthumbs">
                                             <div class="swiper-slide trigger-item">
                                                 <div class="img-mask">
                                                     <div class="section-image">
@@ -342,6 +342,39 @@
     <div id="rotate-device"></div>
 
     <script type="text/javascript">
+        let isWheeling = false;
+        const displayActiveIndex = document.getElementById('display');
+        const wrapper = document.getElementById('itemsWrapper');
+        const slideLength = 5; // tìm tổng số slides
+        const formatIndex = (index) => {
+            if (index < 1) {
+                index = slideLength;
+            } else if (index > slideLength) {
+                index = 1;
+            }
+            return index;
+        }
+        const isWheelDown = (element) => {
+            // khúc này m xem thử nha, t lười search quá
+            // nôm na là tìm offset của div cũ á xem nó lên trên hay xuống là được
+            
+            return true;
+        }
+        const getActiveSlide = () => {
+            const prevElement = wrapper.querySelector('.swiper-slide-active');
+            let index = parseInt(prevElement.getAttribute("data-swiper-slide-index")) + 1;
+            if (isWheelDown(prevElement)) {
+                index = formatIndex(index + 1);
+            } else {
+                index = formatIndex(index - 1);
+            }
+            return index;
+        }
+        wrapper.addEventListener("wheel", () => {
+            displayActiveIndex.innerText = getActiveSlide();
+        });
+    </script>
+    <!-- <script type="text/javascript">
         var count = 1;
         var total = 30;
         var btnTang = document.getElementById("btnTang");
@@ -383,7 +416,7 @@
         // for (var i = 0; i < item.length; i++) {
         //     console.log(item[i]);
         // }
-    </script>
+    </script> -->
 
     <script src="js/jquery.min.js"></script>
     <script src="js/cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
