@@ -25,6 +25,10 @@
                 filter: none;
                 -webkit-filter: grayscale(0);
             }
+            .ajax-link{
+                color: #FFFFFF !important;
+            }
+            .
     </style>
 }
 @section js{
@@ -93,13 +97,13 @@
     <footer class="hidden">
         <div id="footer-container">
             <div class="box-pagination-project">
-                <a class="button-prev-project button-wrap" href="/Watch/Landscape/@Prev.ID" data-type="page-transition">
+                <a class="button-prev-project button-wrap text-shadow"  href="/Watch/Landscape/@Prev.ID" data-type="page-transition">
                     <div class="button-icon parallax-element" style="width: auto">
-                        <i class="fa fa-angle-left"></i>
+                        <i class="fa fa-angle-left"style="color: #FFFFFF"></i>
                     </div>
-                    <div class="button-text">Prev Project</div>
+                    <div class="button-text" style="color: #FFFFFF">Prev Project</div>
                 </a>
-                <div class="index-project">
+                <div class="index-project text-shadow" style="color: #FFFFFF">
                     <div id="display">
                         1
                     </div>
@@ -108,10 +112,10 @@
                         @Model.Count()
                     </div>
                 </div>
-                <a class="button-next-project button-wrap" href="/Watch/Landscape/@Next.ID" data-type="page-transition">
-                    <div class="button-text">Next Project</div>
-                    <div class="button-icon parallax-element" style="width: auto">
-                        <i class="fa fa-angle-right"></i>
+                <a class="button-next-project button-wrap text-shadow" href="/Watch/Landscape/@Next.ID" data-type="page-transition">
+                    <div class="button-text" style="color: #FFFFFF">Next Project</div>
+                    <div class="button-icon parallax-element" style="width: auto; ">
+                        <i class="fa fa-angle-right" style="color: #FFFFFF"></i>
                     </div>
                 </a>
             </div>

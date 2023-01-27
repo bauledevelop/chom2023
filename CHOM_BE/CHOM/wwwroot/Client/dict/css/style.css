@@ -671,6 +671,7 @@ img {
     border: 0 none;
     max-width: 100%;
     vertical-align: middle;
+    max-height: 100%;
     object-fit: cover;
 }
 

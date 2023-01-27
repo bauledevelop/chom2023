@@ -30,15 +30,85 @@
 
 }
 
+<!-- Content Scroll -->
 <div id="content-scroll" style="position: absolute; top: 12vh">
-    <div class="gal">
-        @foreach(var item in Model)
-        {
-            <img src="~/imageGallery/@item.HinhAnh" alt="Hình ảnh của bộ sưu tầm">
-        }
+    <div class="gallery" id="gallery" uk-lightbox="animation: slide">
+        <div class="gallery-item">
+            <div class="content">
+                <a class="uk-inline"
+                   href="images/interiors/interior01.jpg"
+                   data-caption="Caption 1">
+                    <img src="images/interiors/interior01.jpg"
+                         width="1800"
+                         height="1200"
+                         alt="" />
+                </a>
+            </div>
+        </div>  
+        <div class="gallery-item">
+            <div class="content">
+                <a class="uk-inline"
+                   href="images/interiors/interior02.jpg"
+                   data-caption="Caption 1">
+                    <img src="images/interiors/interior02.jpg"
+                         width="1800"
+                         height="1200"
+                         alt="" />
+                </a>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="content">
+                <a class="uk-inline"
+                   href="images/interiors/interior03.jpg"
+                   data-caption="Caption 1">
+                    <img src="images/interiors/interior03.jpg"
+                         width="1800"
+                         height="1200"
+                         alt="" />
+                </a>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="content">
+                <a class="uk-inline"
+                   href="images/interiors/interior04.jpg"
+                   data-caption="Caption 1">
+                    <img src="images/interiors/interior04.jpg"
+                         width="1800"
+                         height="1200"
+                         alt="" />
+                </a>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="content">
+                <a class="uk-inline"
+                   href="images/interiors/interior05.jpg"
+                   data-caption="Caption 1">
+                    <img src="images/interiors/interior05.jpg"
+                         width="1800"
+                         height="1200"
+                         alt="" />
+                </a>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <div class="content">
+                <a class="uk-inline" href="images/interiors/interior07.jpg" data-caption="Caption 1">
+                    <img src="https://source.unsplash.com/random/?architecture,yet" width="1800" height="1200" alt="">
+                </a>
+            </div>
+        </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="hidden">
+        <div id="footer-container"></div>
+    </footer>
+    <!--/Footer -->
 </div>
+<!--/Content Scroll -->
 
 <!-- Footer -->
 <footer class="hidden">
