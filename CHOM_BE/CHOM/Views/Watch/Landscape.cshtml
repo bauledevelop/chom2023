@@ -85,41 +85,58 @@
             <div class="showcase-pagination-wrap">
                 <div class="showcase-pagination"></div>
             </div>
-            <div class="swiper-pagination"></div>
-            <div id="hero-footer">
-                <div class="box-pagination-project">
-                    <a class="button-prev-project button-wrap swiper-prev text-white" href="/Watch/Landscape/@Prev.ID" data-type="page-transition">
-                        <div class="button-icon parallax-element text-white" style="width: auto">
-                            <i class="fa fa-angle-left"></i>
-                        </div>
-                        <div class="button-text text-shadow text-white">Prev Project</div>
-                    </a>
-                    <div class="index-project text-white">
-                        <div id="display" class="text-shadow">
-                            1
-                        </div>
-                        <div class="line-index-project text-shadow"></div>
-                        <div class="text-shadow" data-id="@Model.Count()">
-                            @Model.Count()
-                        </div>
-                    </div>
-                    <a class="button-next-project button-wrap swiper-prev" href="/Watch/Landscape/@Next.ID" data-type="page-transition">
-                        <div class="button-text text-shadow text-white">Next Project</div>
-                        <div class="button-icon parallax-element text-white" style="width: auto">
-                            <i class="fa fa-angle-right"></i>
-                        </div>
-                    </a>
-                </div>
-            </div>
         </div>
         <!--/Main Content -->
 
     </div>
     <!--/Main -->
-    <div id="hero-image-wrapper" style="opacity: 0.4;">
-        <div id="hero-background-layer" class="parallax-scroll-image">
-            <div id="hero-bg-image" style="background-image:url(/uploadFiles/@ViewBag.Image)"></div>
+    <footer class="hidden">
+        <div id="footer-container">
+            <div class="box-pagination-project">
+                <a class="button-prev-project button-wrap" href="/Watch/Landscape/@Prev.ID" data-type="page-transition">
+                    <div class="button-icon parallax-element" style="width: auto">
+                        <i class="fa fa-angle-left"></i>
+                    </div>
+                    <div class="button-text">Prev Project</div>
+                </a>
+                <div class="index-project">
+                    <div id="display">
+                        1
+                    </div>
+                    <div class="line-index-project"></div>
+                    <div data-id="@Model.Count()">
+                        @Model.Count()
+                    </div>
+                </div>
+                <a class="button-next-project button-wrap" href="/Watch/Landscape/@Next.ID" data-type="page-transition">
+                    <div class="button-text">Next Project</div>
+                    <div class="button-icon parallax-element" style="width: auto">
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </a>
+            </div>
+            <!-- <div class="button-wrap left disable-drag swiper-prev">
+                <div class="icon-wrap parallax-wrap">
+                    <div class="button-icon parallax-element">
+                        <i class="fa fa-angle-left"></i>
+                    </div>
+                </div>
+                <div class="button-text sticky left"><span data-hover="Prev Slide">Prev Slide</span>
+                </div>
+            </div>
+            <div class="button-wrap right disable-drag swiper-next">
+                <div class="icon-wrap parallax-wrap">
+                    <div class="button-icon parallax-element">
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </div>
+                <div class="button-text sticky right"><span data-hover="Next Slide">Next Slide</span>
+                </div>
+            </div> -->
+
         </div>
-    </div>
+    </footer>
+    <!--/Footer -->
+
 
 </div>
