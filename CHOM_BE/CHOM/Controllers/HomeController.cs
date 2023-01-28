@@ -23,8 +23,8 @@ namespace CHOM.Controllers
         [Route("/Home")]
         public IActionResult Home()
         {
-            ViewBag.Interior = _db.MucLucs.SingleOrDefault(x => x.Ten == "Interior");
-            ViewBag.Landscape = _db.MucLucs.SingleOrDefault(x => x.Ten == "Landscape");
+            ViewBag.Interior = _db.MucLucs.SingleOrDefault(x => x.ID == 3);
+            ViewBag.Landscape = _db.MucLucs.SingleOrDefault(x => x.ID == 2);
             return View();
         }
 
