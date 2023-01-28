@@ -101,6 +101,7 @@ namespace CHOM.Areas.Admin.Controllers
             {
                 var model = _db.DuAns.Find(int.Parse(id));
                 ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 2 || x.ID == 3).ToList(), "ID", "Ten", model.IDMucLuc);
+                ViewBag.ListImage = _db.HinhAnhs.Where(x => x.IDDuAn == model.ID);
                 return View(model);
             }
             catch(Exception ex)
