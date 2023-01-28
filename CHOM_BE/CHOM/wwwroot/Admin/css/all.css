@@ -10,8 +10,9 @@
     border-radius: 1em;
 }
 td img {
-    width: 300px;
-    height: auto;
+    width: auto;
+    height: 100px;
+    aspect-ratio: 1;
     border-radius: 1em;
 }
 .form-group{
