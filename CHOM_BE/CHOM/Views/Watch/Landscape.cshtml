@@ -11,27 +11,10 @@
     <link href="~/Client/dict/css/style.css" rel="stylesheet" />
     <link href="~/Client/dict/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-    <style>
-        .canvas-slider {
-            /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
-            filter: gray;
-            /* IE5+ */
-            -webkit-filter: grayscale(1);
-            /* Webkit Nightlies & Chrome Canary */
-            -webkit-transition: all .8s ease-in-out;
-        }
-
-            .canvas-slider:hover {
-                filter: none;
-                -webkit-filter: grayscale(0);
-            }
-            .ajax-link{
-                color: #FFFFFF !important;
-            }
-
-    </style>
+    
 }
 @section js{
+
 }
 <!-- Main -->
 <div id="content-scroll">
@@ -42,7 +25,7 @@
 
 
             <!-- Showcase Slider Holder -->
-            <div id="showcase-slider-holder">
+            <div id="showcase-slider-holder" data-pattern-img=" ">
                 <div id="showcase-slider" class="swiper-container">
                     <div id="trigger-slides" class="swiper-wrapper">
                         @foreach (var item in Model)
@@ -119,24 +102,7 @@
                     </div>
                 </a>
             </div>
-            <!-- <div class="button-wrap left disable-drag swiper-prev">
-                <div class="icon-wrap parallax-wrap">
-                    <div class="button-icon parallax-element">
-                        <i class="fa fa-angle-left"></i>
-                    </div>
-                </div>
-                <div class="button-text sticky left"><span data-hover="Prev Slide">Prev Slide</span>
-                </div>
-            </div>
-            <div class="button-wrap right disable-drag swiper-next">
-                <div class="icon-wrap parallax-wrap">
-                    <div class="button-icon parallax-element">
-                        <i class="fa fa-angle-right"></i>
-                    </div>
-                </div>
-                <div class="button-text sticky right"><span data-hover="Next Slide">Next Slide</span>
-                </div>
-            </div> -->
+ 
 
         </div>
     </footer>
