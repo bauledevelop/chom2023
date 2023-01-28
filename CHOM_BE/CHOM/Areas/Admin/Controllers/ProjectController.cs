@@ -233,6 +233,27 @@ namespace CHOM.Areas.Admin.Controllers
                 });
             }
         }
+        [HttpPost]
+        public async Task<JsonResult> DeleteImageGT(string deleteFile)
+        {
+            try
+            {
+                
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", deleteFile);
+                System.IO.File.Delete(path);
+                return Json(new
+                {
+                    status = true,
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    status = false
+                });
+            }
+        }
 
         [HttpPost]
         public async Task<JsonResult> AddImage(IFormFile File)

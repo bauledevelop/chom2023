@@ -37,7 +37,7 @@
                         <div id="itemsWrapper" class="swiper-wrapper webgl-fitthumbs">
                             @foreach(var item in Model)
                             {
-                                var link = "/Watch/" + (ViewBag.Menu == "Interior" ? "Interior" : "Landscape") + "/" + item.ID;
+                                var link = "/Watch/" + (ViewBag.Menu == 3 ? "Interior" : "Landscape") + "/" + item.ID;
                                 <div class="swiper-slide trigger-item" data-count="@count">
                                     <div class="img-mask"> 
                                         <div class="section-image">
