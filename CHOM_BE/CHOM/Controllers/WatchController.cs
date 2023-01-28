@@ -19,6 +19,7 @@ namespace CHOM.Controllers
             var listCount = _db.DuAns.Where(x => x.IDMucLuc == listDuAn.IDMucLuc).OrderByDescending(x => x.ID).ToList();
             ViewBag.MAX = listCount.Count();
             var count = 0;
+            ViewBag.BackList = listDuAn.IDMucLuc;
             foreach(var item in listCount)
             {
                 count++;
@@ -57,6 +58,7 @@ namespace CHOM.Controllers
             ViewBag.Image = project.HinhGT;
             var listCount = _db.DuAns.Where(x => x.IDMucLuc == project.IDMucLuc).OrderByDescending(x => x.ID).ToList();
             ViewBag.MAX = listCount.Count();
+            ViewBag.BackList = project.IDMucLuc;
             var count = 0;
             foreach (var item in listCount)
             {

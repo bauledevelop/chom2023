@@ -68,7 +68,21 @@
                     </div>
                 </div>
             </div>
-            <div class="button-text sticky right"><span data-hover="Menu">Menu</span></div>
+            @if (ViewBag.BackList != null)
+            {
+                if (ViewBag.BackList == 2)
+                {
+                    <div class="button-text sticky right"><a style="color: #ffffff" href="/Project/@ViewBag.BackList">Menu</a></div>
+                }
+                else
+                {
+                    <div class="button-text sticky right"><a href="/Project/@ViewBag.BackList">Menu</a></div>
+                }
+            }
+            else
+            {
+                <div class="button-text sticky right"><span data-hover="Menu">Menu</span></div>
+            }
         </div>
         <!--/Menu Burger -->
 

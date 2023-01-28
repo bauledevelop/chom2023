@@ -124,19 +124,19 @@
                     <img class="logo-footer" src="~/Client/dict/images/logo.svg" alt="logo">
                     @foreach(var item in lienHe)
                     {
-                        if (item.PhuongThuc == "Email")
+                        if (item.ID == 5)
                         {
                             var link = "mailto:" + item.Ten;
                             <br/>
                             <a class="text-center" href="@link"><span class="info-title"> @item.PhuongThuc: </span>@item.Ten</a>
                         }
-                        if (item.PhuongThuc == "Phone")
+                        if (item.ID == 4)
                         {
                             var link = "tel:" + item.Ten;
                             <br/>
                             <a class="text-center" href="@link"> <span class="info-title"> @item.PhuongThuc: </span><span id="phonenumber">@item.Ten</span></a>
                         }
-                        if (item.PhuongThuc == "Address")
+                        if (item.ID == 3)
                         {
                             <br />
                             <a class="text-center" href="javascript:void(0)"><span class="info-title"> @item.PhuongThuc: </span>@item.Ten</a>

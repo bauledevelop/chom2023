@@ -30,7 +30,7 @@ namespace CHOM.Areas.Admin.Controllers
         {
             try
             {
-                ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.Ten == "Landscape" || x.Ten == "Interior").ToList(),"ID","Ten");
+                ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 2 || x.ID == 3).ToList(),"ID","Ten");
                 return View();
             }
             catch(Exception ex)
@@ -41,7 +41,7 @@ namespace CHOM.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(DuAn duAn,IFormFile singleFile, List<IFormFile> uploadFiles)
         {
-            ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.Ten == "Landscape" || x.Ten == "Interior").ToList(), "ID", "Ten",duAn.IDMucLuc);
+            ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 2 || x.ID == 3).ToList(), "ID", "Ten",duAn.IDMucLuc);
             if (singleFile == null)
             {
                 ViewBag.Message = "Vui lòng chọn hình ảnh giới thiệu";
@@ -100,7 +100,7 @@ namespace CHOM.Areas.Admin.Controllers
             try
             {
                 var model = _db.DuAns.Find(int.Parse(id));
-                ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.Ten == "Landscape" || x.Ten == "Interior").ToList(), "ID", "Ten", model.IDMucLuc);
+                ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 2 || x.ID == 3).ToList(), "ID", "Ten", model.IDMucLuc);
                 return View(model);
             }
             catch(Exception ex)
@@ -111,7 +111,7 @@ namespace CHOM.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(DuAn duAn,IFormFile? singleFile, List<IFormFile>? mulFile)
         {
-            ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.Ten == "Landscape" || x.Ten == "Interior").ToList(), "ID", "Ten", duAn.IDMucLuc);
+            ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 2 || x.ID == 3).ToList(), "ID", "Ten", duAn.IDMucLuc);
             if (!ModelState.IsValid) return View(duAn);
             try
             {
