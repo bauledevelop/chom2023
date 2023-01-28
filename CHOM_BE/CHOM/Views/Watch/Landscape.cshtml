@@ -28,7 +28,7 @@
             .ajax-link{
                 color: #FFFFFF !important;
             }
-            .
+
     </style>
 }
 @section js{
@@ -42,7 +42,7 @@
 
 
             <!-- Showcase Slider Holder -->
-            <div id="showcase-slider-holder" data-pattern-img="Client/dict/images/displacement/7.jpg">
+            <div id="showcase-slider-holder">
                 <div id="showcase-slider" class="swiper-container">
                     <div id="trigger-slides" class="swiper-wrapper">
                         @foreach (var item in Model)
@@ -77,8 +77,8 @@
             <div id="canvas-slider" class="canvas-slider">
                 @foreach (var item in Model)
                 {
-                    <div class="slider-img " data-slide="@countItem">
-                        <img class="slide-img "
+                    <div class="slider-img" data-slide="@countItem">
+                        <img class="slide-img"
                          src="/fileImages/@item.FileName" alt="" />
                     </div>
                     countItem = countItem + 1;
@@ -105,11 +105,11 @@
                 </a>
                 <div class="index-project text-shadow" style="color: #FFFFFF">
                     <div id="display">
-                        1
+                        @ViewBag.MIN
                     </div>
                     <div class="line-index-project"></div>
                     <div data-id="@Model.Count()">
-                        @Model.Count()
+                        @ViewBag.MAX
                     </div>
                 </div>
                 <a class="button-next-project button-wrap text-shadow" href="/Watch/Landscape/@Next.ID" data-type="page-transition">

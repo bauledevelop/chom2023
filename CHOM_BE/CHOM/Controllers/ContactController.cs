@@ -31,13 +31,13 @@ namespace CHOM.Controllers
             if (!ModelState.IsValid) return View(phanHoi);
             if (phanHoi.YeuCau == "1")
             {
-                phanHoi.YeuCau = "Landscape architecture";
+                phanHoi.YeuCau = "Kiến trúc cảnh quan";
             }
             else
             {
                 if (phanHoi.YeuCau == "2")
                 {
-                    phanHoi.YeuCau = "Interior architecture";
+                    phanHoi.YeuCau = "kiến trúc nội thất";
                 }
                 else
                 {

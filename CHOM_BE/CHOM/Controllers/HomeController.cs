@@ -17,6 +17,7 @@ namespace CHOM.Controllers
         public IActionResult Index()
         {
             ViewBag.Video = _db.Videos.SingleOrDefault();
+            ViewBag.TitleIndex = "Checked";
             return View();
         }
         [Route("/Home")]
