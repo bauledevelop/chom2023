@@ -94,11 +94,11 @@
                         </a>
                         <div class="index-project">
                             <div id="display">
-                                1
+                                @ViewBag.MIN
                             </div>
                             <div class="line-index-project"></div>
                             <div data-id="@Model.Count()">
-                                @Model.Count()
+                                @ViewBag.MAX
                             </div>
                         </div>
                         <a class="button-next-project button-wrap swiper-prev" href="/Watch/Interior/@Next.ID" data-type="page-transition">
