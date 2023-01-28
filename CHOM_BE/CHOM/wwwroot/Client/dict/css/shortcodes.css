@@ -640,7 +640,7 @@ video.bgvid {
 ---------------------------------------------------*/
 
 .button-box {
-    margin-top: 10px;
+    /*margin-top: 10px;*/
     line-height: 16px;
     cursor: pointer;
     border: none;
@@ -1556,7 +1556,7 @@ dt.accordion-active .acc-button-icon i {
 .message-box {
     float: left;
     width: 100%;
-    margin-top: 36px;
+    margin-top: 30px;
 }
 
 input,
@@ -1830,7 +1830,7 @@ input[type="submit"] {
 
 @media only screen and (max-width: 1024px) {
     textarea {
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
     .justified-gallery {
         margin-left: 0px;
