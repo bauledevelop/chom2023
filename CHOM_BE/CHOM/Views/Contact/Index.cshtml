@@ -121,20 +121,20 @@
 
                 </div>
                 <div class="col footer-info">
-                    <img src="~/Client/dict/images/logo.svg" alt="logo" style="height: 40px;">
+                    <img class="logo-footer" src="~/Client/dict/images/logo.svg" alt="logo">
                     @foreach(var item in lienHe)
                     {
                         if (item.PhuongThuc == "Email")
                         {
                             var link = "mailto:" + item.Ten;
                             <br/>
-                            <a class=" text-center" href="@link"><span class="info-title"> @item.PhuongThuc: </span>@item.Ten</a>
+                            <a class="text-center" href="@link"><span class="info-title"> @item.PhuongThuc: </span>@item.Ten</a>
                         }
                         if (item.PhuongThuc == "Phone")
                         {
                             var link = "tel:" + item.Ten;
                             <br/>
-                            <a class=" text-center" href="@link"> <span class="info-title"> @item.PhuongThuc: </span><span id="phonenumber">@item.Ten</span></a>
+                            <a class="text-center" href="@link"> <span class="info-title"> @item.PhuongThuc: </span><span id="phonenumber">@item.Ten</span></a>
                         }
                         if (item.PhuongThuc == "Address")
                         {
