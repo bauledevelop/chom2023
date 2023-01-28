@@ -34,7 +34,7 @@
         <div class="container text-center info-content">
             <div class="row about-content">
                 <div class="col-12">
-                    <h2 style="font-weight: normal; margin-bottom: 0;">About Us</h2>
+                    <h2 style="font-weight: normal; margin-bottom: 0;">Về chúng tôi</h2>
                 </div>
             </div>
             <div class="row about-content">
@@ -84,36 +84,36 @@
                             <div class="alert alert-success mt-3">@ViewBag.Success</div>
                         }
                         <div class=" has-animation" data-delay="100">
-                            <input asp-for="Ten" type="text" id="name" size="30" value="" placeholder="Your Name">
+                            <input asp-for="Ten" type="text" id="name" size="30" value="" placeholder="Tên của bạn">
                             <label class="input_label"></label>
                             <span asp-validation-for="Ten" class="text-danger"></span>
 
                         </div>
                         <div class="message-box has-animation" data-delay="150">
-                            <input asp-for="Email" type="text" id="email" size="30" value="" placeholder="Your Email"><label class="input_label"></label>
+                            <input asp-for="Email" type="text" id="email" size="30" value="" placeholder="Email của bạn"><label class="input_label"></label>
                             <span asp-validation-for="Email" class="text-danger"></span>
 
                         </div>
                         <div class="message-box has-animation" data-delay="100">
-                            <input asp-for="SDT" type="text" id="phone" size="30" value="" placeholder="Your Phone">
+                            <input asp-for="SDT" type="text" id="phone" size="30" value="" placeholder="SDT của bạn">
                             <label class="input_label"></label>
                             <span asp-validation-for="SDT" class="text-danger"></span>
 
                         </div>
                         <div class="message-box has-animation" data-delay="150" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
                             <select class="select-form" asp-for="YeuCau" id="cars">
-                                <option value="1">Landscape architecture</option>
-                                <option value="2">Interior architecture</option>
-                                <option value="3">Design architecture</option>
+                                <option value="1">Kiến trúc cảnh quan</option>
+                                <option value="2">Kiến trúc nội thất</option>
+                                <option value="3">Kiến trúc thiết kế</option>
                             </select>
                         </div>
                         <div class="message-box has-animation" data-delay="100">
-                            <textarea asp-for="NoiDung" cols="40" rows="4" id="comments" placeholder="Comment"></textarea><label class="input_label slow"></label>
+                            <textarea asp-for="NoiDung" cols="40" rows="4" id="comments" placeholder="Nội dung"></textarea><label class="input_label slow"></label>
                         </div>
                         <div class="button-box has-animation hide-ball" data-delay="100">
                             <div class="clapat-button-wrap parallax-wrap">
                                 <div class="clapat-button parallax-element">
-                                    <div class="button-border rounded" data-btncolor="#2b2a35" data-btntextcolor="#fff"><input type="submit" class="send_message" id="submit" value="Send" /></div>
+                                    <div class="button-border rounded" data-btncolor="#2b2a35" data-btntextcolor="#fff"><input type="submit" class="send_message" id="submit" value="Gửi" /></div>
                                 </div>
                             </div>
                         </div>
