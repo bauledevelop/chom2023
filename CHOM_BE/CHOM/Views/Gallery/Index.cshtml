@@ -31,7 +31,7 @@
 }
 
 <!-- Content Scroll -->
-<div id="content-scroll" style="position: absolute; top: 12vh">
+<div id="content-scroll" style="position: absolute; top: 12vh" @(ViewBag.LoaiPage= 1)>
     <div class="gallery" id="gallery" uk-lightbox="animation: slide">
         @foreach(var item in Model)
         {
