@@ -12,6 +12,7 @@ namespace CHOM.Views.Shared.Components.Header
         }
         public IViewComponentResult Invoke()
         {
+            
             ViewBag.ListProject = _db.MucLucs.OrderBy(x => x.ID).ToList();
             return View();
         }

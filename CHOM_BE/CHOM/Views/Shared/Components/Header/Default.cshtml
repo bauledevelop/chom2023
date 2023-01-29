@@ -1,16 +1,34 @@
 ﻿@{
     var listMucluc = (IEnumerable<CHOM.Data.MucLuc>)ViewBag.ListProject;
+     
 }
 
-<header class="fullscreen-menu">
+<header class="fullscreen-menu" >
     <div id="header-container">
 
 
         <!-- Logo -->
         <div id="logo" class="hide-ball">
-            <a class="ajax-link" href="/">
-                C.H.O.M
-            </a>
+             
+             
+            @{
+
+                if (ViewBag.LoaiPage == 1)
+                {
+                    <a class="ajax-link" href="/" style="color:black !important">
+                        C.H.O.M
+                    </a>
+                }
+                else
+                {
+                    <a class="ajax-link" href="/" >
+                        C.H.O.M
+                    </a>
+                }
+
+                     
+                 
+            }
         </div>
         <!--/Logo -->
         <!-- Navigation -->
@@ -57,30 +75,85 @@
         <!--/Navigation -->
         <!-- Menu Burger -->
         <div class="button-wrap right menu burger-lines">
-            <div class="icon-wrap parallax-wrap">
-                <div class="button-icon parallax-element @(ViewBag.TitleIndex != null ? "light-content" : "")">
-                    <div id="burger-wrapper">
-                        <div id="menu-burger">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+             
             @if (ViewBag.BackList != null)
             {
                 if (ViewBag.BackList == 2)
                 {
-                    <div class="button-text sticky right"><a style="color: #ffffff" href="/Project/@ViewBag.BackList">Danh sách dự án</a></div>
+                    <a href="/Project/@ViewBag.BackList">
+                        <div class="icon-wrap parallax-wrap">
+                            <div class="button-icon parallax-element @(ViewBag.TitleIndex != null ? "light-content" : "")">
+                                <div style="width: 40px;
+                                        height: 40px;
+                                        float: right;
+                                        top: 0px;
+                                        right: 0;
+                                        display: flex;
+                                        position: relative;
+                                        justify-content: center;
+                                        align-items: center;
+                                        cursor: pointer;
+                                        pointer-events: initial;">
+                                    <div id="menu-burger">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-text sticky right" style="color: #ffffff">
+                            Danh sách dự án
+
+                        </div>
+                    </a>
+                    
                 }
                 else
                 {
-                    <div class="button-text sticky right"><a href="/Project/@ViewBag.BackList">Danh sách dự án</a></div>
+                    <a href="/Project/@ViewBag.BackList" >
+                        <div class="icon-wrap parallax-wrap">
+                            <div class="button-icon parallax-element @(ViewBag.TitleIndex != null ? "light-content" : "")">
+                                <div style="width: 40px;
+                                        height: 40px;
+                                        float: right;
+                                        top: 0px;
+                                        right: 0;
+                                        display: flex;
+                                        position: relative;
+                                        justify-content: center;
+                                        align-items: center;
+                                        cursor: pointer;
+                                        pointer-events: initial;">
+                                    <div id="menu-burger">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-text sticky right">
+                            Danh sách dự án
+
+                        </div>
+                    </a>
+                     
                 }
             }
             else
             {
+                <div class="icon-wrap parallax-wrap">
+                    <div class="button-icon parallax-element @(ViewBag.TitleIndex != null ? "light-content" : "")">
+                        <div id="burger-wrapper">
+                            <div id="menu-burger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="button-text sticky right"><span data-hover="Menu">Menu</span></div>
             }
         </div>

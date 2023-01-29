@@ -18,11 +18,13 @@ namespace CHOM.Controllers
         {
             ViewBag.Video = _db.Videos.SingleOrDefault();
             ViewBag.TitleIndex = "Checked";
+             
             return View();
         }
         [Route("/Home")]
         public IActionResult Home()
         {
+            ViewBag.LoaiPage = 0;
             ViewBag.Interior = _db.MucLucs.SingleOrDefault(x => x.ID == 3);
             ViewBag.Landscape = _db.MucLucs.SingleOrDefault(x => x.ID == 2);
             return View();
