@@ -29,7 +29,7 @@ namespace CHOM.Areas.Admin.Controllers
         {
             try
             {
-                ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.Ten == "Gallery").ToList(), "ID", "Ten");
+                ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 4).ToList(), "ID", "Ten");
                 return View();
             }
             catch (Exception ex)
@@ -40,7 +40,7 @@ namespace CHOM.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(IFormFile uploadFile,BoSuuTam boSuuTam)
         {
-            ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.Ten == "Gallery").ToList(), "ID", "Ten", boSuuTam.IDMucLuc);
+            ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 4).ToList(), "ID", "Ten", boSuuTam.IDMucLuc);
             if (uploadFile == null)
             {
                 ViewBag.Message = "Vui lòng chọn ảnh";
@@ -74,7 +74,7 @@ namespace CHOM.Areas.Admin.Controllers
             try
             {
                 var model = _db.BoSuuTams.Find(int.Parse(id));
-                ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.Ten == "Gallery").ToList(), "ID", "Ten", model.IDMucLuc);
+                ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 4).ToList(), "ID", "Ten", model.IDMucLuc);
                 return View(model);
             }
             catch (Exception ex)
@@ -85,7 +85,7 @@ namespace CHOM.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(IFormFile? newFile,BoSuuTam boSuuTam)
         {
-            ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.Ten == "Gallery").AsNoTracking().ToList(), "ID", "Ten", boSuuTam.IDMucLuc);
+            ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 4).AsNoTracking().ToList(), "ID", "Ten", boSuuTam.IDMucLuc);
             if (!ModelState.IsValid) return View(boSuuTam);
             try
             {
