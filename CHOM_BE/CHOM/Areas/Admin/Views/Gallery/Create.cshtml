@@ -5,6 +5,10 @@
     Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
 }
 
+@section js{
+    <script type="text/javascript" src="~/Admin/js/Gallery/Create.js"></script>
+}
+
 <div class="page-wrapper compact-wrapper" id="pageWrapper">
     <!-- Page Header Start-->
     @await Component.InvokeAsync("HeaderAdmin")
@@ -41,6 +45,7 @@
                                         </div>
                                         <div class="form-group d-flex flex-column"> 
                                             <label asp-for="HinhAnh" class="control-label"></label>
+                                            <div class="alert alert-danger txt-notification" style="display: none"></div>
                                             <input class="check-img" name="uploadFile" type="file" />
                                         </div>
                                         <div class="form-group btn-event mt-5">

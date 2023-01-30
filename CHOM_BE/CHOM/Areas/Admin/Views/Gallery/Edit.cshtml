@@ -4,6 +4,10 @@
     ViewData["Title"] = "Chỉnh sửa bộ sưu tập";
     Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
 }
+@section js{
+    <script type="text/javascript" src="~/Admin/js/Gallery/Edit.js"></script>
+}
+
 <div class="page-wrapper compact-wrapper" id="pageWrapper">
     <!-- Page Header Start-->
     @await Component.InvokeAsync("HeaderAdmin")
@@ -43,7 +47,8 @@
                                         </div>
                                         <div class="form-group d-flex flex-column">
                                             <label asp-for="HinhAnh" class="control-label"></label>
-                                            <input name="newFile" multiple type="file" />
+                                            <div class="alert alert-danger txt-notification" style="display: none"></div>
+                                            <input name="newFile" class="check-img" multiple type="file" />
                                             <img class="uploadFile mt-3 img-uploadFile" src="/imageGallery/@Model.HinhAnh" />
                                         </div>
                                         <div class="form-group btn-event mt-5">

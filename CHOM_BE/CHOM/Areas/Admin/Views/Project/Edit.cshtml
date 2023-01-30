@@ -56,11 +56,13 @@
                                         </div>
                                         <div class="form-group d-flex flex-column">
                                             <label>Hình ảnh giới thiệu (Vui lòng chỉ up 1 hình ảnh và dung lượng dưới 1MB)</label>
+                                            <div class="alert alert-danger txt-notification-gt" style="display: none"></div>
                                             <input class="img-gt form-control" id="customFile" type="file" />
                                             <img class="uploadSingleFile mt-3 img-uploadFile" src="/uploadFiles/@Model.HinhGT" />
                                         </div>
                                         <div class="form-group mt-2 d-flex flex-column">
                                             <label>Thay đổi danh sách hình ảnh (Bạn có thể up nhiều hình ảnh nhưng dung lượng mỗi hình dưới 1MB)</label>
+                                            <div class="alert alert-danger txt-validation" style="display: none;"></div>
                                             <input class="uploadMultiple form-control" id="customFile" multiple type="file" />
                                             <div class="row list-multifile">
                                                 @foreach(var item in listImage)
