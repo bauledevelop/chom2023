@@ -1,4 +1,5 @@
 ﻿using CHOM.Data;
+using CHOM.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -21,7 +22,7 @@ namespace CHOM.Areas.Admin.Controllers
         {
             var model = _db.HinhAnhs.Where(x => x.IDDuAn == int.Parse(id)).OrderByDescending(x => x.ID).ToList();
             string idProject = id;
-            HttpContext.Session.Set<string>("IDProject",idProject);
+            HttpContext.Session.Set<string>("IDProject", idProject);
             return View(model);
         }
 
@@ -45,7 +46,7 @@ namespace CHOM.Areas.Admin.Controllers
         public async Task<IActionResult> Create(List<IFormFile>? uploadFile, HinhAnh hinhanh)
         {
             ViewBag.IDProject = HttpContext.Session.Get<string>("IDProject");
-            ViewBag.ListProject = new SelectList(_db.DuAns.ToList(), "ID", "TuaDe",hinhanh.IDDuAn);
+            ViewBag.ListProject = new SelectList(_db.DuAns.ToList(), "ID", "TuaDe", hinhanh.IDDuAn);
             if (uploadFile.Count() == 0)
             {
                 ViewBag.Message = "Vui lòng chọn hình ảnh";
@@ -54,7 +55,7 @@ namespace CHOM.Areas.Admin.Controllers
             if (!ModelState.IsValid) return View(hinhanh);
             try
             {
-                foreach(var item in uploadFile)
+                foreach (var item in uploadFile)
                 {
                     string fileName = item.FileName;
                     fileName = Path.GetFileName(fileName);
@@ -99,7 +100,7 @@ namespace CHOM.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(IFormFile newFile,HinhAnh hinhanh)
+        public async Task<IActionResult> Edit(IFormFile newFile, HinhAnh hinhanh)
         {
             ViewBag.ListProject = new SelectList(_db.DuAns.ToList(), "ID", "TuaDe", hinhanh.IDDuAn);
             ViewBag.IDProject = HttpContext.Session.Get<string>("IDProject");
@@ -164,46 +165,29 @@ namespace CHOM.Areas.Admin.Controllers
                 status = false
             });
         }
-        [HttpPost]
-        public async Task<JsonResult> DeleteImage(string deleteFile)
-        {
-            try
-            {
-                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", deleteFile);
-                System.IO.File.Delete(path);
-                return Json(new
-                {
-                    status = true,
-                });
-            }
-            catch (Exception ex)
-            {
-                return Json(new
-                {
-                    status = false
-                });
-            }
-        }
 
         [HttpPost]
         public async Task<JsonResult> AddImage(IFormFile File)
         {
-            if (File == null)
-            {
-                return Json(new
-                {
-                    status = false,
-                    message = "Vui lòng chọn file ảnh trước khi tải"
-                });
-            }
             try
             {
+                var image = HttpContext.Session.Get<string>("image");
+                if (image != null)
+                {
+                    if (await _db.DuAns.SingleOrDefaultAsync(x => x.HinhGT == image) == null)
+                    {
+                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", image);
+                        System.IO.File.Delete(path);
+                    }
+                }
                 string fileName = File.FileName;
                 fileName = Path.GetFileName(fileName);
-                string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", fileName);
+                string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", fileName);
                 var stream = new FileStream(uploadPaths, FileMode.Create);
                 await File.CopyToAsync(stream);
                 stream.Dispose();
+                image = File.FileName;
+                HttpContext.Session.Set<string>("image", image);
                 ViewBag.UploadFile = null;
                 return Json(new
                 {
@@ -219,6 +203,109 @@ namespace CHOM.Areas.Admin.Controllers
                 });
             }
         }
+        [HttpPost]
+        public async Task<JsonResult> DeleteImage(string filename)
+        {
+            try
+            {
+                var check = await _db.HinhAnhs.SingleOrDefaultAsync(x => x.FileName == filename);
+                if (check == null)
+                {
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", filename);
+                    System.IO.File.Delete(path);
+                }
+                return Json(new
+                {
+                    status = true
+                });
+            }
+            catch(Exception ex)
+            {
+                return Json(new
+                {
+                    status = false,
+                    message = ex
+                });
+            }
+        }
+        [HttpPost]
+        public async Task<JsonResult> DeleteMulFile(string id,string filename)
+        {
+            try
+            {
+                var listImage = HttpContext.Session.Get<List<ImageModel>>("ListImage");
+                foreach (var item in listImage)
+                {
+                    if (item.id == id)
+                    {
+                        listImage.Remove(item);
+                        break;
+                    }
+                }
+                var check = _db.HinhAnhs.Where(x => x.FileName == filename);
+                if (check.Count() == 0 && listImage.Where(x => x.image == filename).Count() == 0)
+                {
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", filename);
+                    System.IO.File.Delete(path);
+                }
+                
+                HttpContext.Session.Set<List<ImageModel>>("ListImage",listImage);
+                return Json(new
+                {
+                    status = true,
+                });
+            }
+            catch(Exception ex)
+            {
+                return Json(new
+                {
+                    status = false,
+                    message = ex
+                });
+            }
+        }
+        [HttpPost]
+        public async Task<JsonResult> AddMulImage(List<IFormFile> files)
+        {
+            try
+            {
 
+                var listImage = HttpContext.Session.Get<List<ImageModel>>("ListImage");
+                if (listImage == null)
+                {
+                    listImage = new List<ImageModel>();
+                }
+                var images = new List<ImageModel>();
+                foreach (var item in files)
+                {
+                    string fileName = item.FileName;
+                    fileName = Path.GetFileName(fileName);
+                    string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", fileName);
+                    var stream = new FileStream(uploadPaths, FileMode.Create);
+                    await item.CopyToAsync(stream);
+                    stream.Dispose();
+                    var newImage = new ImageModel{
+                        id = Guid.NewGuid().ToString(),
+                        image = item.FileName
+                    };
+                    listImage.Add(newImage);
+                    images.Add(newImage);
+                }
+                HttpContext.Session.Set<List<ImageModel>>("ListImage", listImage);
+                return Json(new
+                {
+                    status = true,
+                    data = images,
+                });
+            }
+            catch (Exception ex)
+            {
+                return Json(new
+                {
+                    status = false,
+                    message = ex
+                });
+            }
+        }
     }
 }

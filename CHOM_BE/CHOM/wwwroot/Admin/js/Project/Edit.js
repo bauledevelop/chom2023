@@ -14,6 +14,23 @@ $(document).ready(function () {
             $('.txt-Img').attr("value", "");
         }
     }
+    $('.data-first').on('click', function () {
+        var _id = $(this).data('id');
+        var link = "." + _id;
+        $.ajax({
+            url: '/Admin/Image/DeleteMulFile',
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                id: _id,
+                filename: $(this).data('img')
+            },
+            success: function (res) {
+                
+                $(link).remove();
+            }
+        })
+    })
     $('.img-gt').on("change", function () {
         var files = $('.img-gt').prop("files");
         var url = "/Admin/Image/AddImage?handler=File";

@@ -4,9 +4,9 @@
     ViewData["Title"] = "Tạo dự án";
     Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
 }
-@*@section js{
+@section js{
     <script src="~/Admin/js/Project/Create.js"></script>
-}*@
+}
 <div class="page-wrapper compact-wrapper" id="pageWrapper">
     <!-- Page Header Start-->
     @await Component.InvokeAsync("HeaderAdmin")
@@ -37,7 +37,7 @@
                                             <div class="alert alert-danger">@ViewBag.Message</div>
                                         }
                                         <div class="form-group">
-                                            <label asp-for="TuaDe" class="control-label"></label>
+                                            <label asp-for="TuaDe" class="control-label" onclick="testfunction()"></label>
                                             <input asp-for="TuaDe" class="form-control" />
                                             <span asp-validation-for="TuaDe" class="text-danger"></span>
                                         </div>
@@ -53,11 +53,15 @@
                                         </div>
                                         <div class="form-group d-flex flex-column">
                                             <label>Hình ảnh giới thiệu (Vui lòng chỉ up 1 hình ảnh và dung lượng dưới 1MB)</label>
-                                            <input name="singleFile" type="file" />
+                                            <input name="singleFile" class="img-gt form-control" id="customFile" type="file" />
+                                            <img style="display: none" class="uploadSingleFile mt-3 img-uploadFile" src="" />
                                         </div>
                                         <div class="form-group mt-2 d-flex flex-column">
                                             <label>Hình ảnh của dự án (Bạn có thể up nhiều hình ảnh nhưng dung lượng mỗi hình dưới 1MB)</label>
-                                            <input name="uploadFiles" multiple type="file" />
+                                            <div class="alert alert-danger txt-validation" style="display: none;"></div>
+                                            <input class="uploadMultiple form-control" id="customFile" multiple type="file" />
+                                            <div class="row list-multifile">
+                                            </div>
                                         </div>
                                         <div class="form-group btn-event mt-5">
                                             <a class="btn btn-back-hover" href="/Admin/Project">Quay về</a>

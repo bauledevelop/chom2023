@@ -3,9 +3,11 @@
 @{
     ViewData["Title"] = "Chỉnh sửa dự án";
     Layout = "~/Areas/Admin/Views/Shared/Layout/_Layout.cshtml";
-    var listImage = (IEnumerable<CHOM.Data.HinhAnh>)ViewBag.ListImage;
+    var listImage = (IEnumerable<CHOM.Models.ImageModel>)ViewBag.ListImage;
 }
-
+@section js{
+    <script src="~/Admin/js/Project/Edit.js" type="text/javascript"></script>
+}
 <div class="page-wrapper compact-wrapper" id="pageWrapper">
     <!-- Page Header Start-->
     @await Component.InvokeAsync("HeaderAdmin")
@@ -54,16 +56,27 @@
                                         </div>
                                         <div class="form-group d-flex flex-column">
                                             <label>Hình ảnh giới thiệu (Vui lòng chỉ up 1 hình ảnh và dung lượng dưới 1MB)</label>
-                                            <input name="singleFile" type="file" />
-                                            <img class="uploadFile mt-3 img-uploadFile" src="/uploadFiles/@Model.HinhGT" />
+                                            <input class="img-gt form-control" id="customFile" type="file" />
+                                            <img class="uploadSingleFile mt-3 img-uploadFile" src="/uploadFiles/@Model.HinhGT" />
                                         </div>
                                         <div class="form-group mt-2 d-flex flex-column">
                                             <label>Thay đổi danh sách hình ảnh (Bạn có thể up nhiều hình ảnh nhưng dung lượng mỗi hình dưới 1MB)</label>
-                                            <input name="mulFile" multiple type="file" />
-                                            <div class="row">
-                                                @foreach (var item in listImage)
+                                            <input class="uploadMultiple form-control" id="customFile" multiple type="file" />
+                                            <div class="row list-multifile">
+                                                @foreach(var item in listImage)
                                                 {
-                                                    <img src="~/fileImages/@item.FileName" class="mt-3 img-uploadFile" />
+                                                    <div class="col-xl-3 col-lg-4 col-sm-6 @item.id">
+                                                        <div class="product-box">
+                                                            <div class="product-img">
+                                                                <img class="img-fluid" src="~/fileImages/@item.image" data-img="@item.image" alt="">
+                                                                <div class="product-hover">
+                                                                    <ul>
+                                                                        <li data-img="@item.image" data-id="@item.id" class="data-first"><a class="btn-delete"><i class="fa-solid fa-trash cl-trash"></i></a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 }
                                             </div>
                                         </div>

@@ -26,7 +26,10 @@ builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<DbContext, CHOMContext>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 // Add services to the container.
-builder.Services.AddSession();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromDays(365);
+});
 
 builder.Services.AddControllersWithViews();
 

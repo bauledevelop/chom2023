@@ -1,4 +1,5 @@
 ﻿using CHOM.Data;
+using CHOM.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -18,8 +19,40 @@ namespace CHOM.Areas.Admin.Controllers
             _db = db;
 
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var image = HttpContext.Session.Get<string>("image");
+            var listImage = HttpContext.Session.Get<List<ImageModel>>("ListImage");
+            if (image != null)
+            {
+                if (_db.DuAns.Where(x => x.HinhGT == image).Count() == 0)
+                {
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", image);
+                    System.IO.File.Delete(path);
+                }
+                image = null;
+                HttpContext.Session.Set<string>("image", image);
+            }
+            if (listImage == null)
+            {
+                listImage = new List<ImageModel>();
+            }
+            else
+            {
+                if (listImage.Count > 0)
+                {
+                    foreach (var item in listImage)
+                    {
+                        if (_db.HinhAnhs.Where(x => x.FileName == item.image).Count() == 0)
+                        {
+                            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", item.image);
+                            System.IO.File.Delete(path);
+                        }
+                    }
+                    listImage = new List<ImageModel>();
+                }
+            }
+            HttpContext.Session.Set<List<ImageModel>>("ListImage", listImage);
             var model = _db.DuAns.OrderByDescending(x => x.ID).ToList();
             ViewBag.ListMenu = _db.MucLucs.ToList();
             ViewBag.ListHinhAnh = _db.HinhAnhs.ToList();
@@ -28,6 +61,38 @@ namespace CHOM.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            var image = HttpContext.Session.Get<string>("image");
+            var listImage = HttpContext.Session.Get<List<ImageModel>>("ListImage");
+            if (image != null)
+            {
+                if (_db.DuAns.Where(x => x.HinhGT == image).Count() == 0)
+                {
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", image);
+                    System.IO.File.Delete(path);
+                }
+                image = null;
+                HttpContext.Session.Set<string>("image", image);
+            }
+            if (listImage == null)
+            {
+                listImage = new List<ImageModel>();
+            }
+            else
+            {
+                if (listImage.Count > 0)
+                {
+                    foreach (var item in listImage)
+                    {
+                        if (_db.HinhAnhs.Where(x => x.FileName == item.image).Count() == 0)
+                        {
+                            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", item.image);
+                            System.IO.File.Delete(path);
+                        }
+                    }
+                    listImage = new List<ImageModel>();
+                }
+            }
+            HttpContext.Session.Set<List<ImageModel>>("ListImage", listImage);
             try
             {
                 ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 2 || x.ID == 3).ToList(),"ID","Ten");
@@ -39,17 +104,23 @@ namespace CHOM.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Create(DuAn duAn,IFormFile singleFile, List<IFormFile> uploadFiles)
+        public async Task<IActionResult> Create(DuAn duAn)
         {
             ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 2 || x.ID == 3).ToList(), "ID", "Ten",duAn.IDMucLuc);
-            if (singleFile == null)
+            var image = HttpContext.Session.Get<string>("image");
+            var listImage = HttpContext.Session.Get<List<ImageModel>>("ListImage");
+            if (image == null)
             {
                 ViewBag.Message = "Vui lòng chọn hình ảnh giới thiệu";
+                listImage = new List<ImageModel>();
+                HttpContext.Session.Set<List<ImageModel>>("ListImage",listImage);
                 return View(duAn);
             }
-            if (uploadFiles.Count() == 0)
+            if (listImage.Count == 0)
             {
-                ViewBag.Message = "Vui lòng chọn hình của dự án";
+                ViewBag.Message = "Vui lòng chọn hình ảnh dự án";
+                image = null;
+                HttpContext.Session.Set<string>("image", image);
                 return View(duAn);
             }
             if (!ModelState.IsValid) return View(duAn);
@@ -59,31 +130,27 @@ namespace CHOM.Areas.Admin.Controllers
                 if (check != null)
                 {
                     ViewBag.Message = "Dự án đã tồn tại";
+                    listImage = new List<ImageModel>();
+                    HttpContext.Session.Set<List<ImageModel>>("ListImage", listImage);
+                    image = null;
+                    HttpContext.Session.Set<string>("image", image);
                     return View(duAn);
                 }
-                string singleFilename = singleFile.FileName;
-                singleFilename = Path.GetFileName(singleFilename);
-                string uploadSinghlePaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", singleFilename);
-                var streamFile = new FileStream(uploadSinghlePaths, FileMode.Create);
-                await singleFile.CopyToAsync(streamFile);
-                streamFile.Dispose();
-                duAn.HinhGT = singleFile.FileName;
+                duAn.HinhGT = image;
                 await _db.AddAsync(duAn);
                 await _db.SaveChangesAsync();
-                foreach (var file in uploadFiles)
+                image = null;
+                HttpContext.Session.Set<string>("image", image);
+                foreach (var item in listImage)
                 {
-                    string fileName = file.FileName;
-                    fileName = Path.GetFileName(fileName);
-                    string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", fileName);
-                    var stream = new FileStream(uploadPaths, FileMode.Create);
-                    await file.CopyToAsync(stream);
-                    stream.Dispose();
                     var hinhanh = new HinhAnh();
-                    hinhanh.FileName = file.FileName;
+                    hinhanh.FileName = item.image;
                     hinhanh.IDDuAn = duAn.ID;
                     await _db.HinhAnhs.AddAsync(hinhanh);
                     await _db.SaveChangesAsync();
                 }
+                listImage = new List<ImageModel>();
+                HttpContext.Session.Set<List<ImageModel>>("ListImage", listImage);
                 return Redirect("/Admin/Project");
 
             }
@@ -96,12 +163,53 @@ namespace CHOM.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Edit(string id)
         {
+            var image = HttpContext.Session.Get<string>("image");
+            var listImage = HttpContext.Session.Get<List<ImageModel>>("ListImage");
+            if (image != null)
+            {
+                if (_db.DuAns.Where(x => x.HinhGT == image).Count() == 0)
+                {
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", image);
+                    System.IO.File.Delete(path);
+                }
+                image = null;
+            }
+            if (listImage == null)
+            {
+                listImage = new List<ImageModel>();
+            }
+            else
+            {
+                if (listImage.Count > 0)
+                {
+                    foreach (var item in listImage)
+                    {
+                        if (_db.HinhAnhs.Where(x => x.FileName == item.image).Count() == 0)
+                        {
+                            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", item.image);
+                            System.IO.File.Delete(path);
+                        }
+                    }
+                    listImage = new List<ImageModel>();
+                }
+            }
+            HttpContext.Session.Set<string>("image", image);
             if (string.IsNullOrEmpty(id)) return Redirect("/Admin/Project");
             try
             {
                 var model = _db.DuAns.Find(int.Parse(id));
                 ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 2 || x.ID == 3).ToList(), "ID", "Ten", model.IDMucLuc);
-                ViewBag.ListImage = _db.HinhAnhs.Where(x => x.IDDuAn == model.ID);
+                var listImageData = _db.HinhAnhs.Where(x => x.IDDuAn == model.ID);
+                foreach(var item in listImageData)
+                {
+                    listImage.Add(new ImageModel
+                    {
+                        id = Guid.NewGuid().ToString(),
+                        image = item.FileName
+                    });
+                }
+                ViewBag.ListImage = listImage;
+                HttpContext.Session.Set<List<ImageModel>>("ListImage", listImage);
                 return View(model);
             }
             catch(Exception ex)
@@ -110,9 +218,36 @@ namespace CHOM.Areas.Admin.Controllers
             }
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(DuAn duAn,IFormFile? singleFile, List<IFormFile>? mulFile)
+        public async Task<IActionResult> Edit(DuAn duAn)
         {
-            ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 2 || x.ID == 3).ToList(), "ID", "Ten", duAn.IDMucLuc);
+            ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 2 || x.ID == 3).ToList(), "ID", "Ten", duAn.IDMucLuc).ToList();
+            var image = HttpContext.Session.Get<string>("image");
+            var listImage = HttpContext.Session.Get<List<ImageModel>>("ListImage");
+            if (listImage.Count() == 0)
+            {
+                if (image != null)
+                {
+                    if (image != duAn.HinhGT)
+                    {
+                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", image);
+                        System.IO.File.Delete(path);
+                        image = null;
+                        HttpContext.Session.Set<string>("image", image);
+                    }
+                }
+                ViewBag.Message = "Vui lòng không để trống hình dự án";
+                var listImageData = _db.HinhAnhs.Where(x => x.IDDuAn == duAn.ID);
+                foreach (var item in listImageData)
+                {
+                    listImage.Add(new ImageModel
+                    {
+                        id = Guid.NewGuid().ToString(),
+                        image = item.FileName
+                    });
+                }
+                ViewBag.ListImage = listImage;
+                return View(duAn);
+            }
             if (!ModelState.IsValid) return View(duAn);
             try
             {
@@ -122,48 +257,41 @@ namespace CHOM.Areas.Admin.Controllers
                     ViewBag.Message = "Dự án này đã tồn tại";
                     return View(duAn);
                 }
-                if (mulFile.Count() > 0)
+                if (image != null)
                 {
-                    var hinhAnhs = _db.HinhAnhs.Where(x => x.IDDuAn == duAn.ID).ToList();
-                    if (hinhAnhs.Count() > 0)
+                    if (image != duAn.HinhGT)
                     {
-                        foreach (var item in hinhAnhs)
+                        var checkExistHinhGT = _db.DuAns.Where(x => x.HinhGT == duAn.HinhGT && x.ID != duAn.ID).ToList();
+                        if (checkExistHinhGT.Count() == 0)
+                        {
+                            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", duAn.HinhGT);
+                            System.IO.File.Delete(path);
+                        }
+                        duAn.HinhGT = image;
+                    }
+                }
+                var listImageData = _db.HinhAnhs.Where(x => x.IDDuAn == duAn.ID).ToList();
+                foreach(var item in listImageData)
+                {
+                    if (listImage.Where(x => x.image == item.FileName).Count() == 0 && _db.HinhAnhs.Where(x => x.IDDuAn != duAn.ID && x.FileName == item.FileName).ToList().Count() == 0)
+                    {
+                        var checkExistInProject = _db.HinhAnhs.Where(x => x.FileName == item.FileName).ToList();
+                        if (checkExistInProject.Count() == 1)
                         {
                             string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", item.FileName);
                             System.IO.File.Delete(path);
-                            _db.Remove(item);
-                            await _db.SaveChangesAsync();
                         }
                     }
-                    foreach (var file in mulFile)
-                    {
-                        string fileName = file.FileName;
-                        fileName = Path.GetFileName(fileName);
-                        string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", fileName);
-                        var stream = new FileStream(uploadPaths, FileMode.Create);
-                        await file.CopyToAsync(stream);
-                        stream.Dispose();
-                        var hinhanh = new HinhAnh();
-                        hinhanh.FileName = file.FileName;
-                        hinhanh.IDDuAn = duAn.ID;
-                        await _db.AddAsync(hinhanh);
-                        await _db.SaveChangesAsync();
-                    }
+                    _db.HinhAnhs.Remove(item);
+                    await _db.SaveChangesAsync();
                 }
-                if (singleFile != null)
+                foreach(var item in listImage)
                 {
-                    if (singleFile.FileName != duAn.HinhGT)
-                    {
-                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", duAn.HinhGT);
-                        System.IO.File.Delete(path);
-                        string singleFilename = singleFile.FileName;
-                        singleFilename = Path.GetFileName(singleFilename);
-                        string uploadSinghlePaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", singleFilename);
-                        var streamFile = new FileStream(uploadSinghlePaths, FileMode.Create);
-                        await singleFile.CopyToAsync(streamFile);
-                        streamFile.Dispose();
-                        duAn.HinhGT = singleFile.FileName;
-                    }
+                    var hinhAnh = new HinhAnh();
+                    hinhAnh.IDDuAn = duAn.ID;
+                    hinhAnh.FileName = item.image;
+                    await _db.AddAsync(hinhAnh);
+                    await _db.SaveChangesAsync();
                 }
                 _db.ChangeTracker.Clear();
                 _db.Attach(duAn);
@@ -186,13 +314,19 @@ namespace CHOM.Areas.Admin.Controllers
                 var check = await _db.DuAns.SingleOrDefaultAsync(x => x.ID == int.Parse(id));
                 if (check != null)
                 {
-                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", check.HinhGT);
-                    System.IO.File.Delete(path);
+                    if (_db.DuAns.Where(x => x.ID != check.ID && x.HinhGT == check.HinhGT).Count() == 0)
+                    {
+                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", check.HinhGT);
+                        System.IO.File.Delete(path);
+                    }
                     var listHinhAnh = _db.HinhAnhs.Where(x => x.IDDuAn == int.Parse(id));
                     foreach(var item in listHinhAnh)
                     {
-                        string pathImage = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", item.FileName);
-                        System.IO.File.Delete(pathImage);
+                        if (_db.HinhAnhs.Where(x => x.FileName == item.FileName && x.IDDuAn != item.IDDuAn).Count() == 0)
+                        {
+                            string pathImage = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", item.FileName);
+                            System.IO.File.Delete(pathImage);
+                        }
                     }
                     _db.DuAns.Remove(check);
                     await _db.SaveChangesAsync();
@@ -259,19 +393,11 @@ namespace CHOM.Areas.Admin.Controllers
         [HttpPost]
         public async Task<JsonResult> AddImage(IFormFile File)
         {
-            if (File == null)
-            {
-                return Json(new
-                {
-                    status = false,
-                    message = "Vui lòng chọn file ảnh trước khi tải"
-                });
-            }
             try
             {
                 string fileName = File.FileName;
                 fileName = Path.GetFileName(fileName);
-                string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", fileName);
+                string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//images", fileName);
                 var stream = new FileStream(uploadPaths, FileMode.Create);
                 await File.CopyToAsync(stream);
                 stream.Dispose();

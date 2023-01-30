@@ -69,19 +69,19 @@ namespace CHOM.Controllers
                 }
             }
             ViewBag.Min = count;
-            var checkPrev = _db.DuAns.OrderBy(x => x.ID).FirstOrDefault(x => x.ID > int.Parse(id) && x.IDMucLuc == 2);
+            var checkPrev = _db.DuAns.OrderBy(x => x.ID).FirstOrDefault(x => x.ID > int.Parse(id) && x.IDMucLuc == 3);
             if (checkPrev == null)
             {
-                ViewBag.Prev = _db.DuAns.OrderBy(x => x.ID).FirstOrDefault(x => x.IDMucLuc == 2);
+                ViewBag.Prev = _db.DuAns.OrderBy(x => x.ID).FirstOrDefault(x => x.IDMucLuc == 3);
             }
             else
             {
                 ViewBag.Prev = checkPrev;
             }
-            var checkNext = _db.DuAns.OrderByDescending(x => x.ID).FirstOrDefault(x => x.ID < int.Parse(id) && x.IDMucLuc == 2);
+            var checkNext = _db.DuAns.OrderByDescending(x => x.ID).FirstOrDefault(x => x.ID < int.Parse(id) && x.IDMucLuc == 3);
             if (checkNext == null)
             {
-                ViewBag.Next = _db.DuAns.OrderByDescending(x => x.ID).FirstOrDefault(x => x.IDMucLuc == 2);
+                ViewBag.Next = _db.DuAns.OrderByDescending(x => x.ID).FirstOrDefault(x => x.IDMucLuc == 3);
             }
             else
             {
