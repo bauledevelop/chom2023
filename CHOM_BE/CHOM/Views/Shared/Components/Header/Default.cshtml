@@ -80,20 +80,10 @@
             {
                 if (ViewBag.BackList == 2)
                 {
-                    <a href="/Project/@ViewBag.BackList">
+                    @*<a href="/Project/@ViewBag.BackList">*@
                         <div class="icon-wrap parallax-wrap">
                             <div class="button-icon parallax-element @(ViewBag.TitleIndex != null ? "light-content" : "")">
-                                <div style="width: 40px;
-                                        height: 40px;
-                                        float: right;
-                                        top: 0px;
-                                        right: 0;
-                                        display: flex;
-                                        position: relative;
-                                        justify-content: center;
-                                        align-items: center;
-                                        cursor: pointer;
-                                        pointer-events: initial;">
+                                <div id="burger-wrapper">
                                     <div id="menu-burger">
                                         <span></span>
                                         <span></span>
@@ -102,29 +92,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="button-text sticky right" style="color: #ffffff">
+                    <a class="button-text-2" href="/Project/@ViewBag.BackList" style="color: #fff">
                             Danh sách dự án
-
-                        </div>
-                    </a>
+                        </a>
+                    @*</a>*@
                     
                 }
                 else
                 {
-                    <a href="/Project/@ViewBag.BackList" >
+                    @*<a href="/Project/@ViewBag.BackList" >*@
                         <div class="icon-wrap parallax-wrap">
                             <div class="button-icon parallax-element @(ViewBag.TitleIndex != null ? "light-content" : "")">
-                                <div style="width: 40px;
-                                        height: 40px;
-                                        float: right;
-                                        top: 0px;
-                                        right: 0;
-                                        display: flex;
-                                        position: relative;
-                                        justify-content: center;
-                                        align-items: center;
-                                        cursor: pointer;
-                                        pointer-events: initial;">
+                                <div id="burger-wrapper">
                                     <div id="menu-burger">
                                         <span></span>
                                         <span></span>
@@ -133,11 +112,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="button-text sticky right">
+                    <a class="button-text-2" href="/Project/@ViewBag.BackList">
                             Danh sách dự án
-
-                        </div>
-                    </a>
+                        </a>
+                    @*</a>*@
                      
                 }
             }
