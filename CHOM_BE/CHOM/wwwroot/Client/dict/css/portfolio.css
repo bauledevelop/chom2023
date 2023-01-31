@@ -301,7 +301,7 @@
 	    width: 100%;
 	    left: 0;
 	    content: attr(data-hover);
-	    font-family: "Canela-Regular";
+	    font-family: 'Roboto', sans-serif;
 	    font-size: 37px;
 	    font-weight: 500;
 	}
@@ -660,7 +660,7 @@
 	    color: #000;
 	}
 
-	.portfolio .item:first-child .item-title::after {
+	/*.portfolio .item:first-child .item-title::after {
 	    content: "New";
 	    font-family: 'Poppins', sans-serif;
 	    font-weight: 300;
@@ -670,7 +670,7 @@
 	    margin-left: 10px;
 	    color: #FF1B0B;
 	    top: -6px;
-	}
+	}*/
 
 	.item-cat {
 	    display: block;
