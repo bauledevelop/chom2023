@@ -224,6 +224,9 @@ iframe {
 
 .about-content {
     padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .comment-text {
@@ -232,6 +235,10 @@ iframe {
 
 .info-content {
     padding: 80px 120px 0px 120px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .text-infomation {
@@ -339,9 +346,10 @@ iframe {
     transform: translate(-50%, -50%);
 }
 
-
+.text-center {
+    text-align: center;
+}
 /* -------- scroll contact------------ */
-
 .scrollbar {
     margin-left: 22px;
     float: left;
@@ -372,7 +380,6 @@ iframe {
 }
 
 #style-4::-webkit-scrollbar-track {
-    /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
     background-color: #f1f1f1;
     height: 200px;
     border-radius: 10px;
@@ -386,6 +393,9 @@ iframe {
     border-radius: 10px;
     padding: 6px;
     margin: 10px;
+}
+.main-contact {
+    min-height: 100%;
 }
 
 .image-member {
@@ -432,8 +442,8 @@ iframe {
 }
 
 .form-contact {
-    margin: 0 10px;
-    width: calc(50% - 20px);
+    margin: 0 20px;
+    /*width: calc(50% - 20px);*/
 }
 
 .info-title {
@@ -611,13 +621,28 @@ iframe {
 }
 @media (max-width: 960px) {
     .scrollbar {
-        height: auto;
+        height: 100%;
         overflow-y: auto;
         margin-left: 0;
+    }
+    .about-content {
+        flex-direction: column;
+    }
+    #main {
+        overflow: auto;
+    }
+    .info-content {
+        justify-content: start;
     }
     .form-contact {
         margin: 0;
         width: 100%;
+    }
+    .footer-info {
+        padding: 20px 0;
+    }
+    .logo-footer {
+        margin-bottom: 10px;
     }
 }
 @media only screen and (max-width: 767px) {

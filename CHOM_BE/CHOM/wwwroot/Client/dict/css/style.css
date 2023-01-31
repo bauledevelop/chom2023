@@ -2350,7 +2350,8 @@ nav.open {
 }
 
 .scroll-content {
-    cursor: default !important;
+    cursor: pointer !important;
+    height: 100%;
 }
 
 .scale-up .scroll-content {

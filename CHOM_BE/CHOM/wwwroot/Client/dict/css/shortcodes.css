@@ -640,7 +640,7 @@ video.bgvid {
 ---------------------------------------------------*/
 
 .button-box {
-    /*margin-top: 10px;*/
+    margin-top: 10px;
     line-height: 16px;
     cursor: pointer;
     border: none;
