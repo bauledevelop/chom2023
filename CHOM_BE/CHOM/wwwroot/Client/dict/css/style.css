@@ -15,11 +15,11 @@ Primary use:	Showcase Portfolio
     font-family: 'Roboto';
     src: url("fonts/4a24899e94d8236f671c1090cd9e068c.eot");
     /* IE9*/
-    src: url("fonts/4a24899e94d8236f671c1090cd9e068cd41d.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("fonts/4a24899e94d8236f671c1090cd9e068c.woff2") format("woff2"), /* chrome、firefox */
-    url("fonts/4a24899e94d8236f671c1090cd9e068c.woff") format("woff"), /* chrome、firefox */
-    url("fonts/4a24899e94d8236f671c1090cd9e068c.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url("fonts/4a24899e94d8236f671c1090cd9e068c.svg#Canela-Regular") format("svg");
+    src: url("~/Client/dict/fonts/4a24899e94d8236f671c1090cd9e068cd41d.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("~/Client/dict/fonts/4a24899e94d8236f671c1090cd9e068c.woff2") format("woff2"), /* chrome、firefox */
+    url("~/Client/dict/fonts/4a24899e94d8236f671c1090cd9e068c.woff") format("woff"), /* chrome、firefox */
+    url("~/Client/dict/fonts/4a24899e94d8236f671c1090cd9e068c.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url("~/Client/dict/fonts/4a24899e94d8236f671c1090cd9e068c.svg#Canela-Regular") format("svg");
     /* iOS 4.1- */
 }
 
@@ -1138,30 +1138,30 @@ a:hover {
     box-sizing: border-box;
 }
 
-#ball-drag-x:before {
-    font-family: 'Roboto', sans-serif;
-    content: "\f053";
-    font-size: 12px;
-    width: 8px;
-    height: 16px;
-    line-height: 26px;
-    text-align: center;
-    position: absolute;
-    left: -40px;
-    top: 26px;
-    color: #fff;
-    opacity: 0;
-    transform: translateX(70px);
-    -webkit-transform: translateX(70px);
-    transition: all 0.15s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-}
+    #ball-drag-x:before {
+        font-family: FontAwesome;
+        content: "\f053";
+        font-size: 12px;
+        width: 8px;
+        height: 16px;
+        line-height: 26px;
+        text-align: center;
+        position: absolute;
+        left: -40px;
+        top: 26px;
+        color: #fff;
+        opacity: 0;
+        transform: translateX(70px);
+        -webkit-transform: translateX(70px);
+        transition: all 0.15s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    }
 
 .light-content #ball-drag-x:before {
     color: #fff;
 }
 
 #ball-drag-x::after {
-    font-family: 'Roboto', sans-serif;
+    font-family: FontAwesome;
     content: "\f054";
     font-size: 12px;
     width: 8px;
@@ -1222,30 +1222,30 @@ a:hover {
     box-sizing: border-box;
 }
 
-#ball-drag-y:before {
-    font-family: 'Roboto', sans-serif;
-    content: "\f077";
-    font-size: 12px;
-    width: 8px;
-    height: 16px;
-    line-height: 26px;
-    text-align: center;
-    position: absolute;
-    left: 32px;
-    top: -42px;
-    color: #fff;
-    opacity: 0;
-    transform: translateY(70px);
-    -webkit-transform: translateY(70px);
-    transition: all 0.15s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
-}
+    #ball-drag-y:before {
+        font-family: FontAwesome;
+        content: "\f077";
+        font-size: 12px;
+        width: 8px;
+        height: 16px;
+        line-height: 26px;
+        text-align: center;
+        position: absolute;
+        left: 32px;
+        top: -42px;
+        color: #fff;
+        opacity: 0;
+        transform: translateY(70px);
+        -webkit-transform: translateY(70px);
+        transition: all 0.15s cubic-bezier(0.215, 0.61, 0.355, 1) 0s;
+    }
 
 .light-content #ball-drag-y:before {
     color: #fff;
 }
 
 #ball-drag-y::after {
-    font-family: 'Roboto', sans-serif;
+    font-family: FontAwesome;
     content: "\f078";
     font-size: 12px;
     width: 8px;
