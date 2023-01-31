@@ -54,6 +54,7 @@ namespace CHOM.Controllers
         [HttpGet]
         public IActionResult Interior(string id)
         {
+            ViewBag.ListMenuProject = _db.MucLucs.Where(x => x.ID == 2 || x.ID == 3);
             ViewBag.ID = id;
             var project = _db.DuAns.SingleOrDefault(x => x.ID == int.Parse(id));
             ViewBag.Image = project.HinhGT;

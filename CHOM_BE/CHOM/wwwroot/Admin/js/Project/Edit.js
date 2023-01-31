@@ -39,6 +39,9 @@ $(document).ready(function () {
         })
     })
     $('.img-gt').on("change", function () {
+        if ($(this).val() == '') {
+            return;
+        }
         $('.spinner-single').css('display', 'block');
         $(this).prop('disabled', true);
         var _size = this.files[0].size;
@@ -100,6 +103,9 @@ $(document).ready(function () {
         })
     })
     $('.uploadMultiple').on("change", function () {
+        if ($(this).val() == '') {
+            return;
+        }
         $('.spinner-multiple').css('display', 'block');
         $(this).prop('disabled', true);
         setTimeout(function () {
