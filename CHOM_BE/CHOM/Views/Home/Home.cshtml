@@ -11,108 +11,105 @@
 
 }
 
-<div id="content-scroll"@(ViewBag.LoaiPage= 1)>
-        <div id="main">
-            <!-- Main Content -->
-            <div id="main-content">
-                <!-- Main Page Content -->
-                <div id="main-page-content">
+<div id="content-scroll" @(ViewBag.LoaiPage= 1)>
+    <div id="main">
+        <!-- Main Content -->
+        <div id="main-content">
+            <!-- Main Page Content -->
+            <div id="main-page-content">
 
 
-                    <!-- Portfolio Wrap -->
-                    <div id="itemsWrapperLinks" class="portfolio-wrap spaced-grid fade-scaleout-effect">
-                        <!-- Portfolio Columns -->
-                        <div id="itemsWrapper" class="portfolio webgl-fitthumbs">
-                            <div class="item trigger-item branding design">
-                                <a href="/Project/@interior.ID">
-                                    <div class="item-parallax">
-                                        <div class="item-appear">
-                                            <div class="item-content">
-                                                <div class="item-wrap-image" data-color="#cf837d">
-                                                    <img style="width: 100%" src="/uploadFiles/@interior.HinhAnh"
-                                                         class="item-image grid__item-img trigger-item-link"
-                                                         alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-caption-wrapper">
-                                            <div class="item-caption">
-                                                
-                                                <div class="item-cat"
-                                                     style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
-                                                    Kiến trúc
-                                                </div>
-                                                <div class="item-title"
-                                                     style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
-                                                    @interior.Ten
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="item trigger-item design photo item-logo">
-                                <a href="#">
-                                    <div class="item-parallax">
-                                        <div class="item-appear">
-                                            <div class="item-content">
+                <!-- Portfolio Wrap -->
+                <div id="itemsWrapperLinks" class="portfolio-wrap spaced-grid fade-scaleout-effect">
+                    <!-- Portfolio Columns -->
+                    <div id="itemsWrapper" class="portfolio webgl-fitthumbs">
+                        <div class="item trigger-item branding design">
+                            <a href="/Project/@interior.ID">
+                                <div class="item-parallax">
+                                    <div class="item-appear">
+                                        <div class="item-content">
                                             <div class="item-wrap-image" data-color="#cf837d">
-                                                    <div class="item-image ">
-                                                        <img style="width: 100%" src="~/Client/dict/images/logo.svg" alt="">
-                                                    </div>
-                                                </div>
+                                                <img style="width: 100%" src="/uploadFiles/@interior.HinhAnh"
+                                                     class="item-image grid__item-img trigger-item-link"
+                                                     alt="">
                                             </div>
                                         </div>
                                     </div>
-                                </a>
-                            </div>
+                                    <div class="item-caption-wrapper">
+                                        <div class="item-caption">
 
-                            <div class="item trigger-item branding design">
-                                <a href="/Project/@landscape.ID">
-                                    <div class="item-parallax">
-                                        <div class="item-appear">
-                                            <div class="item-content">
-                                                <div class="item-wrap-image" data-color="#cf837d">
-                                                    <img src="/uploadFiles/@landscape.HinhAnh"
-                                                         class="item-image grid__item-img trigger-item-link"
-                                                         alt="">
-                                                </div>
+                                            <div class="item-cat"
+                                                 style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
+                                                Kiến trúc
                                             </div>
-                                        </div>
-                                        <div class="item-caption-wrapper">
-                                            <div class="item-caption">
-                                                
-                                                <div class="item-cat"
-                                                     style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
-                                                    Kiến trúc
-                                                </div>
-                                                <div class="item-title"
-                                                     style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
-                                                    @landscape.Ten
-                                                </div>
+                                            <div class="item-title"
+                                                 style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
+                                                @interior.Ten
                                             </div>
                                         </div>
                                     </div>
-                                </a>
-                            </div>
-
+                                </div>
+                            </a>
                         </div>
-                        <!--/Portfolio -->
+                        <div class="item trigger-item design photo item-logo">
+                            <a href="#">
+                                <div class="item-parallax">
+                                    <div class="item-appear">
+                                        <div class="item-content">
+                                            <div class="item-wrap-image" data-color="#4c484f">
+                                                <img style="width: 100%" src="~/Client/dict/images/logo.svg" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="item trigger-item branding design">
+                            <a href="/Project/@landscape.ID">
+                                <div class="item-parallax">
+                                    <div class="item-appear">
+                                        <div class="item-content">
+                                            <div class="item-wrap-image" data-color="#cf837d">
+                                                <img src="/uploadFiles/@landscape.HinhAnh"
+                                                     class="item-image grid__item-img trigger-item-link"
+                                                     alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item-caption-wrapper">
+                                        <div class="item-caption">
+
+                                            <div class="item-cat"
+                                                 style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
+                                                Kiến trúc
+                                            </div>
+                                            <div class="item-title"
+                                                 style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
+                                                @landscape.Ten
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
                     </div>
-                    <!--/Portfolio Wrap -->
-
-
+                    <!--/Portfolio -->
                 </div>
-                <!--/Main Page Content -->
-
-
-
+                <!--/Portfolio Wrap -->
 
 
             </div>
-            <!--/Main Content -->
+            <!--/Main Page Content -->
+
+
+
+
 
         </div>
+        <!--/Main Content -->
+
     </div>
- 
- 
+</div>
+
