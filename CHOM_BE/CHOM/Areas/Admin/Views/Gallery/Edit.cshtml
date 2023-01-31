@@ -48,7 +48,9 @@
                                         <div class="form-group d-flex flex-column">
                                             <label asp-for="HinhAnh" class="control-label"></label>
                                             <div class="alert alert-danger txt-notification" style="display: none"></div>
-                                            <input name="newFile" class="check-img" multiple type="file" />
+                                            <label class="btn btn-primary w-25">
+                                                Chọn ảnh&hellip;<input name="newFile" class="check-img form-control" type="file" style="display: none"/>
+                                            </label>
                                             <img class="uploadFile mt-3 img-uploadFile" src="/imageGallery/@Model.HinhAnh" />
                                         </div>
                                         <div class="form-group btn-event mt-5">

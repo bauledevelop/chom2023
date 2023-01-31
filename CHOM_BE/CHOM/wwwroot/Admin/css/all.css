@@ -5,12 +5,11 @@
 }
 .img-uploadFile{
     width: 20%;
-    height: 20%;
+    max-height: 200px;
     background-size: cover;
-    border-radius: 1em;
 }
 td img {
-    width: auto;
+    object-fit: cover;
     height: 100px;
     aspect-ratio: 1;
     border-radius: 1em;
