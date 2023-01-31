@@ -31,49 +31,51 @@
                                 <h5>@ViewBag.Title</h5>
                                 <a href="/Admin/Project/Create" class="btn btn-success btn-sm">Tạo dự án</a>
                             </div>
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Hình giới thiệu</th>
-                                            <th>Tên dự án</th>
-                                            <th>Năm</th>
-                                            <th>Mục lục</th>
-                                            <th>Tổng hình ảnh chi tiết</th>
-                                            <th>Hành động</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                         
-                                        @if (Model.Count() > 0)
-                                        {
-                                            @foreach (var item in Model)
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover" id="basic-2">
+                                        <thead>
+                                            <tr>
+                                                <th>Hình giới thiệu</th>
+                                                <th>Tên dự án</th>
+                                                <th>Năm</th>
+                                                <th>Mục lục</th>
+                                                <th>Tổng hình ảnh chi tiết</th>
+                                                <th>Hành động</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if (Model.Count() > 0)
                                             {
-                                                <tr class="btn-@item.ID">
-                                                    <td>
-                                                        <a href="/Admin/Project/Edit/@item.ID"> <img src="/uploadFiles/@item.HinhGT" /> </a>
-                                                    </td>
-                                                    <td>@item.TuaDe</td>
-                                                    <td>@item.Nam</td>
-                                                    <td>
-                                                        @(listMenu.SingleOrDefault(x => x.ID == item.IDMucLuc).Ten)
-                                                    </td>
-                                                    <td>
-                                                        @* <a href="/Admin/Image/Index/@item.ID" class="btn btn-sm btn-primary">@(listHinhAnh.Where(x => x.IDDuAn == item.ID).Count()) Hình</a>*@
-                                                        @(listHinhAnh.Where(x => x.IDDuAn == item.ID).Count()) Hình
-                                                    </td>
-                                                    <td>
-                                                        <a href="/Admin/Project/Edit/@item.ID" class="btn btn-sm btn-warning">Sửa</a>
-                                                        <button data-id="@item.ID" class="btn btn-sm btn-danger btn-delete" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Xóa</button>
-                                                    </td>
-                                                </tr>
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr class="btn-@item.ID">
+                                                        <td>
+                                                            <a href="/Admin/Project/Edit/@item.ID"> <img src="/uploadFiles/@item.HinhGT" /> </a>
+                                                        </td>
+                                                        <td>@item.TuaDe</td>
+                                                        <td>@item.Nam</td>
+                                                        <td>
+                                                            @(listMenu.SingleOrDefault(x => x.ID == item.IDMucLuc).Ten)
+                                                        </td>
+                                                        <td>
+                                                            @* <a href="/Admin/Image/Index/@item.ID" class="btn btn-sm btn-primary">@(listHinhAnh.Where(x => x.IDDuAn == item.ID).Count()) Hình</a>*@
+                                                            @(listHinhAnh.Where(x => x.IDDuAn == item.ID).Count()) Hình
+                                                        </td>
+                                                        <td>
+                                                            <a href="/Admin/Project/Edit/@item.ID" class="btn btn-sm btn-warning">Sửa</a>
+                                                            <button data-id="@item.ID" class="btn btn-sm btn-danger btn-delete" type="button" data-bs-toggle="modal" data-original-title="test" data-bs-target="#exampleModal">Xóa</button>
+                                                        </td>
+                                                    </tr>
+                                                }
                                             }
-                                        }
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -88,7 +90,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Xóa hình ảnh</h5>
                 <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">Bạn có muốn xóa dự án này?</div>
+            <div class="modal-body">Bạn có muốn xóa hình ảnh này?</div>
             <div class="modal-footer">
                 <button class="btn btn-back-hover" type="button" data-bs-dismiss="modal">Quay lại</button>
                 <button class="btn btn-danger btn-success-delete" type="button">Đồng ý</button>

@@ -97,3 +97,7 @@ body {
 .header-wrapper {
     background-color: #f4f6fd !important;
 }
+.spinner-input {
+    margin-left: 10px;
+    display: none;
+}

@@ -13,6 +13,7 @@ namespace CHOM.Controllers
         [HttpGet]
         public IActionResult Landscape(string id)
         {
+            ViewBag.ListMenuProject = _db.MucLucs.Where(x => x.ID == 2 || x.ID == 3);
             ViewBag.ID = id;
             var listDuAn = _db.DuAns.SingleOrDefault(x => x.ID == int.Parse(id));
             ViewBag.TuaDe = listDuAn.TuaDe;

@@ -43,7 +43,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label asp-for="Nam" class="control-label"></label>
-                                            <input asp-for="Nam" class="form-control" />
+                                            <input asp-for="Nam" class="form-control txt-validation-year" />
                                             <span asp-validation-for="Nam" class="text-danger"></span>
                                         </div>
                                         <div class="form-group">
@@ -54,13 +54,27 @@
                                         <div class="form-group d-flex flex-column">
                                             <label>Hình ảnh giới thiệu (Vui lòng chỉ up 1 hình ảnh và dung lượng dưới 1MB)</label>
                                             <div class="alert alert-danger txt-notification-gt" style="display: none"></div>
-                                            <input name="singleFile" class="img-gt form-control" id="customFile" type="file" />
+                                            <div class="d-flex">
+                                                <label class="btn btn-primary w-25">
+                                                    Chọn ảnh&hellip;<input name="singleFile" class="img-gt form-control" style="display: none" type="file"  />
+                                                </label>
+                                                <div class="spinner-border text-primary spinner-input spinner-single" role="status">
+                                                    <span class="visually-hidden">Loading...</span>
+                                                </div>
+                                            </div>
                                             <img style="display: none" class="uploadSingleFile mt-3 img-uploadFile" src="" />
                                         </div>
                                         <div class="form-group mt-2 d-flex flex-column">
                                             <label>Hình ảnh của dự án (Bạn có thể up nhiều hình ảnh nhưng dung lượng mỗi hình dưới 1MB)</label>
                                             <div class="alert alert-danger txt-validation" style="display: none;"></div>
-                                            <input class="uploadMultiple form-control" id="customFile" multiple type="file" />
+                                            <div class="d-flex">
+                                                <label class="btn btn-primary w-25">
+                                                    Chọn ảnh&hellip;<input class="uploadMultiple form-control" multiple style="display: none" type="file" />
+                                                </label>
+                                                <div class="spinner-border text-primary spinner-input spinner-multiple" role="status">
+                                                    <span class="visually-hidden">Loading...</span>
+                                                </div>
+                                            </div>
                                             <div class="row list-multifile">
                                             </div>
                                         </div>
@@ -79,6 +93,21 @@
                 </div>
             </div>
             <!-- Container-fluid Ends-->
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Xóa hình ảnh</h5>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">Bạn có muốn xóa dự án này?</div>
+            <div class="modal-footer">
+                <button class="btn btn-back-hover" type="button" data-bs-dismiss="modal">Quay lại</button>
+                <button class="btn btn-danger btn-success-delete" type="button">Đồng ý</button>
+            </div>
         </div>
     </div>
 </div>

@@ -119,11 +119,26 @@ namespace CHOM.Areas.Admin.Controllers
             if (listImage.Count == 0)
             {
                 ViewBag.Message = "Vui lòng chọn hình ảnh dự án";
+                if (image != null)
+                {
+                    if (_db.HinhAnhs.Where(x => x.FileName == image).Count() == 0)
+                    {
+                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", image);
+                        System.IO.File.Delete(path);
+                    }
+                }
                 image = null;
                 HttpContext.Session.Set<string>("image", image);
                 return View(duAn);
             }
-            if (!ModelState.IsValid) return View(duAn);
+            if (!ModelState.IsValid)
+            {
+                listImage = new List<ImageModel>();
+                HttpContext.Session.Set<List<ImageModel>>("ListImage", listImage);
+                image = null;
+                HttpContext.Session.Set<string>("image", image);
+                return View(duAn);
+            }
             try
             {
                 var check = await _db.DuAns.SingleOrDefaultAsync(x => x.TuaDe == duAn.TuaDe);
@@ -223,32 +238,34 @@ namespace CHOM.Areas.Admin.Controllers
             ViewBag.ListMenu = new SelectList(_db.MucLucs.Where(x => x.ID == 2 || x.ID == 3).ToList(), "ID", "Ten", duAn.IDMucLuc).ToList();
             var image = HttpContext.Session.Get<string>("image");
             var listImage = HttpContext.Session.Get<List<ImageModel>>("ListImage");
-            if (listImage.Count() == 0)
-            {
-                if (image != null)
+            if (!ModelState.IsValid) {
+                if (listImage.Count() == 0)
                 {
-                    if (image != duAn.HinhGT)
+                    if (image != null)
                     {
-                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", image);
-                        System.IO.File.Delete(path);
-                        image = null;
-                        HttpContext.Session.Set<string>("image", image);
+                        if (image != duAn.HinhGT)
+                        {
+                            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", image);
+                            System.IO.File.Delete(path);
+                            image = null;
+                            HttpContext.Session.Set<string>("image", image);
+                        }
                     }
-                }
-                ViewBag.Message = "Vui lòng không để trống hình dự án";
-                var listImageData = _db.HinhAnhs.Where(x => x.IDDuAn == duAn.ID);
-                foreach (var item in listImageData)
-                {
-                    listImage.Add(new ImageModel
+                    ViewBag.Message = "Vui lòng không để trống hình dự án";
+                    var listImageData = _db.HinhAnhs.Where(x => x.IDDuAn == duAn.ID);
+                    foreach (var item in listImageData)
                     {
-                        id = Guid.NewGuid().ToString(),
-                        image = item.FileName
-                    });
+                        listImage.Add(new ImageModel
+                        {
+                            id = Guid.NewGuid().ToString(),
+                            image = item.FileName
+                        });
+                    }
+                    ViewBag.ListImage = listImage;
+                    return View(duAn);
                 }
-                ViewBag.ListImage = listImage;
                 return View(duAn);
             }
-            if (!ModelState.IsValid) return View(duAn);
             try
             {
                 var check = _db.DuAns.SingleOrDefault(x => x.TuaDe == duAn.TuaDe && x.ID != duAn.ID);

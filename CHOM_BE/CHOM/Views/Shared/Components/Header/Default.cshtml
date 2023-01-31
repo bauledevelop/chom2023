@@ -1,16 +1,16 @@
 ﻿@{
     var listMucluc = (IEnumerable<CHOM.Data.MucLuc>)ViewBag.ListProject;
-     
+    var listMenuProject = (IEnumerable<CHOM.Data.MucLuc>)ViewBag.ListMenuProject;
 }
 
-<header class="fullscreen-menu" >
+<header class="fullscreen-menu">
     <div id="header-container">
 
 
         <!-- Logo -->
         <div id="logo" class="hide-ball">
-             
-             
+
+
             @{
 
                 if (ViewBag.LoaiPage == 1)
@@ -21,13 +21,13 @@
                 }
                 else
                 {
-                    <a class="ajax-link" href="/" >
+                    <a class="ajax-link" href="/">
                         C.H.O.M
                     </a>
                 }
 
-                     
-                 
+
+
             }
         </div>
         <!--/Logo -->
@@ -36,38 +36,56 @@
             <div class="nav-height">
                 <div class="outer">
                     <div class="inner">
-                        <ul data-breakpoint="10025" class="flexnav">
-                            <li class="link menu-timeline">
-                                <a class="" href="#">
-                                    <div class="before-span">
-                                        Dự án
-                                    </div>
-                                </a>
-                                <ul>
-                                    @foreach (var item in listMucluc.Where(x => x.IDParent != 0).OrderBy(x => x.ThuTu))
-                                    {
-                                        <li>
-                                            <a class="ajax-link" href="/Project/@item.ID" data-hover="Click to see">@item.Ten</a>
-                                        </li>
-                                    }
-                                </ul>
-                            </li>
-                            <li class="link menu-timeline">
-                                <a href="/Gallery">
-                                    <div class="before-span">
-                                        Thư viện
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="link menu-timeline">
-                                <a href="/Contact">
-                                    <div class="before-span">
-                                        Liên hệ
-                                    </div>
-                                </a>
-                            </li>
+                        @if (listMenuProject != null)
+                        {
+                            <ul data-breakpoint="10025" class="flexnav">
+                                @foreach(var item in listMenuProject)
+                                {
+                                    <li class="link menu-timeline">
+                                        <a href="/Project/@item.ID">
+                                            <div class="before-span">
+                                                @item.Ten
+                                            </div>
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <ul data-breakpoint="10025" class="flexnav">
+                                <li class="link menu-timeline">
+                                    <a class="" href="#">
+                                        <div class="before-span">
+                                            Dự án
+                                        </div>
+                                    </a>
+                                    <ul>
+                                        @foreach (var item in listMucluc.Where(x => x.IDParent != 0).OrderBy(x => x.ThuTu))
+                                        {
+                                            <li>
+                                                <a class="ajax-link" href="/Project/@item.ID" data-hover="Click to see">@item.Ten</a>
+                                            </li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li class="link menu-timeline">
+                                    <a href="/Gallery">
+                                        <div class="before-span">
+                                            Thư viện
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="link menu-timeline">
+                                    <a href="/Contact">
+                                        <div class="before-span">
+                                            Liên hệ
+                                        </div>
+                                    </a>
+                                </li>
 
-                        </ul>
+                            </ul>
+                        }
                     </div>
                 </div>
             </div>
@@ -75,48 +93,48 @@
         <!--/Navigation -->
         <!-- Menu Burger -->
         <div class="button-wrap right menu burger-lines">
-             
+
             @if (ViewBag.BackList != null)
             {
                 if (ViewBag.BackList == 2)
                 {
                     @*<a href="/Project/@ViewBag.BackList">*@
-                        <div class="icon-wrap parallax-wrap">
-                            <div class="button-icon parallax-element @(ViewBag.TitleIndex != null ? "light-content" : "")">
-                                <div id="burger-wrapper">
-                                    <div id="menu-burger">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
+                    <div class="icon-wrap parallax-wrap">
+                        <div class="button-icon parallax-element @(ViewBag.TitleIndex != null ? "light-content" : "")">
+                            <div id="burger-wrapper">
+                                <div id="menu-burger">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <a class="button-text-2" href="/Project/@ViewBag.BackList" style="color: #fff">
-                            Danh sách dự án
-                        </a>
+                        Danh sách dự án
+                    </a>
                     @*</a>*@
-                    
+
                 }
                 else
                 {
                     @*<a href="/Project/@ViewBag.BackList" >*@
-                        <div class="icon-wrap parallax-wrap">
-                            <div class="button-icon parallax-element @(ViewBag.TitleIndex != null ? "light-content" : "")">
-                                <div id="burger-wrapper">
-                                    <div id="menu-burger">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
+                    <div class="icon-wrap parallax-wrap">
+                        <div class="button-icon parallax-element @(ViewBag.TitleIndex != null ? "light-content" : "")">
+                            <div id="burger-wrapper">
+                                <div id="menu-burger">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <a class="button-text-2" href="/Project/@ViewBag.BackList">
-                            Danh sách dự án
-                        </a>
+                        Danh sách dự án
+                    </a>
                     @*</a>*@
-                     
+
                 }
             }
             else
