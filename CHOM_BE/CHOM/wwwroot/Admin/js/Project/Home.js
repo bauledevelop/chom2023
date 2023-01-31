@@ -2,6 +2,7 @@
 
 $(document).ready(function () {
     var _id;
+    $('.dataTables_length').css('display', 'none')
     $('.btn-success-delete').on('click', function () {
         $.ajax({
             type: "POST",
