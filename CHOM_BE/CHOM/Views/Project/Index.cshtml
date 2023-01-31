@@ -31,7 +31,7 @@
             <div id="showcase-carousel-holder">
                 <div id="itemsWrapperLinks">
                     <div id="showcase-carousel" class="swiper-container">
-                        <div id="itemsWrapper" class="swiper-wrapper webgl-fitthumbs">
+                        <div id="itemsWrapper" class="swiper-wrapper">
                             @foreach(var item in Model)
                             {
                                 var link = "/Watch/" + (ViewBag.Menu == 3 ? "Interior" : "Landscape") + "/" + item.ID;
@@ -48,16 +48,14 @@
                                              style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
                                                 <span>@item.Nam</span>
                                             </div>
-                                            <div class="slide-title-wrapper"
+                                            <a class="slide-title-wrapper" href="@link"
                                              style="text-shadow: rgb(0 0 0) 2px 3px 5px;">
                                                 <div class="slide-title trigger-item-link secondary-font"
                                                  data-color="#cf837d" data-firstline="Xem"
                                                  data-secondline="Dự án">
                                                     <span>@item.TuaDe</span>
                                                 </div>
-                                                <a class="slide-link" data-type="page-transition"
-                                               href="@link"></a>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

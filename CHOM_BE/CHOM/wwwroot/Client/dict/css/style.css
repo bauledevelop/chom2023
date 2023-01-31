@@ -15,11 +15,11 @@ Primary use:	Showcase Portfolio
     font-family: 'Roboto';
     src: url("fonts/4a24899e94d8236f671c1090cd9e068c.eot");
     /* IE9*/
-    src: url("~/Client/dict/fonts/4a24899e94d8236f671c1090cd9e068cd41d.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("~/Client/dict/fonts/4a24899e94d8236f671c1090cd9e068c.woff2") format("woff2"), /* chrome、firefox */
-    url("~/Client/dict/fonts/4a24899e94d8236f671c1090cd9e068c.woff") format("woff"), /* chrome、firefox */
-    url("~/Client/dict/fonts/4a24899e94d8236f671c1090cd9e068c.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-    url("~/Client/dict/fonts/4a24899e94d8236f671c1090cd9e068c.svg#Canela-Regular") format("svg");
+    src: url("fonts/4a24899e94d8236f671c1090cd9e068cd41d.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("fonts/4a24899e94d8236f671c1090cd9e068c.woff2") format("woff2"), /* chrome、firefox */
+    url("fonts/4a24899e94d8236f671c1090cd9e068c.woff") format("woff"), /* chrome、firefox */
+    url("fonts/4a24899e94d8236f671c1090cd9e068c.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+    url("fonts/4a24899e94d8236f671c1090cd9e068c.svg#Canela-Regular") format("svg");
     /* iOS 4.1- */
 }
 
