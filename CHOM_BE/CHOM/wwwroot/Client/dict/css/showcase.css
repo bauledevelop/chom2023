@@ -314,7 +314,6 @@
 }
 
 .title div:first-child span:first-child::before {
-    content: counter(title-counter);
     position: absolute;
     top: 27px;
     line-height: 20px;
@@ -328,7 +327,6 @@
 }
 
 .title div:first-child span:first-child::after {
-    content: '0';
     position: absolute;
     top: 27px;
     line-height: 20px;

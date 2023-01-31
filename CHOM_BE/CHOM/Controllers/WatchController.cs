@@ -13,9 +13,10 @@ namespace CHOM.Controllers
         [HttpGet]
         public IActionResult Landscape(string id)
         {
-            ViewBag.ListMenuProject = _db.MucLucs.Where(x => x.ID == 2 || x.ID == 3);
             ViewBag.ID = id;
             var listDuAn = _db.DuAns.SingleOrDefault(x => x.ID == int.Parse(id));
+            ViewBag.ListMenuProject = _db.DuAns.Where(x => x.IDMucLuc == listDuAn.IDMucLuc);
+            ViewBag.Menu = "Landscape";
             ViewBag.TuaDe = listDuAn.TuaDe;
             var listCount = _db.DuAns.Where(x => x.IDMucLuc == listDuAn.IDMucLuc).OrderByDescending(x => x.ID).ToList();
             ViewBag.MAX = listCount.Count();
@@ -54,10 +55,11 @@ namespace CHOM.Controllers
         [HttpGet]
         public IActionResult Interior(string id)
         {
-            ViewBag.ListMenuProject = _db.MucLucs.Where(x => x.ID == 2 || x.ID == 3);
             ViewBag.ID = id;
             var project = _db.DuAns.SingleOrDefault(x => x.ID == int.Parse(id));
+            ViewBag.ListMenuProject = _db.DuAns.Where(x => x.IDMucLuc == project.IDMucLuc);
             ViewBag.Image = project.HinhGT;
+            ViewBag.Menu = "Interior";
             var listCount = _db.DuAns.Where(x => x.IDMucLuc == project.IDMucLuc).OrderByDescending(x => x.ID).ToList();
             ViewBag.MAX = listCount.Count();
             ViewBag.BackList = project.IDMucLuc;

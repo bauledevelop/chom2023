@@ -1,6 +1,6 @@
 ﻿@{
     var listMucluc = (IEnumerable<CHOM.Data.MucLuc>)ViewBag.ListProject;
-    var listMenuProject = (IEnumerable<CHOM.Data.MucLuc>)ViewBag.ListMenuProject;
+    var listMenuProject = (IEnumerable<CHOM.Data.DuAn>)ViewBag.ListMenuProject;
 }
 
 <header class="fullscreen-menu">
@@ -42,9 +42,9 @@
                                 @foreach(var item in listMenuProject)
                                 {
                                     <li class="link menu-timeline">
-                                        <a href="/Project/@item.ID">
+                                        <a href="/Watch/@ViewBag.Menu/@item.ID">
                                             <div class="before-span">
-                                                @item.Ten
+                                                @item.TuaDe
                                             </div>
                                         </a>
                                     </li>
