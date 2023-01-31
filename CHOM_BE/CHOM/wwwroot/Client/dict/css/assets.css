@@ -1407,7 +1407,7 @@ button::-moz-focus-inner {
     padding: 0 0 18px 10px;
     font-style: normal;
     font-size: 28px;
-    font-family: Arial, Baskerville, monospace
+    font-family: 'Roboto', sans-serif;
 }
 
 .mfp-close:active {
@@ -1703,7 +1703,7 @@ screen and (max-height:300px) {
     content: attr(data-tooltip);
     font-size: 12px;
     font-weight: 500;
-    font-family: Poppins, sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: #000;
     padding: 5px;
     border-radius: 5px;
@@ -1911,7 +1911,7 @@ img.jssocials-share-logo {
     color: #fff;
     font-size: 12px;
     font-weight: 300;
-    font-family: sans-serif
+    font-family: 'Roboto', sans-serif
 }
 
 .justified-gallery>.entry-visible {

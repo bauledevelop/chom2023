@@ -12,7 +12,7 @@ Primary use:	Showcase Portfolio
 @import url("shortcodes.css");
 @import url("assets.css");
 @font-face {
-    font-family: "Canela-Regular";
+    font-family: 'Roboto';
     src: url("fonts/4a24899e94d8236f671c1090cd9e068c.eot");
     /* IE9*/
     src: url("fonts/4a24899e94d8236f671c1090cd9e068cd41d.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
@@ -43,7 +43,7 @@ Primary use:	Showcase Portfolio
 
 html,
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 16px;
     height: 100%;
@@ -84,7 +84,7 @@ body.hidden {
 }
 
 .secondary-font {
-    font-family: "Canela-Regular";
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     text-align: center;
 }
@@ -246,7 +246,7 @@ tt,
 var,
 samp,
 pre {
-    font-family: monospace, serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 15px;
     -webkit-hyphens: none;
     -moz-hyphens: none;
@@ -1056,7 +1056,7 @@ a:hover {
 }
 
 #ball:before {
-    font-family: FontAwesome;
+    font-family: 'Roboto', sans-serif;
     content: "\f077";
     font-size: 12px;
     width: 8px;
@@ -1078,7 +1078,7 @@ a:hover {
 }
 
 #ball::after {
-    font-family: FontAwesome;
+    font-family: 'Roboto', sans-serif;
     content: "\f078";
     font-size: 12px;
     width: 8px;
@@ -1139,7 +1139,7 @@ a:hover {
 }
 
 #ball-drag-x:before {
-    font-family: FontAwesome;
+    font-family: 'Roboto', sans-serif;
     content: "\f053";
     font-size: 12px;
     width: 8px;
@@ -1161,7 +1161,7 @@ a:hover {
 }
 
 #ball-drag-x::after {
-    font-family: FontAwesome;
+    font-family: 'Roboto', sans-serif;
     content: "\f054";
     font-size: 12px;
     width: 8px;
@@ -1223,7 +1223,7 @@ a:hover {
 }
 
 #ball-drag-y:before {
-    font-family: FontAwesome;
+    font-family: 'Roboto', sans-serif;
     content: "\f077";
     font-size: 12px;
     width: 8px;
@@ -1245,7 +1245,7 @@ a:hover {
 }
 
 #ball-drag-y::after {
-    font-family: FontAwesome;
+    font-family: 'Roboto', sans-serif;
     content: "\f078";
     font-size: 12px;
     width: 8px;
@@ -1532,7 +1532,7 @@ scale-up .link,
     font-size: 120px;
     line-height: 130px;
     font-weight: 500;
-    font-family: "Canela-Regular";
+    font-family: 'Roboto', sans-serif;
     width: 100px;
     height: 130px;
     color: #fff;
@@ -1589,7 +1589,7 @@ scale-up .link,
 }
 
 .preloader-intro {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     position: relative;
     display: block;
@@ -1849,13 +1849,11 @@ nav.open {
         width: 100%;
         left: 0;
         content: attr(data-hover);
-        /* font-family: 'Poppins', sans-serif; */
     }
     .classic-menu .flexnav li:hover a span {
         -webkit-transform: translateY(-100%);
         transform: translateY(-100%);
         transform-origin: 0% 0%;
-        /* font-family: 'Poppins', sans-serif; */
     }
     .classic-menu .flexnav li ul li a {
         padding: 0 20px 20px;
@@ -2126,7 +2124,7 @@ nav.open {
         width: 100%;
         left: 0;
         content: attr(data-hover);
-        font-family: "Canela-Regular";
+        font-family: 'Roboto', sans-serif;
         font-weight: 500;
     }
     .fullscreen-menu .flexnav li:hover a span {
@@ -2463,7 +2461,7 @@ footer .socials-wrap {
     float: right;
     font-size: 12px;
     font-weight: 600;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 40px;
     transform: translateY(20px);
 }
