@@ -353,7 +353,7 @@ iframe {
 .scrollbar {
     margin-left: 22px;
     float: left;
-    height: 480px;
+    height: 420px;
     width: 100%;
     overflow-y: scroll;
     margin-bottom: 15px;
@@ -443,7 +443,6 @@ iframe {
 
 .form-contact {
     margin: 0 20px;
-    /*width: calc(50% - 20px);*/
 }
 
 .info-title {
@@ -475,10 +474,12 @@ iframe {
     height: 40px;
     margin-bottom: 10px;
 }
+.send_message {
+    height: 44px;
+}
 
 @media (max-width: 500px) {
-		
-		.gal {
+    .gal {
 	
 	
 	-webkit-column-count: 1; /* Chrome, Safari, Opera */
@@ -604,7 +605,7 @@ iframe {
 }
 @media only screen and (max-width: 1140px) {
     .scrollbar {
-        height: 430px;
+        height: 400px;
     }
     .logo-footer {
         margin-bottom: 5px;

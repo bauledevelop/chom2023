@@ -684,7 +684,7 @@ video.bgvid {
 }
 
 .button-border {
-    height: 50px;
+    height: 44px;
     width: auto;
     border: solid 2px #000;
     background-color: #000;
@@ -692,7 +692,7 @@ video.bgvid {
     cursor: pointer;
     font-size: 16px;
     font-weight: 500;
-    line-height: 50px;
+    line-height: 44px;
     overflow: hidden;
     color: #000;
     text-align: center;
@@ -1556,7 +1556,7 @@ dt.accordion-active .acc-button-icon i {
 .message-box {
     float: left;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 24px;
 }
 
 input,
