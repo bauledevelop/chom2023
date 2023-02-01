@@ -269,11 +269,7 @@
     <None Include="wwwroot\Admin\dict\js\vector-map\map\jquery-jvectormap-uk-mill-en.js" />
     <None Include="wwwroot\Admin\dict\js\vector-map\map\jquery-jvectormap-us-aea-en.js" />
     <None Include="wwwroot\Admin\dict\js\vector-map\map\jquery-jvectormap-world-mill-en.js" />
-    <None Include="wwwroot\Client\dict\images\Line1.svg" />
     <None Include="wwwroot\Client\dict\images\logo-dark.svg" />
-    <None Include="wwwroot\Client\dict\images\logo.svg" />
-    <None Include="wwwroot\Client\dict\images\play-solid.svg" />
-    <None Include="wwwroot\Client\dict\js\cdnjs.cloudflare.com\ajax\libs\gsap\3.7.1\Draggable.min.js" />
     <None Include="wwwroot\Client\dict\js\cdnjs.cloudflare.com\ajax\libs\gsap\3.7.1\ScrollTrigger.min.js" />
     <None Include="wwwroot\Client\dict\js\cdnjs.cloudflare.com\ajax\libs\jquery.imagesloaded\4.1.4\imagesloaded.pkgd.js" />
     <None Include="wwwroot\Client\dict\js\cdnjs.cloudflare.com\ajax\libs\ScrollMagic\2.0.5\plugins\animation.gsap.min.js" />
