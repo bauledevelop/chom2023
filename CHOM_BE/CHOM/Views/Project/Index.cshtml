@@ -9,7 +9,8 @@
 @section css{
     <link href="~/Client/dict/css/style.css" rel="stylesheet" />
     <link href="~/vendor/fontawesome-free-6.2.0-web/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet" />
+    <link 
+        rel="stylesheet" />
     <link type="text/css" rel="stylesheet" href="~/Client/css/Project.css" />
 }
 @section js{
@@ -22,7 +23,7 @@
 }
 
 <!-- Content Scroll -->
-<div id="content-scroll">
+<div id="content-scroll" @(ViewBag.LoaiPage= 1)>
     <div id="main">
 
         <!-- Main Content -->
@@ -92,7 +93,7 @@
                     </div>
                 </div>
                 <div class="button-text sticky left">
-                    <span data-hover="Trước">Dự án</span>
+                    <span data-hover="">Dự án trước</span>
                 </div>
             </div>
 
@@ -103,7 +104,7 @@
                     </div>
                 </div>
                 <div class="button-text sticky right">
-                    <span data-hover="Sau">Dự án</span>
+                    <span data-hover="">Dự án sau</span>
                 </div>
             </div>
         </div>
