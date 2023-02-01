@@ -10,7 +10,7 @@
         <!-- Logo -->
         <div id="logo" class="hide-ball">
             @{
-                if (ViewBag.LoaiPage == 1)
+                if (ViewBag.LoaiPage == 1 || ViewBag.Error == "true")
                 {
                     <a class="ajax-link" href="/" style="color:black !important">
                         C.H.O.M
@@ -127,9 +127,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="button-text sticky right">
+                    <a href="/Project/@ViewBag.BackList" class="button-text-2" style="color: #000000">
                         <span data-hover="Danh sách dự án">Danh sách dự án</span>
-                    </div>
+                    </a>
                     @*</a>*@
 
                 }

@@ -16,12 +16,16 @@ namespace CHOM.Controllers
 
         public IActionResult Index()
         {
-            //ViewBag.About = _db.Abouts.SingleOrDefault(x => x.ID != 0);
-            //var model = _db.DoiNgus.ToList();
-            //ViewBag.LienHe = _db.LienHes.ToList();
-            ViewBag.Contact = _db.Contacts.FirstOrDefault(x => x.ID == 1);
-            ViewBag.LienHe = _db.LienHes.ToList();
-            return View();
+            try
+            {
+                ViewBag.Contact = _db.Contacts.FirstOrDefault(x => x.ID == 1);
+                ViewBag.LienHe = _db.LienHes.ToList();
+                return View();
+            }
+            catch(Exception ex)
+            {
+                return Redirect("/404");
+            }
         }
         [HttpPost]
         public async Task<IActionResult> Index(PhanHoi phanHoi)

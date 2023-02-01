@@ -12,8 +12,15 @@ namespace CHOM.Controllers
         }
         public IActionResult Index()
         {
-            var model = _db.BoSuuTams.ToList();
-            return View(model);
+            try
+            {
+                var model = _db.BoSuuTams.ToList();
+                return View(model);
+            }
+            catch(Exception ex)
+            {
+                return Redirect("/404");
+            }
         }
     }
 }
