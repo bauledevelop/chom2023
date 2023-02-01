@@ -1,11 +1,4 @@
-/**
- * SimpleBar.js - v5.3.0
- * Scrollbars, simpler.
- * https://grsmto.github.io/simplebar/
- *
- * Made by Adrien Denat from a fork by Jonathan Nicol
- * Under MIT License
- */
+
 
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -81,17 +74,11 @@
 
 	var split = ''.split;
 
-	// fallback for non-array-like ES3 and non-enumerable old V8 strings
 	var indexedObject = fails(function () {
-	  // throws an error in rhino, see https://github.com/mozilla/rhino/issues/346
-	  // eslint-disable-next-line no-prototype-builtins
 	  return !Object('z').propertyIsEnumerable(0);
 	}) ? function (it) {
 	  return classofRaw(it) == 'String' ? split.call(it, '') : Object(it);
 	} : Object;
-
-	// `RequireObjectCoercible` abstract operation
-	// https://tc39.github.io/ecma262/#sec-requireobjectcoercible
 	var requireObjectCoercible = function (it) {
 	  if (it == undefined) throw TypeError("Can't call method on " + it);
 	  return it;
@@ -753,9 +740,6 @@
 	var $filter = arrayIteration.filter;
 
 
-	// `Array.prototype.filter` method
-	// https://tc39.github.io/ecma262/#sec-array.prototype.filter
-	// with adding support of @@species
 	_export({ target: 'Array', proto: true, forced: !arrayMethodHasSpeciesSupport('filter') }, {
 	  filter: function filter(callbackfn /* , thisArg */) {
 	    return $filter(this, callbackfn, arguments.length > 1 ? arguments[1] : undefined);

@@ -32,9 +32,6 @@
     });
   }
 
-  /*----------------------------------------
-     passward show hide
-     ----------------------------------------*/
   $(".show-hide").show();
   $(".show-hide span").addClass("show");
 
@@ -54,10 +51,6 @@
       .find('input[name="login[password]"]')
       .attr("type", "password");
   });
-
-  /*=====================
-      02. Background Image js
-      ==========================*/
   $(".bg-center").parent().addClass("b-center");
   $(".bg-img-cover").parent().addClass("bg-size");
   $(".bg-img-cover").each(function () {
@@ -360,28 +353,6 @@ $(".mobile-title svg").click(function () {
 $(".onhover-dropdown").on("click", function () {
   $(this).children(".onhover-show-div").toggleClass("active");
 });
-
-// if ($(window).width() <= 991) {
-//     $(".left-header .link-section").children('ul').css('display', 'none');
-//     $(this).parent().children('ul').toggleClass("d-block").slideToggle();
-// }
-
-// if ($(window).width() < 991) {
-//     $('<div class="bg-overlay"></div>').appendTo($('body'));
-//     $(".bg-overlay").on("click", function () {
-//         $(".page-header").addClass("close_icon");
-//         $(".sidebar-wrapper").addClass("close_icon");
-//         $(this).removeClass("active");
-//     });
-
-//     $(".toggle-sidebar").on("click", function () {
-//         $(".bg-overlay").addClass("active");
-//     });
-//     $(".back-btn").on("click", function () {
-//         $(".bg-overlay").removeClass("active");
-//     });
-// }
-
 $("#flip-btn").click(function () {
   $(".flip-card-inner").addClass("flipped");
 });
@@ -399,20 +370,6 @@ $(".resp-serch-box").on("click", function (e) {
   e.preventDefault();
 });
 
-// for count function js ----------------------------
-
-// $(document).ready(function(){
-//     $('.count').prop('disabled', true);
-//      $(document).on('click','.plus',function(){
-//     $('.count').val(parseInt($('.count').val()) + 1 );
-//     });
-//       $(document).on('click','.minus',function(){
-//       $('.count').val(parseInt($('.count').val()) - 1 );
-//         if ($('.count').val() == 0) {
-//         $('.count').val(1);
-//       }
-//         });
-//   });
 
 $(".md-sidebar-toggle").click(function () {
   $(".md-sidebar-aside").toggleClass("open");
