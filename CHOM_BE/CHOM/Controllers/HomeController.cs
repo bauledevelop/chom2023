@@ -29,7 +29,11 @@ namespace CHOM.Controllers
             ViewBag.Landscape = _db.MucLucs.SingleOrDefault(x => x.ID == 2);
             return View();
         }
-
+        //[Route("/404")]
+        //public IActionResult Error()
+        //{
+            
+        //}
         public IActionResult Privacy()
         {
             return View();
