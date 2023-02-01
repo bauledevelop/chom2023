@@ -24,16 +24,24 @@ namespace CHOM.Controllers
         [Route("/Home")]
         public IActionResult Home()
         {
-            ViewBag.LoaiPage = 0;
-            ViewBag.Interior = _db.MucLucs.SingleOrDefault(x => x.ID == 3);
-            ViewBag.Landscape = _db.MucLucs.SingleOrDefault(x => x.ID == 2);
+            try
+            {
+                ViewBag.LoaiPage = 0;
+                ViewBag.Interior = _db.MucLucs.SingleOrDefault(x => x.ID == 3);
+                ViewBag.Landscape = _db.MucLucs.SingleOrDefault(x => x.ID == 2);
+                return View();
+            }
+            catch(Exception ex)
+            {
+                return Redirect("/404");
+            }
+        }
+        [Route("/404")]
+        public IActionResult Error()
+        {
+            ViewBag.Error = "true";
             return View();
         }
-        //[Route("/404")]
-        //public IActionResult Error()
-        //{
-            
-        //}
         public IActionResult Privacy()
         {
             return View();
