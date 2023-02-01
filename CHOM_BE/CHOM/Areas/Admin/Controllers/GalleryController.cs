@@ -49,13 +49,14 @@ namespace CHOM.Areas.Admin.Controllers
             if (!ModelState.IsValid) return View(boSuuTam);
             try
             {
-                string fileName = uploadFile.FileName;
+                int indexof = uploadFile.FileName.IndexOf('.');
+                string fileName = "suutam" + Guid.NewGuid().ToString() + '.' + uploadFile.FileName.Substring(indexof + 1);
+                boSuuTam.HinhAnh = fileName;
                 fileName = Path.GetFileName(fileName);
                 string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//imageGallery", fileName);
                 var stream = new FileStream(uploadPaths, FileMode.Create);
                 await uploadFile.CopyToAsync(stream);
                 stream.Dispose();
-                boSuuTam.HinhAnh = uploadFile.FileName;
                 boSuuTam.NgayTao = DateTime.Now;
                 await _db.AddAsync(boSuuTam);
                 await _db.SaveChangesAsync();
@@ -95,13 +96,15 @@ namespace CHOM.Areas.Admin.Controllers
                     {
                         string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//imageGallery", boSuuTam.HinhAnh);
                         System.IO.File.Delete(path);
-                        string fileName = newFile.FileName;
+                        int indexof = newFile.FileName.IndexOf('.');
+                        string fileName = "suutam" + Guid.NewGuid().ToString() + "." + newFile.FileName.Substring(indexof + 1);
+                        boSuuTam.HinhAnh = fileName;
                         fileName = Path.GetFileName(fileName);
                         string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//imageGallery", fileName);
                         var stream = new FileStream(uploadPaths, FileMode.Create);
                         await newFile.CopyToAsync(stream);
                         stream.Dispose();
-                        boSuuTam.HinhAnh = newFile.FileName;
+
                     }
                 }
                 _db.Attach(boSuuTam);

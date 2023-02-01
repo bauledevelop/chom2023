@@ -180,19 +180,21 @@ namespace CHOM.Areas.Admin.Controllers
                         System.IO.File.Delete(path);
                     }
                 }
-                string fileName = File.FileName;
+                int indexof = File.FileName.IndexOf('.');
+                string fileName = "duan" + Guid.NewGuid().ToString() + '.' + File.FileName.Substring(indexof+1);
+                string newName = fileName;
                 fileName = Path.GetFileName(fileName);
                 string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//uploadFiles", fileName);
                 var stream = new FileStream(uploadPaths, FileMode.Create);
                 await File.CopyToAsync(stream);
                 stream.Dispose();
-                image = File.FileName;
+                image = newName;
                 HttpContext.Session.Set<string>("image", image);
                 ViewBag.UploadFile = null;
                 return Json(new
                 {
                     status = true,
-                    fileName = File.FileName
+                    fileName = newName
                 });
             }
             catch (Exception ex)
@@ -278,15 +280,18 @@ namespace CHOM.Areas.Admin.Controllers
                 var images = new List<ImageModel>();
                 foreach (var item in files)
                 {
-                    string fileName = item.FileName;
+                    var _id = Guid.NewGuid().ToString();
+                    int indexof = item.FileName.IndexOf('.');
+                    string fileName = "hinhanh" + _id + "." + item.FileName.Substring(indexof + 1);
+                    string newName = fileName;
                     fileName = Path.GetFileName(fileName);
                     string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//fileImages", fileName);
                     var stream = new FileStream(uploadPaths, FileMode.Create);
                     await item.CopyToAsync(stream);
                     stream.Dispose();
                     var newImage = new ImageModel{
-                        id = Guid.NewGuid().ToString(),
-                        image = item.FileName
+                        id = _id,
+                        image = newName
                     };
                     listImage.Add(newImage);
                     images.Add(newImage);

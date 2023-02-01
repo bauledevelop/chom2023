@@ -48,13 +48,14 @@ namespace CHOM.Areas.Admin.Controllers
                     {
                         string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//contact", contact.HinhAnh);
                         System.IO.File.Delete(path);
-                        string fileName = newFile.FileName;
+                        int indexof = newFile.FileName.IndexOf('.');
+                        string fileName = "lienhe" + Guid.NewGuid().ToString() + "." + newFile.FileName.Substring(indexof + 1);
+                        contact.HinhAnh = fileName;
                         fileName = Path.GetFileName(fileName);
                         string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//contact", fileName);
                         var stream = new FileStream(uploadPaths, FileMode.Create);
                         await newFile.CopyToAsync(stream);
                         stream.Dispose();
-                        contact.HinhAnh = newFile.FileName;
                     }
                 }
                 _db.Attach(contact);

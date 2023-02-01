@@ -47,13 +47,14 @@ namespace CHOM.Areas.Admin.Controllers
                     {
                         string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//contact", video.FileName);
                         System.IO.File.Delete(path);
-                        string fileName = newVideo.FileName;
+                        int indexof = newVideo.FileName.IndexOf('.');
+                        string fileName = "video" + Guid.NewGuid().ToString() + "." + newVideo.FileName.Substring(indexof + 1);
+                        video.FileName = fileName;
                         fileName = Path.GetFileName(fileName);
                         string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//contact", fileName);
                         var stream = new FileStream(uploadPaths, FileMode.Create);
                         await newVideo.CopyToAsync(stream);
                         stream.Dispose();
-                        video.FileName = newVideo.FileName;
                     }
                 }
                 _db.Attach(video);
