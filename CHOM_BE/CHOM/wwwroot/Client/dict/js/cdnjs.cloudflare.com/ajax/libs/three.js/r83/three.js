@@ -18040,7 +18040,6 @@
    */
 
   function WebGLRenderer(parameters) {
-    console.log("THREE.WebGLRenderer", REVISION);
 
     parameters = parameters || {};
 
@@ -23800,11 +23799,6 @@
         while (indepHoles.length > 0) {
           counter--;
           if (counter < 0) {
-            console.log(
-              "Infinite Loop! Holes left:" +
-                indepHoles.length +
-                ", Probably Hole outside Shape!"
-            );
             break;
           }
 
@@ -37740,7 +37734,6 @@
 
         l = points.length;
 
-        if (l < 2) console.log("duh, you need at least 2 points");
 
         point = (l - (this.closed ? 0 : 1)) * t;
         intPoint = Math.floor(point);
