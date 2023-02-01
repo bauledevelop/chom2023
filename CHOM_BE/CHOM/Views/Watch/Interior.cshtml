@@ -28,29 +28,6 @@
     </style>
 }
 @section js{
-    <script type="text/javascript">
-        var count = 1;
-        var btnTang = document.getElementById("btnTang");
-        var btnGiam = document.getElementById("btnGiam");
-        var disp = document.getElementById("display");
-        var _max = $('.text-shadow').data('id');
-        btnTang.onclick = function () {
-            if (count < _max) {
-                count++;
-            }
-
-            disp.innerHTML = count;
-        }
-        btnGiam.onclick = function () {
-            if (count > _max || count < 0) {
-                count = _max;
-            }
-
-            else count--;
-
-            disp.innerHTML = count;
-        }
-    </script>
 }
 <div id="content-scroll" @(ViewBag.LoaiPage= 1)>
     <!-- Main -->
