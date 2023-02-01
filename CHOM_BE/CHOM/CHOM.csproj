@@ -269,9 +269,6 @@
     <None Include="wwwroot\Admin\dict\js\vector-map\map\jquery-jvectormap-uk-mill-en.js" />
     <None Include="wwwroot\Admin\dict\js\vector-map\map\jquery-jvectormap-us-aea-en.js" />
     <None Include="wwwroot\Admin\dict\js\vector-map\map\jquery-jvectormap-world-mill-en.js" />
-    <None Include="wwwroot\Client\dict\fonts\4a24899e94d8236f671c1090cd9e068c.svg" />
-    <None Include="wwwroot\Client\dict\fonts\4a24899e94d8236f671c1090cd9e068c.woff2" />
-    <None Include="wwwroot\Client\dict\fonts\fontawesome-webfont78ce.svg" />
     <None Include="wwwroot\Client\dict\images\Line1.svg" />
     <None Include="wwwroot\Client\dict\images\logo-dark.svg" />
     <None Include="wwwroot\Client\dict\images\logo.svg" />
