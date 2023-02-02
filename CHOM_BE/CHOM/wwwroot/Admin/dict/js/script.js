@@ -51,6 +51,8 @@
       .find('input[name="login[password]"]')
       .attr("type", "password");
   });
+
+
   $(".bg-center").parent().addClass("b-center");
   $(".bg-img-cover").parent().addClass("bg-size");
   $(".bg-img-cover").each(function () {
@@ -353,6 +355,7 @@ $(".mobile-title svg").click(function () {
 $(".onhover-dropdown").on("click", function () {
   $(this).children(".onhover-show-div").toggleClass("active");
 });
+
 $("#flip-btn").click(function () {
   $(".flip-card-inner").addClass("flipped");
 });
@@ -369,7 +372,6 @@ $(".resp-serch-box").on("click", function (e) {
   $(".search-form").toggleClass("open");
   e.preventDefault();
 });
-
 
 $(".md-sidebar-toggle").click(function () {
   $(".md-sidebar-aside").toggleClass("open");
