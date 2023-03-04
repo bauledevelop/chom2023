@@ -31,7 +31,6 @@ namespace CHOM.Extensions
                 await smtp.ConnectAsync(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTls);
                 await smtp.AuthenticateAsync(_mailSettings.Mail, _mailSettings.Password);
                 await smtp.SendAsync(email);
-
             }
             catch (Exception e)
             {

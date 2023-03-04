@@ -17,6 +17,15 @@ namespace CHOM.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
+            var video = HttpContext.Session.Get<string>("newVideo");
+            if (video != null)
+            {
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//contact", video);
+                System.IO.File.Delete(path);
+                video = null;
+                HttpContext.Session.Set<string>("newVideo", video);
+
+            }
             var model = _db.Videos.ToList();
             return View(model);
         }
@@ -27,6 +36,12 @@ namespace CHOM.Areas.Admin.Controllers
             try
             {
                 var model = _db.Videos.SingleOrDefault(x => x.ID == int.Parse(id));
+                var newVideo = HttpContext.Session.Get<string>("newVideo");
+                if (newVideo != null)
+                {
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//contact", newVideo);
+                    System.IO.File.Delete(path);
+                }
                 return View(model);
             }
             catch (Exception ex)
@@ -36,30 +51,23 @@ namespace CHOM.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(Video video,IFormFile? newVideo)
+        public async Task<IActionResult> Edit(Video video)
         {
             if (!ModelState.IsValid) return View(video);
             try
             {
+                var newVideo = HttpContext.Session.Get<string>("newVideo");
                 if (newVideo != null)
                 {
-                    if (video.FileName != newVideo.FileName)
-                    {
-                        string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//contact", video.FileName);
-                        System.IO.File.Delete(path);
-                        int indexof = newVideo.FileName.IndexOf('.');
-                        string fileName = "video" + Guid.NewGuid().ToString() + "." + newVideo.FileName.Substring(indexof + 1);
-                        video.FileName = fileName;
-                        fileName = Path.GetFileName(fileName);
-                        string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//contact", fileName);
-                        var stream = new FileStream(uploadPaths, FileMode.Create);
-                        await newVideo.CopyToAsync(stream);
-                        stream.Dispose();
-                    }
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//contact", video.FileName);
+                    System.IO.File.Delete(path);
+                    video.FileName = newVideo;
+                    _db.Attach(video);
+                    _db.Entry(video).State = EntityState.Modified;
+                    await _db.SaveChangesAsync();
+                    newVideo = null;
+                    HttpContext.Session.Set<string>("newVideo", newVideo);
                 }
-                _db.Attach(video);
-                _db.Entry(video).State = EntityState.Modified;
-                await _db.SaveChangesAsync();
                 return Redirect("/Admin/Video");
             }
             catch(Exception ex)
@@ -68,5 +76,42 @@ namespace CHOM.Areas.Admin.Controllers
                 return View(video);
             }
         }
+
+        [HttpPost]
+        public async Task<JsonResult> ChangeVideo(IFormFile? File)
+        {
+            try
+            {
+                var video = HttpContext.Session.Get<string>("newVideo");
+                if (video != null)
+                {
+                    string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//contact", video);
+                    System.IO.File.Delete(path);
+                    video = null;
+                }
+                int indexof = File.FileName.IndexOf('.');
+                string fileName = "video" + Guid.NewGuid().ToString() + "." + File.FileName.Substring(indexof + 1);
+                video = fileName;
+                fileName = Path.GetFileName(fileName);
+                string uploadPaths = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot//contact", fileName);
+                var stream = new FileStream(uploadPaths, FileMode.Create);
+                await File.CopyToAsync(stream);
+                stream.Dispose();
+                HttpContext.Session.Set<string>("newVideo", video);
+                return Json(new
+                {
+                    status = true,
+                    data = video
+                });
+            }
+            catch(Exception ex)
+            {
+                return Json(new
+                {
+                    status = false
+                });
+            }
+        }
+
     }
 }

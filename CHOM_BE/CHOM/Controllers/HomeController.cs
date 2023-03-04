@@ -16,7 +16,7 @@ namespace CHOM.Controllers
         [Route("/")]
         public IActionResult Index()
         {
-            ViewBag.Video = _db.Videos.SingleOrDefault();
+            ViewBag.Video = _db.Videos.SingleOrDefault(x => x.ID != 0);
             ViewBag.TitleIndex = "Checked";
              
             return View();
