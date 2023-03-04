@@ -10,9 +10,9 @@ $(document).ready(function () {
         $(this).prop('disabled', true);
         var _size = this.files[0].size;
         var _mathSize = (_size / 1048576).toFixed(2);
-        if (_mathSize > 24) {
+        if (_mathSize > 30) {
             $('.txt-notification-gt').css('display', 'block');
-            $('.txt-notification-gt').text('Vui lòng upload video dưới 24MB');
+            $('.txt-notification-gt').text('Vui lòng upload video dưới 30MB');
             $('.uploadVideo').val('');
             $('.spinner-single').css('display', 'none');
             $(this).prop('disabled', false);
