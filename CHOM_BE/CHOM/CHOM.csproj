@@ -2364,6 +2364,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="wwwroot\fileImages\" />
     <Folder Include="wwwroot\imageGallery\" />
   </ItemGroup>

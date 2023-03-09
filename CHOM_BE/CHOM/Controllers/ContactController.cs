@@ -77,6 +77,7 @@ namespace CHOM.Controllers
                 phanHoi.CreatedDate = DateTime.Now;
                 _db.PhanHois.Add(phanHoi);
                 await _db.SaveChangesAsync();
+                ModelState.Clear();
                 ViewBag.Success = "Gủi phản hồi thành công";
                 return View();
             }
