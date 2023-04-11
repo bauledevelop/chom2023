@@ -10,16 +10,11 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     .AddCookie(options =>
     {
         options.LoginPath = "/Admin/Login";
-        options.ExpireTimeSpan = TimeSpan.FromHours(24);
+        options.ExpireTimeSpan = TimeSpan.FromHours(3);
     });
 var emailConfig = builder.Configuration.GetSection("EmailConfiguration");
 builder.Services.Configure<MailSettings>(emailConfig);
 builder.Services.AddSingleton(emailConfig);
-builder.Services.ConfigureApplicationCookie(opts =>
-{
-    opts.LoginPath = "/Admin/Login";
-    opts.ExpireTimeSpan = TimeSpan.FromHours(24);
-});
 builder.Services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -28,7 +23,7 @@ builder.Services.AddTransient<IEmailSender, EmailSender>();
 // Add services to the container.
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromDays(365);
+    options.IdleTimeout = TimeSpan.FromDays(30);
 });
 
 builder.Services.AddControllersWithViews();
