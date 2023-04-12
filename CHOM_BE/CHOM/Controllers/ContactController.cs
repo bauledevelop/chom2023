@@ -73,7 +73,12 @@ namespace CHOM.Controllers
                 content = content.Replace("{{Request}}", phanHoi.YeuCau);
                 content = content.Replace("{{Content}}", phanHoi.NoiDung);
                 mailContent.Body = content;
-                await _emailSender.SendMail(mailContent);
+                var checkSendMail = await _emailSender.SendMail(mailContent);
+                if (checkSendMail == false)
+                {
+                    ViewBag.Message = "Gửi phản hồi thất bại";
+                    return View(phanHoi);
+                }
                 phanHoi.CreatedDate = DateTime.Now;
                 _db.PhanHois.Add(phanHoi);
                 await _db.SaveChangesAsync();

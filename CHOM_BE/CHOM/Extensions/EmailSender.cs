@@ -21,19 +21,21 @@ namespace CHOM.Extensions
             var builder = new BodyBuilder();
             builder.HtmlBody = mailContent.Body;
             email.Body = builder.ToMessageBody();
-            using var smtp = new SmtpClient();
-            try
+            using (var smtp = new SmtpClient())
             {
-                smtp.Connect(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTls);
-                smtp.Authenticate(_mailSettings.Mail, _mailSettings.Password);
-                await smtp.SendAsync(email);
-                smtp.Disconnect(true);
-                return true;
-            }
-            catch(Exception ex)
-            {
-                smtp.Disconnect(true);
-                return false;
+                try
+                {
+                    await smtp.ConnectAsync(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTlsWhenAvailable);
+                    await smtp.AuthenticateAsync(_mailSettings.Mail, _mailSettings.Password);
+                    await smtp.SendAsync(email);
+                    await smtp.DisconnectAsync(true);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    await smtp.DisconnectAsync(true);
+                    return false;
+                }
             }
         }
 
