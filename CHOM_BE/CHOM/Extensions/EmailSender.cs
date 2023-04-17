@@ -15,17 +15,19 @@ namespace CHOM.Extensions
         public async Task<bool> SendMail(MailContent mailContent)
         {
             var email = new MimeMessage();
-            email.Sender = MailboxAddress.Parse(_mailSettings.Mail);
+            email.Sender = new MailboxAddress(_mailSettings.DisplayName,_mailSettings.Mail);
+            email.From.Add(new MailboxAddress(_mailSettings.DisplayName, _mailSettings.Mail));
             email.To.Add(MailboxAddress.Parse(mailContent.To));
             email.Subject = mailContent.Subject;
             var builder = new BodyBuilder();
             builder.HtmlBody = mailContent.Body;
             email.Body = builder.ToMessageBody();
+
             using (var smtp = new SmtpClient())
             {
                 try
                 {
-                    await smtp.ConnectAsync(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTlsWhenAvailable);
+                    await smtp.ConnectAsync(_mailSettings.Host, _mailSettings.Port, true);
                     await smtp.AuthenticateAsync(_mailSettings.Mail, _mailSettings.Password);
                     await smtp.SendAsync(email);
                     await smtp.DisconnectAsync(true);
