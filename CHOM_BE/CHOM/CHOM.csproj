@@ -2364,7 +2364,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\fileImages\" />
     <Folder Include="wwwroot\imageGallery\" />
   </ItemGroup>
 
