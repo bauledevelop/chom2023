@@ -105,6 +105,13 @@
     position: relative;
     display: block;
     opacity: 0;
+    display: block;
+    display: -webkit-box;
+    max-height: 156px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .slide-title span {
@@ -850,6 +857,21 @@
 	16. Responsive
 ---------------------------------------------------*/
 
+@media only screen and (min-width: 1600px) {
+    #showcase-carousel .slide-title-wrapper {
+        padding: 0 64px;
+        max-height: 156px;
+    }
+    .slide-title span {
+        display: block;
+        display: -webkit-box;
+        max-height: 156px;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
 @media only screen and (min-width: 1466px) {
     #showcase-carousel .swiper-slide {
         border-radius: 50%;
@@ -857,7 +879,6 @@
 }
 
 @media only screen and (max-width: 1466px) {
-
     .slide-title,
     .title {
         font-size: 90px;
@@ -904,8 +925,19 @@
     }
 }
 
-@media only screen and (max-width: 1024px) {
+@media only screen and (min-width: 1024px) {
+    #showcase-carousel .slide-title-wrapper {
+        padding: 0 48px;
+    }
+}
 
+@media only screen and (min-width: 800px) {
+    #showcase-carousel .slide-title-wrapper {
+        padding: 0 24px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
     .slide-title,
     .title {
         font-size: 72px;
