@@ -2,20 +2,29 @@
     /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
     filter: gray;
     /* IE5+ */
-    -webkit-filter: grayscale(100%);
     /* Webkit Nightlies & Chrome Canary */
+    -webkit-filter: grayscale(100%);
     -webkit-transition: all .8s ease-in-out;
+    z-index: 0;
 }
-
-.img-mask:hover {
+.hover-img-mask{
+    width: 100%;
+    height: 100%;
+}
+.hover-img-mask:hover .img-mask {
     filter: none;
     -webkit-filter: grayscale(0);
     -webkit-transform: scale(1.01);
 }
-
+/*.img-mask:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    -webkit-transform: scale(1.01);
+}*/
 
 .footer_lo {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+

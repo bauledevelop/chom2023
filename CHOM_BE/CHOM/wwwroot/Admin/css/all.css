@@ -3,10 +3,15 @@
 {
     display: none;
 }
-.img-uploadFile{
-    width: 20%;
-    max-height: 200px;
+.box-upload-image {
+    height: auto;
+    width: 100%;
+}
+.img-uploadFile {
+    width: auto;
+    max-height: 400px;
     background-size: cover;
+    background-position: center;
 }
 td img {
     object-fit: cover;
